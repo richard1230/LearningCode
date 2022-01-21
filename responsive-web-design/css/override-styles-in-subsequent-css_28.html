@@ -10,16 +10,24 @@
     font-family: monospace;
     color: green;
   }
+
   .pink-text {
     color: pink;
   }
+
   .blue-text {
     color: blue;
+  }
+
+  #orange-text {
+    color: orange;
   }
 </style>
 <body>
 
-<h1 class="pink-text  blue-text ">
+<h1
+  id="orange-text"
+  class="pink-text  blue-text ">
   Hello World!
 </h1>
 </body>
@@ -33,5 +41,6 @@ class="class1 class2"
 由于 .blue-text 是在后面声明的，所以它的样式会覆盖 .pink-text 里的样式。
 
 
-
+在 style 元素中创建名为 orange-text 的 id 选择器
+ 无论在 pink-text class 之前或者之后声明，id 选择器的优先级总是高于 class 选择器。
 -->
