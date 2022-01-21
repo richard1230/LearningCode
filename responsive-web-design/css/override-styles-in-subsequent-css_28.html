@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<style>
+  body {
+    background-color: black;
+    font-family: monospace;
+    color: green;
+  }
+  .pink-text {
+    color: pink;
+  }
+  .blue-text {
+    color: blue;
+  }
+</style>
+<body>
+
+<h1 class="pink-text  blue-text ">
+  Hello World!
+</h1>
+</body>
+</html>
+
+<!--
+class="class1 class2"
+
+在 <style> 标签里面声明的 class 顺序十分重要，之后的声明会覆盖之前的声明。
+ 第二个声明class2的优先级始终高于第一个声明class1。
+由于 .blue-text 是在后面声明的，所以它的样式会覆盖 .pink-text 里的样式。
+
+
+
+-->
