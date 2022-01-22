@@ -1,0 +1,30 @@
+<style>
+  h2 {
+  position:relative;
+  top:15px;
+  }
+</style>
+<body>
+  <h1>On Being Well-Positioned</h1>
+  <h2>Move me!</h2>
+  <p>I still think the h2 is where it normally sits.</p>
+</body>
+
+<!--
+更改元素的相对位置
+在 CSS 里一切 HTML 元素皆为盒子，也就是通常所说的盒模型。
+ 块级元素自动从新的一行开始（比如标题、段落以及 div），
+ 行内元素排列在上一个元素后（比如图片以及 span）。
+ 元素默认按照这种方式布局称为文档的普通流，同时 CSS 提供了 position 属性来覆盖它。
+
+当元素的定位设置为 relative 时，
+它允许你通过 CSS 指定该元素在当前文档流页面下的相对偏移量。
+ CSS 里控制各个方向偏移量的属性是 left、right、top 和 bottom。
+ 它们代表从原来位置向远离该方向偏移指定的像素、百分比或者 em。 下面的例子展示了段落向上偏移 10px：
+
+p {
+  position: relative;
+  bottom: 10px;
+}
+把元素的位置设置成相对，并不会改变该元素在布局中所占的位置，也不会对其它元素的位置产生影响。
+-->
