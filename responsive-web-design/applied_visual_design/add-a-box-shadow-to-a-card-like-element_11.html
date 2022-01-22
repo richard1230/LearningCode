@@ -1,0 +1,68 @@
+<style>
+  h4 {
+    text-align: center;
+    background-color: rgba(45, 45, 45, 0.1);
+    padding: 10px;
+    font-size: 27px;
+  }
+  p {
+    text-align: justify;
+  }
+  .links {
+    text-align: left;
+    color: black;
+  }
+
+
+
+  .fullCard {
+    width: 245px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px 5px;
+    padding: 4px;
+  }
+  .cardContent {
+    padding: 10px;
+  }
+  .cardText {
+    margin-bottom: 30px;
+  }
+  #thumbnail{
+    box-shadow:0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  }
+</style>
+<div class="fullCard" id="thumbnail">
+  <div class="cardContent">
+    <div class="cardText">
+      <h4>Alphabet</h4>
+      <hr>
+      <p><em>Google was founded by Larry Page and Sergey Brin while they were <u>Ph.D. students</u> at <strong>Stanford University</strong>.</em></p>
+    </div>
+    <div class="cardLinks">
+      <a href="https://en.wikipedia.org/wiki/Larry_Page" target="_blank" class="links">Larry Page</a><br><br>
+      <a href="https://en.wikipedia.org/wiki/Sergey_Brin" target="_blank" class="links">Sergey Brin</a>
+    </div>
+  </div>
+</div>
+<!--
+给卡片元素添加box-shadow
+box-shadow 属性用来给元素添加阴影，
+该属性值是由逗号分隔的一个或多个阴影列表。
+
+box-shadow 属性的阴影依次由下面这些值描述：
+
+offset-x 阴影的水平偏移量；
+offset-y 阴影的垂直偏移量；
+blur-radius 模糊半径；
+spread-radius 阴影扩展半径；
+color
+其中 blur-radius 和 spread-radius 是可选的。
+
+可以通过逗号分隔每个 box-shadow 元素的属性来添加多个 box-shadow。
+
+如下为添加了模糊效果的例子，它使用了透明度较高的黑色作为阴影：
+
+box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+元素现在有一个 thumbnail id。 在这个选择器中，使用上面的示例 CSS 值在卡片上加一个 box-shadow。
+-->
