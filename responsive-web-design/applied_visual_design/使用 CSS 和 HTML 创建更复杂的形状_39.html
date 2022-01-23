@@ -1,0 +1,59 @@
+<style>
+  .heart {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: pink;
+    height: 50px;
+    width: 50px;
+    transform:rotate(-45deg) ;
+  }
+  .heart::after {
+    background-color: pink;
+    content: "";
+    border-radius: 50%;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 0px;
+    left: 25px;
+  }
+  .heart::before {
+    content:"" ;
+    background-color: pink;
+    border-radius: 50%;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    left: 0px;
+  }
+</style>
+<div class="heart"></div>
+
+<!--
+使用CSS和HTML创建更复杂的形状_伪类
+.heart::before {
+  content: "";
+  background-color: yellow;
+  border-radius: 25%;
+  position: absolute;
+  height: 50px;
+  width: 70px;
+  top: -50px;
+  left: 5px;
+}
+::before 和 ::after 必须配合 content 来使用。
+ 这个属性通常用来给元素添加内容诸如图片或者文字。
+ 尽管有时 ::before 和 ::after 是用来实现形状而非文字
+ ，但 content 属性仍然是必需的，此时它的值可以是空字符串。
+ 在上面的例子里，class 为 heart 元素的 ::before 伪类添加了一个黄色的长方形，
+ 长方形的高和宽分别为 50px 和 70px。 这个矩形有圆角，因为它的 border-radius 为 25%，
+ 它的位置是绝对位置，位于离元素左边和顶部分别是 5px、50px 的位置。
+
+
+
+-->
