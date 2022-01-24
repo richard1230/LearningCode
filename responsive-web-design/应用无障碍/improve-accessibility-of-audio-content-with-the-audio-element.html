@@ -1,0 +1,31 @@
+<body>
+<header>
+  <h1>Real Coding Ninjas</h1>
+</header>
+<main>
+  <p>A sound clip of Zersiax's screen reader in action.</p>
+  <audio controls>
+    <source src="https://s3.amazonaws.com/freecodecamp/screen-reader.mp3" type="audio/mpeg">
+  </audio>
+
+
+</main>
+</body>
+
+<!--
+使用audio元素提高音频内容的可访问性
+
+audio 标签支持 controls 属性， 用于显示浏览器默认播放、停止和其他控制，以及支持键盘功能。 这是一个布尔值属性，意味着它不需要一个值，它在标签上存在即开启设置。
+
+举个例子：
+
+<audio id="meowClip" controls>
+  <source src="audio/meow.mp3" type="audio/mpeg">
+  <source src="audio/meow.ogg" type="audio/ogg">
+</audio>
+注意： 多媒体内容通常同时包含音频与视频部分， 它需要同步的字幕，使视觉或听觉障碍用户可以获取它的内容。 一般情况下，网页开发者不负责创建字幕或逐字稿，但是需要将它们添加到多媒体中。
+
+是时候让 Camper Cat 休息一下，并与朋友 Zersiax (@zersiax) 会面了。 Zersiax 是一位屏幕阅读器用户，同时也是无障碍设计的高手。 为了体验屏幕阅读器的朗读效果，请在 p 标签之后添加一个 audio 标签， 具有 controls 属性。 然后在 audio 标签里面放一个带有 src 属性的 source 标签，属性值为 https://s3.amazonaws.com/freecodecamp/screen-reader.mp3。将 type 属性设置为 "audio/mpeg".
+
+注意： 音频片段的播放速度可能会快到令我们难以理解，但是对于屏幕阅读器用户来说这是正常速度。
+-->
