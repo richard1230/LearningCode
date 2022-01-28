@@ -1,0 +1,131 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--</body>-->
+<!--</html>-->
+<style>
+
+  header {
+    /*  需求 13： navbar 应保持在视口（viewport）的顶部。==>    position: fixed;
+     */
+    position: fixed;
+    top: 0;
+    min-height: 75px;
+    padding: 0px 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+
+  #form_email {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 200px;
+    margin-top: 210px;
+  }
+
+
+  .container {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  .nav-link:hover {
+    background-color: #ddd;
+    color: black;
+    cursor: pointer;
+
+  }
+
+
+  #features {
+    margin-top: 30px;
+  }
+
+  @media (max-width: 650px) {
+    #features {
+      margin-top: 0;
+    }
+  }
+
+
+</style>
+
+<header id="header">
+  <img
+    id="header-img" src="https://vthumb.youku.com/054101015A102F728B7B448839C6B739"
+  />
+
+  <nav id="nav-bar">
+    <ul>
+      <li class="nav-link" href="#feature">feature</li>
+      <li class="nav-link" href="#help">help</li>
+      <li class="nav-link" href="#details">details</li>
+
+    </ul>
+
+  </nav>
+
+</header>
+
+<!--   <div class="container"> -->
+<section id="form_email">
+  <form
+    id="form"
+    action="https://www.freecodecamp.com/email-submit"
+  >
+    <input
+      id="email"
+      placeholder="Enter your email"
+      type="email"
+      name="email"
+      required
+    />
+    <input
+      id="submit"
+      type="submit"
+    />
+
+
+  </form>
+</section>
+
+<div id="container">
+
+  <section id="feature">
+    feature
+  </section>
+  <section id="help">
+    <iframe
+      id="video"
+      height="315"
+      src="https://www.runoob.com/try/demo_source/mov_bbb.mp4"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+  </section>
+  <section id="details">
+    details
+  </section>
+</div>
+
+<!--     </div> -->
+
+
+<!--
+https://codepen.io/richard1230/pen/RwjNXLW
+-->
+
