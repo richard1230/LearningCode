@@ -1,0 +1,197 @@
+<!--
+https://kathan19.gitbook.io/howtohunt/
+
+https://codepen.io/richard1230/pen/bGYVEOq
+-->
+<!--
+https://kathan19.gitbook.io/howtohunt/
+-->
+
+<style>
+
+
+  #navbar {
+    position: fixed;
+    min-width: 290px;
+    top: 0px;
+    left: 0px;
+    width: 290px;
+    height: 100%;
+    border-right: solid;
+    border-color: rgba(20, 20, 20, 0.5);
+
+  }
+
+  header {
+    color: black;
+    margin: 10px;
+    text-align: center;
+    font-size: 2em;
+    font-weight: thin;
+  }
+
+
+  #main-doc {
+    position: relative;
+    margin-left: 300px;
+    margin-top: 0px;
+  }
+
+
+  @media only screen and (max-width: 400px) {
+    #main-doc {
+      margin-left: -10px;
+    }
+
+
+  }
+
+
+</style>
+<nav id="navbar">
+  <header>Documentation about How to Hunt</header>
+
+  <ul>
+    <li><a class="nav-link" href="#How_To_Hunt">How To Hunt</a></li>
+    <li><a class="nav-link" href="#Account_Takeover_Methodology">Account Takeover Methodology</a></li>
+    <li><a class="nav-link" href="#Application_Level_Dos_Methods">Application Level DoS Methods</a></li>
+    <li><a class="nav-link" href="#2FA_BYPASSES">2FA Bypasses</a></li>
+    <li><a class="nav-link" href="#OTP_BYPASS">OTP Bypass
+    </a></li>
+    <li><a class="nav-link" href="#BROKEN-LINK_HIJACKING">Broken-Link Hijacking</a></li>
+  </ul>
+
+</nav>
+<main id="main-doc">
+  <section class="main-section" id="How_To_Hunt">
+    <header><strong>How To Hunt</strong></header>
+    <article>
+      <p>Some Tutorials and Things to Do while Hunting Particular Vulnerability.
+      </p>
+    </article>
+  </section>
+  <section class="main-section" id="Account_Takeover_Methodology">
+    <header><strong>Account Takeover Methodology</strong>
+    </header>
+    <p>Chaining Session Hijacking with XSS
+    </p>
+    <code>
+      <ul>
+        <li>1.I have add a session hijacking method in broken auth and session managment.</li>
+        <li>
+          2.If you find that on target.
+        </li>
+        <li>
+          3.Try anyway to steal cookies on that target.
+        </li>
+        <li>
+          4.Here I am saying look for xss .
+        </li>
+        <li>
+          5.If you find xss you can stole the cookies of victim and using session hijacking you can takeover the account
+          of victim.
+        </li>
+      </ul>
+    </code>
+
+    <p>No Rate Limit On Login With Weak Password Policy
+    </p>
+    <code>So if you find that target have weak password policy try to go for no rate limit attacks in poc shows by
+      creating very weak password of your account.
+
+      (May or may not be accepted)</code>
+
+    <p>Password Reset Poisioning Leads To Token Theft
+    </p>
+    <code>
+      <ul>
+        <li>1.Go to password reset funtion.</li>
+        <li>
+          2.Enter email and intercept the request.
+        </li>
+        <li>
+          3.Change host header to some other host i.e,
+          Host:target.com
+          Host:attacker.com
+          also try to add some headers without changing host like
+          X-Forwarded-Host: evil.com
+          Referrer: https://evil.com
+        </li>
+        <li>
+          4.Forward this if you found that in next request attacker.com means you successfully theft the token.:)
+        </li>
+      </ul>
+    </code>
+
+  </section>
+  <section class="main-section" id="Application_Level_Dos_Methods">
+    <header><strong>Application Level DoS Methods</strong>
+    </header>
+
+    <p>1. Email Bounce Issues
+    </p>
+    <p>2. Long Password DoS Attack
+    </p>
+    <p>3. Long String DOS
+    </p>
+    <p>4. Permanent DOS to victim
+    </p>
+
+  </section>
+  <section class="main-section" id="2FA_BYPASSES">
+    <header><strong>2FA Bypasses</strong>
+    </header>
+    <p>Status Code Manipulation
+    </p>
+    <p>2FA Code Leakage in Response
+    </p>
+    <p>JS File Analysis
+    </p>
+    <p>2FA Code Reusability
+    </p>
+    <p>Lack of Brute-Force Protection
+    </p>
+
+
+  </section>
+  <section class="main-section" id="OTP_BYPASS">
+    <header><strong>OTP Bypass</strong>
+    </header>
+    <p>OTP Bypass on Register account via Response manipulation
+    </p>
+    <p>Bypassing OTP in registration forms by repeating the form submission multiple times using repeater
+    </p>
+
+
+  </section>
+  <section class="main-section" id="BROKEN-LINK_HIJACKING">
+    <header><strong>Broken-Link Hijacking</strong>
+    </header>
+
+    <p>Steps:</p>
+    <ol>
+      <li>Manually find and click external links on the target site ( For Example:- Some Links to Social Media Accounts
+        or Some external Media Link)
+      </li>
+      <li>While Doing Manual work also put broken-link-checker in background using below Command interminal.
+        <br>
+
+        <code>blc -rof --filter-level 3 https://example.com/
+        </code>
+        <br>
+        Ouput will be like Something.
+
+        <code>─BROKEN─ https://www.linkedin.com/company/ACME-inc-/ (HTTP_999)
+        </code>
+
+      </li>
+      <li>Now you need to check if company has the page or not , if no then register as the company or try to get that
+        username or url.
+      </li>
+
+    </ol>
+
+
+  </section>
+
+</main>
