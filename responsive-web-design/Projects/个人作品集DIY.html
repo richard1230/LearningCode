@@ -1,0 +1,114 @@
+<!--
+https://codepen.io/richard1230/pen/abVvKNx
+-->
+<style>
+  /*
+需求 11： 导航栏应始终保持在视口顶部。
+ position: fixed
+*/
+
+  .nav {
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+  }
+
+  .nav-list {
+    display: flex;
+    margin-right: 1.5rem;
+
+
+  }
+
+  .nav-list a {
+    display: block;
+    font-size: 1.2rem;
+    padding: 1.2rem;
+  }
+
+
+  /*
+  需求 10： 欢迎区的高度应该与视口的高度保持一致。
+
+    height: 100vh;
+
+  */
+  .welcome-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .nav-list a:hover {
+    curse: pointer;
+  }
+
+  @media (max-width: 28em) {
+    .nav {
+      justify-content: center;
+    }
+
+    .nav-list {
+      margin: 0 1rem;
+    }
+  }
+
+</style>
+
+<nav id="navbar" class="nav">
+  <ul class="nav-list">
+    <li><a href="#welcome-section">Info</a></li>
+    <li><a href="#projects">Work</a></li>
+    <li><a href="#Contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="welcome-section" class="welcome-section">
+  <h1>I am Richard</h1>
+  <p>a web Researcher</p>
+</section>
+
+
+<section id="projects" class="projects">
+  <h2 class="projects-section-header">These are parts of my projects</h2>
+
+  <div class="all-project">
+    <a
+      href="https://codepen.io/richard1230/full/abLgadN"
+      target="_blank"
+      class="project-tile"
+    >
+      Tribute Page
+    </a>
+
+  </div>
+
+
+</section>
+
+
+<section id="Contact">
+  <div class="contact-me">
+    <h2>Contact me</h2>
+  </div>
+  <div class="contact-links">
+    <a
+      id="profile-link"
+      href="https://github.com/richard1230"
+      target="_blank"
+      class="contact-details"
+    > GitHub</a
+    >
+  </div>
+
+
+</section>
+
+
