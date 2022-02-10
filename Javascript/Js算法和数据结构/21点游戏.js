@@ -2,7 +2,7 @@ let count = 0;
 
 function cc(card) {
   // 只修改这一行下面的代码
-  switch(card) {
+  switch (card) {
     case 2:
     case 3:
     case 4:
