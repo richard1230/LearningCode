@@ -1,8 +1,9 @@
 function howMany(...args) {
   return "You have passed " + args.length + " arguments.";
 }
+
 console.log(howMany(0, 1, 2));
-console.log(howMany("string", null, [1, 2, 3], { }));
+console.log(howMany("string", null, [1, 2, 3], {}));
 
 
 const sum = (...args) => {
@@ -10,6 +11,8 @@ const sum = (...args) => {
 }
 
 /*
+将rest操作符与函数参数一起使用
+
 *sum(0,1,2) 的结果应是 3。
 
 sum(1,2,3,4) 的结果应是 10。
