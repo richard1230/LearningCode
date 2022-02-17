@@ -14,6 +14,9 @@ makeServerRequest.then(result => {
   console.log(result);
 });
 
+makeServerRequest.catch(error => {
+  console.log(error);
+});
 
 /*
 当程序需要花费未知的时间才能完成时（比如一些异步操作），
@@ -26,5 +29,21 @@ myPromise.then(result => {
 
 });
 result 即传入 resolve 方法的参数
+
+
+
+使用catch处理Promise失败的情况
+当 promise 失败时会调用 catch 方法。
+当 promise 的 reject 方法执行时会直接调用。 用法如下：
+
+myPromise.catch(error => {
+});
+error 是传入 reject 方法的参数。
+
+
+
+
+
+
 
 * */
