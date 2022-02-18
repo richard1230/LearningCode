@@ -62,7 +62,32 @@ console.log(result2);
 
 let text = "<h1>Winter is coming</h1>";
 let myRegex = /<.*?>/; // 修改这一行
-let result3= text.match(myRegex);
+let result3 = text.match(myRegex);
 console.log(result3);
+
+
+//匹配字符串的开头
+//^ 的另外一个功能:
+/*
+
+在之前的挑战中，使用字符集中前插入符号（^）来创建一个否定字符集，
+形如 [^thingsThatWillNotBeMatched]。
+除了在字符集中使用之外，脱字符还用于匹配字符串的开始位置。
+
+let firstString = "Ricky is first and can be found.";
+let firstRegex = /^Ricky/;
+firstRegex.test(firstString);
+let notFirst = "You can't find Ricky now.";
+firstRegex.test(notFirst);
+第一次 test 调用将返回 true，而第二次调用将返回 false。
+
+*/
+let rickyAndCal = "Cal and Ricky both like racing.";
+let calRegex = /^Cal/; // 修改这一行
+let result0 = calRegex.test(rickyAndCal);
+console.log(result0);
+
+
+
 
 
