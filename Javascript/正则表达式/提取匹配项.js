@@ -41,3 +41,12 @@ let twinkleStar = "Twinkle, twinkle, little star";
 let starRegex = /Twinkle/gi; // 修改这一行
 let result1 = twinkleStar.match(starRegex); // 修改这一行
 console.log(result1);
+
+
+//匹配出现零次或多次的字符
+let chewieQuote = "Aaaaaaaaaaaaaaaarrrgh!";
+let chewieRegex = /Aa*/; // 修改这一行
+// 只修改这一行上面的代码
+
+let result2 = chewieQuote.match(chewieRegex);
+console.log(result2);
