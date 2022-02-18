@@ -132,3 +132,30 @@ let quoteSample = "The five boxing wizards jump quickly.";
 let alphabetRegexV2 = /\w/g; // 修改这一行
 let result02 = quoteSample.match(alphabetRegexV2).length;
 console.log(result02);
+
+//匹配除了字母和数字的所有符号
+/*
+
+可以使用 \W 搜寻和 \w 相反的匹配模式。
+ 注意，相反匹配模式使用大写字母。
+ 此缩写与 [^A-Za-z0-9_] 是一样的。
+
+let shortHand = /\W/;
+let numbers = "42%";
+let sentence = "Coding!";
+numbers.match(shortHand);
+sentence.match(shortHand);
+第一次 match 调用将返回值 ["%"] 而第二次调用将返回 ["!"]。
+
+*
+*/
+let quoteSample00 = "The five boxing wizards jump quickly.";
+let nonAlphabetRegex = /\W/g; // 修改这一行
+let result03 = quoteSample00.match(nonAlphabetRegex).length;
+console.log(result03);
+
+//匹配所有数字
+let movieName = "2001: A Space Odyssey";
+let numRegex = /\d/g; // 修改这一行
+let result04 = movieName.match(numRegex).length;
+console.log(result04);
