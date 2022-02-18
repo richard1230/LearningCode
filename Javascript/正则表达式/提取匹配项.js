@@ -89,5 +89,46 @@ console.log(result0);
 
 
 
+//匹配字符串的末尾
+/*
+可以使用正则表达式的美元符号 $ 来搜寻字符串的结尾。
+
+let theEnding = "This is a never ending story";
+let storyRegex = /story$/;
+storyRegex.test(theEnding);
+let noEnding = "Sometimes a story will have to end";
+storyRegex.test(noEnding);
+第一次 test 调用将返回 true, 而第二次调用将返回 false。
+* */
+let caboose = "The last car on a train is the caboose";
+let lastRegex = /caboose$/; // 修改这一行
+let result01 = lastRegex.test(caboose);
+console.log(result01);
 
 
+//匹配所有的字母和数字
+/*
+
+使用元字符，可以使用 [a-z] 搜寻字母表中的所有字母。
+这种元字符是很常见的，它有一个缩写，但这个缩写也包含额外的字符。
+
+JavaScript 中与字母表匹配的最接近的元字符是\w。
+这个缩写等同于[A-Za-z0-9_]。 此字符类匹配大写字母和小写字母以及数字。
+注意，这个字符类也包含下划线字符 (_)。
+
+let longHand = /[A-Za-z0-9_]+/;
+let shortHand = /\w+/;
+let numbers = "42";
+let varNames = "important_var";
+longHand.test(numbers);
+shortHand.test(numbers);
+longHand.test(varNames);
+shortHand.test(varNames);
+上面的 test 都会返回 true。
+
+
+* */
+let quoteSample = "The five boxing wizards jump quickly.";
+let alphabetRegexV2 = /\w/g; // 修改这一行
+let result02 = quoteSample.match(alphabetRegexV2).length;
+console.log(result02);
