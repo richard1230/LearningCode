@@ -159,3 +159,10 @@ let movieName = "2001: A Space Odyssey";
 let numRegex = /\d/g; // 修改这一行
 let result04 = movieName.match(numRegex).length;
 console.log(result04);
+
+//匹配所有非数字
+let movieName00 = "2001: A Space Odyssey";
+let noNumRegex = /\D/g; // 修改这一行
+let result05 = movieName00.match(noNumRegex).length;
+console.log(result05);
+
