@@ -50,3 +50,19 @@ let chewieRegex = /Aa*/; // 修改这一行
 
 let result2 = chewieQuote.match(chewieRegex);
 console.log(result2);
+
+//用惰性匹配来查找字符
+// 可以将正则表达式 /t[a-z]*i/ 应用于字符串 "titanic"。
+// 这个正则表达式是一个以 t 开始，以 i 结束，并且中间有一些字母的匹配模式。
+// 正则表达式默认是贪婪匹配，因此匹配返回为 ["titani"],
+// 它会匹配到适合该匹配模式的最大子字符串。
+
+// 但是，你可以使用 ? 字符来将其变成懒惰匹配。
+// 调整后的正则表达式 /t[a-z]*?i/ 匹配字符串 "titanic" 返回 ["ti"]。
+
+let text = "<h1>Winter is coming</h1>";
+let myRegex = /<.*?>/; // 修改这一行
+let result3= text.match(myRegex);
+console.log(result3);
+
+
