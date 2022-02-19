@@ -424,3 +424,75 @@ let result012 = myRegex.test(myString); // 修改这一行
 你应该使用 .test() 方法来检测正则表达式。
 你的返回结果应该为 true
 * */
+
+
+/*
+使用捕获组重用模式
+当你想要匹配一个像下面这样多次出现的单词，
+
+let repeatStr = "row row row your boat";
+你可以使用 /row row row/。但如果你不知道重复的特定单词，怎么办？
+ 捕获组 可以用于找到重复的子字符串。
+
+捕获组是通过把要捕获的正则表达式放在括号中来构建的。
+在这个例子里， 目标是捕获一个包含字母数字字符的词，所以捕获组是将 \w+ 放在括号中：/(\w+)/。
+
+分组匹配的子字符串被保存到一个临时的“变量”，
+可以使用同一正则表达式和反斜线及捕获组的编号来访问它（例如：\1）。
+捕获组按其开头括号的位置自动编号（从左到右），从 1 开始。
+
+下面的示例是匹配被空格隔开的两个相同单词：
+
+let repeatRegex = /(\w+) \1 \1/;
+repeatRegex.test(repeatStr); // Returns true
+repeatStr.match(repeatRegex); // Returns ["row row row", "row"]
+在字符串上调用 .match() 方法将返回一个数组，其中包含它最终匹配到的子字符串及其捕获组。
+
+* */
+
+let repeatNum = "42 42 42";
+let reRegex = /(^\d+)\s\1\s\1$/; // 修改这一行
+let result013 = reRegex.test(repeatNum);
+
+/*
+你的正则表达式应该使用数字的简写字符类。
+
+你的正则表达式应该使用捕获组两次。
+
+你的正则表达式应该匹配字符串 42 42 42。
+
+你的正则表达式应该匹配字符串 100 100 100。
+
+你的正则表达式不应匹配字符串 42 42 42 42。
+
+你的正则表达式不应该匹配字符串 42 42。
+
+你的正则表达式不应该匹配字符串 101 102 103。
+
+你的正则表达式不应匹配字符串 1 2 3。
+
+你的正则表达式不应匹配字符串 10 10 10。
+* */
+
+
+/*
+使用捕获组搜索和替换
+搜索功能是很有用的。 但是，当搜索同时也执行更改（或替换）匹配文本的操作时，
+搜索功能就会显得更加强大。
+
+可以在字符串上使用 .replace() 方法来搜索并替换字符串中的文本。 .replace() 的输入首先是想要搜索的正则表达式匹配模式。 第二个参数是用于替换匹配的字符串或用于执行某些操作的函数。
+
+let wrongText = "The sky is silver.";
+let silverRegex = /silver/;
+wrongText.replace(silverRegex, "blue");
+replace 调用将返回字符串 The sky is blue.。
+
+你还可以使用美元符号（$）访问替换字符串中的捕获组。
+
+"Code Camp".replace(/(\w+)\s(\w+)/, '$2 $1');
+调用 replace 将返回字符串 Camp Code。
+* */
+let str = "one two three";
+let fixRegex = /(\w+)\s(\w+)\s(\w+)/; // 修改这一行
+let replaceText = "$3 $2 $1"; // 修改这一行
+let result014 = str.replace(fixRegex, replaceText);
