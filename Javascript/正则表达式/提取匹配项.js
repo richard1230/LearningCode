@@ -307,8 +307,8 @@ multipleHA.test(A100);
 * */
 let timStr = "Timmmmber";
 let timRegex = /Tim{4}ber/gi; // 修改这一行
-let result09 = timRegex.test(timStr);
-console.log(result09);
+let result009 = timRegex.test(timStr);
+console.log(result009);
 
 /*
 检查全部或无
@@ -332,3 +332,95 @@ let favWord = "favorite";
 let favRegex = /favou?rite/; // 修改这一行
 let result10 = favRegex.test(favWord);
 console.log(result10);
+
+
+let password = "abc123";
+let checkPass = /(?=\w{3,6})(?=\D*\d)/;
+
+console.log(checkPass.test(password));
+console.log(password.match(checkPass));
+
+
+//正向先行断言和负向先行断言
+// https://www.runoob.com/w3cnote/reg-lookahead-lookbehind.html
+/*
+(?!pattern) 负向先行断言
+代表字符串中的一个位置，紧接该位置之后的字符序列不能匹配 pattern。
+例如对 "regex represents regular expression" 这个字符串，
+要想匹配除 regex 和 regular 之外的 re，可以用 re(?!g)，
+该表达式限定了 re 右边的位置，这个位置后面不是字符 g。
+
+(?=pattern) 正向先行断言
+代表字符串中的一个位置，紧接该位置之后的字符序列能够匹配 pattern。
+
+例如对 "a regular expression" 这个字符串，
+要想匹配 regular 中的 re，但不能匹配 expression 中的 re，可以用 re(?=gular)，
+该表达式限定了 re 右边的位置，这个位置之后是 gular，但并不消耗 gular 这些字符。
+
+
+
+正向先行断言会查看并确保搜索匹配模式中的元素存在，但实际上并不匹配。
+ 正向先行断言的用法是 (?=...)，其中 ... 就是需要存在但不会被匹配的部分。
+
+另一方面，负向先行断言会查看并确保搜索匹配模式中的元素不存在。
+负向先行断言的用法是 (?!...)，其中 ... 是希望不存在的匹配模式。
+如果负向先行断言部分不存在，将返回匹配模式的其余部分。
+
+尽管先行断言有点儿令人困惑，但是这些示例会有所帮助。
+
+let quit = "qu";
+let noquit = "qt";
+let quRegex= /q(?=u)/;
+let qRegex = /q(?!u)/;
+quit.match(quRegex);
+noquit.match(qRegex);
+这两次 match 调用都将返回 ["q"]。
+
+先行断言的更实际用途是检查一个字符串中的两个或更多匹配模式。
+ 这里有一个简单的密码检查器，密码规则是 3 到 6 个字符且至少包含一个数字：
+
+let password = "abc123";
+let checkPass = /(?=\w{3,6})(?=\D*\d)/;
+checkPass.test(password);
+在正则表达式 pwRegex 中使用先行断言以匹配大于 5 个字符且有两个连续数字的密码
+* */
+let sampleWord = "astronaut";
+let pwRegex = /(?=\w{6})(?=\w*\d{2})/; // 修改这一行
+let result011 = pwRegex.test(sampleWord);
+console.log(result011);
+
+
+/*
+检查混合字符组
+有时候我们想使用正则表达式里的括号 () 来检查字符组。
+
+如果想在字符串找到 Penguin 或 Pumpkin，
+可以用这个正则表达式：/P(engu|umpk)in/g。
+
+然后使用 test() 方法检查 test 字符串里面是否包含字符组。
+
+let testStr = "Pumpkin";
+let testRegex = /P(engu|umpk)in/;
+testRegex.test(testStr);
+test 方法会返回 true。
+
+
+完善正则表达式，使其以区分大小写的方式检查 Franklin Roosevelt 或 Eleanor Roosevelt 的名字，
+并且应该忽略 middle names。
+
+然后完善代码，使创建的正则检查 myString，
+根据正则是否匹配返回 true 或 false。
+* */
+
+let myString = "Eleanor Roosevelt";
+let myRegex = /(Franklin|Eleanor).*Roosevelt/; // 修改这一行
+let result012 = myRegex.test(myString); // 修改这一行
+
+/*
+正则 myRegex 测试 Franklin D. Roosevelt 应该返回 true。
+正则 myRegex 测试 Eleanor Roosevelt 应该返回 true。
+正则 myRegex 测试 Franklin Rosevelt 应该返回 false。
+正则 myRegex 测试 Frank Roosevelt 应该返回 false。
+你应该使用 .test() 方法来检测正则表达式。
+你的返回结果应该为 true
+* */
