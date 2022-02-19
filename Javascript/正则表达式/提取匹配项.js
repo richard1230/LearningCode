@@ -309,3 +309,26 @@ let timStr = "Timmmmber";
 let timRegex = /Tim{4}ber/gi; // 修改这一行
 let result09 = timRegex.test(timStr);
 console.log(result09);
+
+/*
+检查全部或无
+有时，想要搜寻的匹配模式可能有不确定是否存在的部分。
+尽管如此，还是想检查它们。
+
+为此，可以使用问号 ? 指定可能存在的元素。
+这将检查前面的零个或一个元素。
+可以将此符号视为前面的元素是可选的。
+
+例如，美式英语和英式英语略有不同，可以使用问号来匹配两种拼写。
+
+let american = "color";
+let british = "colour";
+let rainbowRegex= /colou?r/;
+rainbowRegex.test(american);
+rainbowRegex.test(british);
+上面的 test 都会返回 true。
+* */
+let favWord = "favorite";
+let favRegex = /favou?rite/; // 修改这一行
+let result10 = favRegex.test(favWord);
+console.log(result10);
