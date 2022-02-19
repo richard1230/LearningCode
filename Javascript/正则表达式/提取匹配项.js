@@ -282,3 +282,30 @@ let haStr = "Hazzzzah";
 let haRegex = /Haz{4,}ah/gi; // 修改这一行
 let result09 = haRegex.test(haStr);
 console.log(result09);
+
+
+/*
+指定匹配的确切数量
+可以使用带有花括号的数量说明符来指定匹配模式的上下限。
+ 但有时只需要特定数量的匹配。
+
+要指定一定数量的匹配模式，只需在大括号之间放置一个数字。
+
+例如，要只匹配字母 a 出现3次的单词hah，
+正则表达式应为/ha{3}h/。
+
+let A4 = "haaaah";
+let A3 = "haaah";
+let A100 = "h" + "a".repeat(100) + "h";
+let multipleHA = /ha{3}h/;
+multipleHA.test(A4);
+multipleHA.test(A3);
+multipleHA.test(A100);
+按顺序排列，三次 test 调用将返回值 false，true 和 false。
+
+
+* */
+let timStr = "Timmmmber";
+let timRegex = /Tim{4}ber/gi; // 修改这一行
+let result09 = timRegex.test(timStr);
+console.log(result09);
