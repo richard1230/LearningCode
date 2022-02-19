@@ -413,8 +413,8 @@ test 方法会返回 true。
 * */
 
 let myString = "Eleanor Roosevelt";
-let myRegex = /(Franklin|Eleanor).*Roosevelt/; // 修改这一行
-let result012 = myRegex.test(myString); // 修改这一行
+let myRegex01 = /(Franklin|Eleanor).*Roosevelt/; // 修改这一行
+let result012 = myRegex01.test(myString); // 修改这一行
 
 /*
 正则 myRegex 测试 Franklin D. Roosevelt 应该返回 true。
@@ -496,3 +496,10 @@ let str = "one two three";
 let fixRegex = /(\w+)\s(\w+)\s(\w+)/; // 修改这一行
 let replaceText = "$3 $2 $1"; // 修改这一行
 let result014 = str.replace(fixRegex, replaceText);
+
+
+//删除开头和结尾的空白
+let hello = "   Hello, World!  ";
+let wsRegex = /^\s+|\s+$/g; // 修改这一行
+let result015 = hello.replace(wsRegex,""); // 修改这一行
+console.log(result015);
