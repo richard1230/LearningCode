@@ -234,3 +234,51 @@ multipleA.test(A2);
 let ohStr = "Ohhh no";
 let ohRegex = /Oh{3,6}\sno/gi; // 修改这一行
 let result08 = ohRegex.test(ohStr);
+console.log(result08);
+
+
+/*
+只指定匹配的下限
+可以使用带有花括号的数量说明符来指定匹配模式的上下限。
+但有时候只想指定匹配模式的下限而不需要指定上限。
+
+为此，在第一个数字后面跟一个逗号即可。
+
+例如，要匹配至少出现 3 次字母 a 的字符串 hah，
+正则表达式应该是 /ha{3,}h/。
+
+let A4 = "haaaah";
+let A2 = "haah";
+let A100 = "h" + "a".repeat(100) + "h";
+let multipleA = /ha{3,}h/;
+multipleA.test(A4);
+multipleA.test(A2);
+multipleA.test(A100);
+按顺序排列，三次 test 调用将返回值 true，false 和 true。
+
+* */
+
+
+/*
+只指定匹配的下限
+可以使用带有花括号的数量说明符来指定匹配模式的上下限。
+但有时候只想指定匹配模式的下限而不需要指定上限。
+
+为此，在第一个数字后面跟一个逗号即可。
+
+例如，要匹配至少出现 3 次字母 a 的字符串 hah，
+正则表达式应该是 /ha{3,}h/。
+
+let A4 = "haaaah";
+let A2 = "haah";
+let A100 = "h" + "a".repeat(100) + "h";
+let multipleA = /ha{3,}h/;
+multipleA.test(A4);
+multipleA.test(A2);
+multipleA.test(A100);
+按顺序排列，三次 test 调用将返回值 true，false 和 true。
+* */
+let haStr = "Hazzzzah";
+let haRegex = /Haz{4,}ah/gi; // 修改这一行
+let result09 = haRegex.test(haStr);
+console.log(result09);
