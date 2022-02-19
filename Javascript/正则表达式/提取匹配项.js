@@ -88,7 +88,6 @@ let result0 = calRegex.test(rickyAndCal);
 console.log(result0);
 
 
-
 //匹配字符串的末尾
 /*
 可以使用正则表达式的美元符号 $ 来搜寻字符串的结尾。
@@ -184,3 +183,54 @@ let userCheck = /^[a-z]([0-9]{2,}|[a-z]+\d*)$/i; // 修改这一行
 let result06 = userCheck.test(username);
 let result07 = username.match(userCheck)
 console.log(result07);
+
+
+// 匹配空白字符
+// 迄今为止的挑战包括匹配字母和数字。 还可以匹配字符之间的空格。
+//
+// 可以使用 \s 搜寻空格，其中 s 是小写。 此匹配模式将匹配空格、回车符、制表符、换页符和换行符。 可以认为这类似于元字符 [ \r\t\f\n\v]。
+//
+// let whiteSpace = "Whitespace. Whitespace everywhere!"
+// let spaceRegex = /\s/g;
+// whiteSpace.match(spaceRegex);
+// 这个 match 调用将返回 [" ", " "]。
+
+/*
+匹配非空白字符
+已经学会了如何使用带有小写 s 的缩写 \s 来搜寻空白字符。
+还可以搜寻除了空格之外的所有内容。
+
+使用 \S 搜寻非空白字符，其中 s 是大写。
+此匹配模式将不匹配空格、回车符、制表符、换页符和换行符。
+可以认为这类似于元字符 [^ \r\t\f\n\v]。
+
+let whiteSpace = "Whitespace. Whitespace everywhere!"
+let nonSpaceRegex = /\S/g;
+whiteSpace.match(nonSpaceRegex).length;
+返回值的 .length 应该是 32。
+
+* */
+
+
+/*
+指定匹配的上限和下限
+回想一下，使用加号 + 查找一个或多个字符，使用星号 * 查找零个或多个字符。
+这些都很方便，但有时需要匹配一定范围的匹配模式。
+
+可以使用数量说明符（quantity specifiers）指定匹配模式的上下限。
+数量说明符与花括号（{ 和 }）一起使用。 可以在花括号之间放两个数字，这两个数字代表匹配模式的上限和下限。
+
+例如，要匹配出现 3 到 5 次字母 a 的在字符串 ah，
+正则表达式应为/a{3,5}h/。
+
+let A4 = "aaaah";
+let A2 = "aah";
+let multipleA = /a{3,5}h/;
+multipleA.test(A4);
+multipleA.test(A2);
+第一次 test 调用将返回 true，而第二次调用将返回 false。
+* */
+
+let ohStr = "Ohhh no";
+let ohRegex = /Oh{3,6}\sno/gi; // 修改这一行
+let result08 = ohRegex.test(ohStr);
