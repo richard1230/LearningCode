@@ -26,6 +26,16 @@ let thatArray = [...thisArray];
 console.log(thatArray);//[ true, true, undefined, false, null ]
 
 
+/*
+copyMachine([true, false, true], 2) 应返回 [[true, false, true], [true, false, true]]。
+
+copyMachine([1, 2, 3], 5) 应返回 [[1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3]]。
+
+copyMachine([true, true, null], 1) 应返回 [[true, true, null]]。
+
+copyMachine(["it works"], 3) 应返回 [["it works"], ["it works"], ["it works"]]。
+* */
+
 function copyMachine(arr, num) {
   let newArr = [];
   while (num >= 1) {
@@ -38,12 +48,3 @@ function copyMachine(arr, num) {
 }
 
 console.log(copyMachine([true, false, true], 2));
-/*
-copyMachine([true, false, true], 2) 应返回 [[true, false, true], [true, false, true]]。
-
-copyMachine([1, 2, 3], 5) 应返回 [[1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3]]。
-
-copyMachine([true, true, null], 1) 应返回 [[true, true, null]]。
-
-copyMachine(["it works"], 3) 应返回 [["it works"], ["it works"], ["it works"]]。
-* */
