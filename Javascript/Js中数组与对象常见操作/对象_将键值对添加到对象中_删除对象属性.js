@@ -7,7 +7,10 @@ let foods = {
 
 // 只修改这一行下面的代码
 foods.bananas = 13;
-foods.grapes = 35;
+
+let grapes = "grapes"
+foods[grapes] = 35;
+
 foods["strawberries"] = 27;
 // 只修改这一行上面的代码
 
