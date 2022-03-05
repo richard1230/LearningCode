@@ -9,6 +9,8 @@ const startIndex = 3;         //删除的起始位置,从0开始
 const amountToDelete = 1;     //删除的数的个数
 
 numbers.splice(startIndex, amountToDelete, 13, 14);
+numbers.splice(3, 1, 13, 14);
+
 console.log(numbers);
 第二个 12 已被删除，我们在同一索引处添加 13 和 14。
 numbers 数组现在将会是 [ 10, 11, 12, 13, 14, 15 ]。

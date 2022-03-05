@@ -29,4 +29,5 @@ function getIndexToIns(arr, num) {
     .indexOf(num);
 }
 
-console.log(getIndexToIns([40, 60], 50));;
+console.log(getIndexToIns([40, 60], 50));
+;
