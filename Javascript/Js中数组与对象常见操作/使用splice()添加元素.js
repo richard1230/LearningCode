@@ -5,7 +5,7 @@
 这样，我们能够便捷地将数组中的一个或多个连续元素换成其他的元素。
 
 const numbers = [10, 11, 12, 12, 15];
-const startIndex = 3;         //删除的起始位置,从0开始
+const startIndex = 3;         //删除的起始位置下标,从0开始
 const amountToDelete = 1;     //删除的数的个数
 
 numbers.splice(startIndex, amountToDelete, 13, 14);
