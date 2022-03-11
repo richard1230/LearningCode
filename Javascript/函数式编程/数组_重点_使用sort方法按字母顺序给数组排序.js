@@ -1,5 +1,5 @@
 /*
-sort 方法可以根据回调函数对数组元素进行排序。
+sort方法可以根据回调函数对数组元素进行排序。
 
 举个例子：
 
@@ -36,5 +36,29 @@ function alphabeticalOrder(arr) {
   // 只修改这一行上面的代码
 }
 
-console.log(alphabeticalOrder(["a", "d", "c", "a", "z", "g"]));
-;
+arr = ["a", "d", "c", "a", "z", "g"]
+console.log(alphabeticalOrder(arr));
+console.log(arr);//注意:原始数组arr改变了
+
+
+console.log("==============在不更改原始数组的前提下返回排序后的数组\n=======================");
+
+
+const globalArray = [5, 6, 3, 2, 9];
+
+function nonMutatingSort(arr) {
+  // 只修改这一行下面的代码
+
+  return [].concat(arr).sort(function (a, b) {
+    return a - b;
+  })
+  // 只修改这一行上面的代码
+}
+
+console.log(nonMutatingSort(globalArray));
+console.log(globalArray);//注意:原始数组没有改变
+
+
+
+
+
