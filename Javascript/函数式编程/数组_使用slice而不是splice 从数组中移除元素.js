@@ -21,7 +21,7 @@ console.log(cities);//[ 'Chicago', 'Delhi', 'Islamabad', 'Berlin' ]
 
 function nonMutatingSplice(cities) {
   // 只修改这一行下面的代码
-  let newArray =  cities.slice(0,3);
+  let newArray = cities.slice(0, 3);
 
   return newArray;
 
