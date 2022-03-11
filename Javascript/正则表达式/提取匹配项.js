@@ -49,6 +49,7 @@ let chewieRegex = /Aa*/; // 修改这一行
 // 只修改这一行上面的代码
 
 let result2 = chewieQuote.match(chewieRegex);
+console.log("匹配出现零次或多次的字符================================================================================");
 console.log(result2);
 
 //用惰性匹配来查找字符
@@ -84,8 +85,16 @@ firstRegex.test(notFirst);
 */
 let rickyAndCal = "Cal and Ricky both like racing.";
 let calRegex = /^Cal/; // 修改这一行
+let calRegex1 = /^Cu/; // 修改这一行
+
 let result0 = calRegex.test(rickyAndCal);
-console.log(result0);
+let result111 = calRegex1.test(rickyAndCal);
+
+
+console.log("^匹配字符串的开头==============");
+console.log(result0); //true
+console.log(result111);//false
+
 
 
 //匹配字符串的末尾
@@ -101,8 +110,16 @@ storyRegex.test(noEnding);
 * */
 let caboose = "The last car on a train is the caboose";
 let lastRegex = /caboose$/; // 修改这一行
+let lastRegex1 = /coose$/; // 修改这一行
+
 let result01 = lastRegex.test(caboose);
+let result0011 = lastRegex1.test(caboose);
+
+
 console.log(result01);
+console.log(result0011);
+
+
 
 
 //匹配所有的字母和数字
