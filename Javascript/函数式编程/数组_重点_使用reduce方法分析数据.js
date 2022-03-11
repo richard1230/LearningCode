@@ -141,7 +141,8 @@ const watchList = [
 
 function getRating(watchList) {
   // 只修改这一行下面的代码
-  let averageRating = watchList.filter(list => list.Director == "Christopher Nolan").reduce((sum, user) => (sum + parseFloat(user.imdbRating)), 0) / (watchList.filter(list => list.Director == "Christopher Nolan").length)
+  let averageRating = watchList.filter(film => film.Director === "Christopher Nolan")
+    .map(film => parseFloat(film.imdbRating)).reduce((sum, score) => sum + score, 0) / watchList.filter(film => film.Director === "Christopher Nolan").length
 
   // 只修改这一行上面的代码
   return averageRating;
