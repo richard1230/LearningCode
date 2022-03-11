@@ -2,7 +2,7 @@
 const bookList = ["The Hound of the Baskervilles", "On The Electrodynamics of Moving Bodies", "Philosophiæ Naturalis Principia Mathematica", "Disquisitiones Arithmeticae"];
 
 // 修改这行下面的代码
-function add(bookName) {
+function add(bookName,bookList) {
 
   // bookList.push(bookName);
   // return bookList;
@@ -12,14 +12,14 @@ function add(bookName) {
 }
 
 // 修改这行下面的代码
-function remove(bookName) {
+function remove(bookName,bookList) {
   // const book_index = bookList.indexOf(bookName);
   // if (book_index >= 0) {
 
   //   bookList.splice(book_index, 1);
   //   return bookList;
 
-  return bookList.filter(b => b !== bookName);
+  return bookList.filter(x=>x!==bookName);
 
 
   // 修改这行上面的代码
