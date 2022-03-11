@@ -12,7 +12,7 @@ console.log(squaredIntegers);
 
 /*
 * map的作用:
-* 1.提取数组中每个对象的属性
+* 1.提取数组中每个对象的^属性
 * const users = [
   { name: 'John', age: 34 },
   { name: 'Amy', age: 20 },
@@ -31,3 +31,5 @@ console.log(names);
   // 只修改这一行上面的代码
 };
 * */
+
+
