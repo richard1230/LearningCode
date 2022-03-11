@@ -145,18 +145,26 @@ console.log(filteredList);
 // 全局变量
 const s = [23, 65, 98, 5];
 
-Array.prototype.myFilter = function(callback) {
+Array.prototype.myFilter = function (callback) {
   // 只修改这一行下面的代码
   const newArray = [];
-  // 只修改这一行上面的代码
-  for (let i = 0; i < this.length; i++) {
-    if (callback(this[i]==true)){
-       newArray.push(this[i])
+  // for (let i = 0; i < this.length; i++) {
+  //   if (callback(this[i]==true)){
+  //      newArray.push(this[i])
+  //   }
+  // }
+  this.forEach(function (x) {
+    if (callback(x) == true) {
+      newArray.push(x);
     }
-  }
+  });
   return newArray;
 };
 
-const new_s = s.myFilter(function(item) {
+const new_s = s.myFilter(function (item) {
   return item % 2 === 1;
 });
+
+console.log(s.myFilter(function (item) {
+  return item % 2 === 1;
+}));
