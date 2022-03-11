@@ -1,18 +1,15 @@
-//使用map方法从数组中提取数据
-/*通过 map 返回一个与调用它的数组长度相同的数组。
- 只要它的回调函数不改变原始数组，它就不会改变原始数组。
-* const users = [
+//使用 filter 方法从数组中提取数据
+/*
+const users = [
   { name: 'John', age: 34 },
   { name: 'Amy', age: 20 },
   { name: 'camperCat', age: 10 }
 ];
 
-const names = users.map(user => user.name);
-console.log(names);
-*
-* [ 'John', 'Amy', 'camperCat' ]
+const usersUnder30 = users.filter(user => user.age < 30);
+console.log(usersUnder30);
+控制台将显示值 [ { name: 'Amy', age: 20 }, { name: 'camperCat', age: 10 } ]
 * */
-
 
 // 全局变量
 const watchList = [
@@ -130,14 +127,12 @@ const watchList = [
 
 // 只修改这一行下面的代码
 
-// const ratings = [];
-// for (let i = 0; i < watchList.length; i++) {
-//   ratings.push({title: watchList[i]["Title"], rating: watchList[i]["imdbRating"]});
-// }
-
-const ratings = watchList.map(list => ({title: list.Title, rating: list.imdbRating}))
-
+// const filteredList =watchList.filter(user=>parseFloat(user.imdbRating)>8.0) ;
+const filteredList = watchList.map(user => ({
+  title: user.Title,
+  rating: user.imdbRating
+})).filter(user => user.rating > 8)
 
 // 只修改这一行上面的代码
 
-console.log(JSON.stringify(ratings));
+console.log(filteredList);
