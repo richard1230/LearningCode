@@ -30,10 +30,11 @@ function spinalCase(str) {
   // let regex = /\s+|_+/g;
   // str = str.replace(/([a-z])([A-Z])/g,"$1 $2")
   // return str.replace(regex,'-').toLowerCase();
-  return str.replace(/([a-z])([A-Z])/g,"$1 $2").replace(/\s+|_+/g,'-').toLowerCase();
+  return str.replace(/([a-z])([A-Z])/g, "$1 $2").replace(/\s+|_+/g, '-').toLowerCase();
 }
 
-console.log(spinalCase('This Is Spinal Tap'));;
+console.log(spinalCase('This Is Spinal Tap'));
+;
 console.log(spinalCase("thisIsSpinalTap"));
 console.log(spinalCase("AllThe-small Things"));
 console.log(spinalCase("The_Andy_Griffith_Show"));
