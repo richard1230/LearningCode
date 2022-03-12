@@ -136,7 +136,15 @@ const filteredList = watchList.map(user => ({
 // 只修改这一行上面的代码
 
 console.log(filteredList);
+/*
+[
+  { title: 'Inception', rating: '8.8' },
+  { title: 'Interstellar', rating: '8.6' },
+  { title: 'The Dark Knight', rating: '9.0' },
+  { title: 'Batman Begins', rating: '8.3' }
+]
 
+* */
 
 // =======================
 
@@ -168,3 +176,13 @@ const new_s = s.myFilter(function (item) {
 console.log(s.myFilter(function (item) {
   return item % 2 === 1;
 }));
+
+
+// filter函数详见:
+//   https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+/*
+*
+* filter函数的参数一般都是一个回调函数
+* 这个回调函数的返回值一般都是boolean类型
+*
+* */
