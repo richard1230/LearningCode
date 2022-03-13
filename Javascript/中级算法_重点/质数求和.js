@@ -12,7 +12,7 @@ function sumPrimes(num) {
   }
 
   let sum = 0;
-  for (let i = 2; i <num; i++) {
+  for (let i = 2; i <=num; i++) {
     if (isPrim(i)){
       sum += i;
     }
@@ -20,4 +20,6 @@ function sumPrimes(num) {
   return sum;
 }
 
-console.log(sumPrimes(10));
+
+
+console.log(sumPrimes(10));//17
