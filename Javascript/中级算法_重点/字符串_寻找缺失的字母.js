@@ -22,7 +22,7 @@ function fearNotLetter(str) {
       let newarr = str.split('');
       newstr1 = newarr.splice(i + 1, 0, missingword)
       // return newarr.join('');  //返回完整的字符串
-      // return missingword;
+      return missingword;
     }
 
 
