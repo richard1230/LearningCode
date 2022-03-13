@@ -21,4 +21,18 @@ function pairElement(str) {
   return newstr;
 }
 
-console.log(pairElement("GCG"));;
+
+console.log(pairElement("GCG"));
+console.log(pairElement1("GCG"));
+
+function pairElement1(str) {
+  const pairMap = {
+    A:'T',
+    T:'A',
+    C:'G',
+    G:'C'
+  }
+  //str是string类型,str.split('')是数组类型(对象)
+  return str.split('').map(alph=>[alph,pairMap[alph]])
+
+}
