@@ -47,7 +47,6 @@ function palindrome(str) {
 }
 
 console.log(palindrome("0_0 (: /-\ :) 0-0"));
-;
 console.log(palindrome("race car"));
 console.log(palindrome("A man, a plan, a canal. Panama"));
 
