@@ -7,10 +7,13 @@ class MyComponent extends React.Component {
     }
   }
   render() {
+    const name=this.state.name
+
     return (
+
       <div>
         { /* 修改这行下面的代码 */ }
-        <h1>{this.state.name}</h1>
+        <h1>{name}</h1>
         { /* 修改这行上面的代码 */ }
       </div>
     );
