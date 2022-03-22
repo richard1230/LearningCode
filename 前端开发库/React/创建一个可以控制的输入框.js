@@ -8,20 +8,22 @@ class ControlledInput extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     // 修改这行上面的代码
   }
+
   // 修改这行下面的代码
- handleChange(event){
+  handleChange(event) {
     this.setState(
       {
         input: event.target.value
       }
     )
- }
+  }
+
   // 修改这行上面的代码
   render() {
     return (
       <div>
         { /* 修改这行下面的代码 */}
-<input value={this.state.input} onChange={this.handleChange}/>
+        <input value={this.state.input} onChange={this.handleChange}/>
         { /* 修改这行上面的代码 */}
         <h4>Controlled Input:</h4>
         <p>{this.state.input}</p>
