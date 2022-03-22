@@ -13,16 +13,11 @@ class MyForm extends React.Component {
       input: event.target.value
     });
   }
-
   handleSubmit(event) {
-    // 修改这行下面的代码
-    this.setState(
-      {
-        submit:this.state.input
-      }
-    )
-    even.preventDefault()
-    // 修改这行上面的代码
+    event.preventDefault()
+    this.setState({
+      submit: this.state.input
+    });
   }
   render() {
     return (
