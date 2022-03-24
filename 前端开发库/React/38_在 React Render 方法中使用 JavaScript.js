@@ -67,7 +67,6 @@ class MagicEightBall extends React.Component {
         <h3>Answer:</h3>
         <p>
           {/* 修改这行下面的代码 */}
-
           {answer}
           {/* 修改这行上面的代码 */}
         </p>
