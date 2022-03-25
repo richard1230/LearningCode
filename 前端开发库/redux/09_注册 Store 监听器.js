@@ -31,4 +31,6 @@ store.dispatch({type: ADD});
 console.log(count);
 
 
+//https://www.jianshu.com/p/8b9abedcf072
+
 

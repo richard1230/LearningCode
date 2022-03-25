@@ -44,3 +44,6 @@ const store = Redux.createStore(
   asyncDataReducer,
   Redux.applyMiddleware(ReduxThunk.default)
 );
+
+//https://www.jianshu.com/p/8b9abedcf072
+

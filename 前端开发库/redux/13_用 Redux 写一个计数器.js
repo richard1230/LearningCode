@@ -25,3 +25,6 @@ const decAction = ()=>{
 }; // 为自减运算定义一个动作创建器
 
 const store = Redux.createStore(counterReducer()); // 在这里定义 Redux store，传入 reducers
+
+
+//https://www.jianshu.com/p/8b9abedcf072

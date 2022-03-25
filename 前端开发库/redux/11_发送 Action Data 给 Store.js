@@ -27,4 +27,6 @@ store.dispatch(addNoteText('Hello!'));
 console.log(store.getState());
 
 
+//https://www.jianshu.com/p/8b9abedcf072
+
 

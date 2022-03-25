@@ -38,3 +38,6 @@ const rootReducer = Redux.combineReducers({
 
 const store = Redux.createStore(rootReducer);
 
+
+//https://www.jianshu.com/p/8b9abedcf072
+
