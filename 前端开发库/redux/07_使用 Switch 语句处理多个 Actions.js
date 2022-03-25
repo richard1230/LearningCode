@@ -17,6 +17,7 @@ const authReducer = (state = defaultState, action) => {
     default:
       return defaultState
   }
+
   // 修改这行上面的代码
 };
 
