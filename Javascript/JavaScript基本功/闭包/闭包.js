@@ -24,3 +24,33 @@ function fn1() {
 }
 
 test1(fn1)//b: 2
+
+
+
+function sunSched() {
+  var sunSched = '';
+
+  var operation = {
+    setSched: function (thing) {
+      sunSched = thing;
+      console.log("sunSched: " + sunSched)
+    },
+    showSched:function () {
+      console.log("My schedule on sunday is " + sunSched)
+    }
+  }
+
+  return operation;
+}
+
+
+var sunSched = sunSched();
+sunSched.setSched('studying');
+sunSched.showSched()//My schedule on sunday is studying
+sunSched.setSched('walking');
+sunSched.showSched();//My schedule on sunday is walking
+
+
+
+
+
