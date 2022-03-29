@@ -14,7 +14,8 @@ console.log(test.name)//test1
 //形参和实参 的数量可以不等
 function f(a,b) {
   console.log(typeof arguments)
-  console.log(arguments)
+  console.log(arguments)// [Arguments] { '0': 1, '1': 2, '2': 3 }
+
 
   console.log(arguments.length)//实参的长度,3
   console.log(f.length)//形参的长度,2
@@ -27,12 +28,13 @@ function f1(a,b) {
   a = 3;//在函数内部可以更改实参的值， a=3是存在栈里面的
   b = 5;//如果实参没有给f1传这个值，在内部改是没有用的
   console.log(  arguments[0])//3==>arguments[0]是存在堆里面的
-  console.log(  arguments[1])//
+  console.log(  arguments[1])//5
 
 }
 
 f1(1,2)
-f1(1)//内部是打印不出arguments[1]的
+console.log("下面是f1(1)");
+f1(1)//3,undefined,内部是打印不出arguments[1]的，默认为undefined
 
 /*
 *小结:
