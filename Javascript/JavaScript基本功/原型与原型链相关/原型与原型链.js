@@ -5,13 +5,14 @@
 
  从属关系
  prototype ---> 一个函数的属性： 对象{}
- __proto__--->  对象Object的属性: 对象{}
+ __proto__--->  一个对象Object的属性: 对象{}
 
  对象的__proto__保存着该对象的构造函数的prototype
 * */
 
 function Test() {
 }
+
 console.log(Test.prototype)
 
 const test = new Test()
@@ -19,7 +20,7 @@ console.log(test.__proto__);
 //对象的__proto__  等于 该对象的构造函数的prototype
 console.log(test.__proto__ === Test.prototype);
 
-console.log( Test.prototype.__proto__ ===Object.prototype);
+console.log(Test.prototype.__proto__ === Object.prototype);
 console.log(Object.prototype.__proto__);//null
 
 console.log("====================我是分割线=================");
@@ -30,8 +31,8 @@ function Test1() {
   this.b = 333;
 }
 
-const test1= new Test1()
-Test1.prototype.b=2;
+const test1 = new Test1()
+Test1.prototype.b = 2;
 console.log(test1);
 Object.prototype.c = 3
 /*
