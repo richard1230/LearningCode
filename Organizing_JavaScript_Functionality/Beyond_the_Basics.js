@@ -39,16 +39,16 @@ console.log(fn(20));//25
 
 function Hello(name) {
   function speak() {
-    console.log(name)
+    console.log("hello "+name)//Kyle
   }
 
-  return speak;
+  return {speak: speak};
 }
 
-var fn1 = Hello("Kyle");
-console.log(fn1());//Kyle
-
-// speak();//ReferenceError: speak is not defined
+//hello Kyle
+// this is : undefined
+var O = Hello("Kyle");
+console.log("this is : "+O.speak());
 
 
 var o = {
