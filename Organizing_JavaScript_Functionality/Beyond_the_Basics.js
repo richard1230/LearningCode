@@ -33,4 +33,28 @@ function makeAdder(x) {
 }
 
 var fn = makeAdder(5);
-console.log(fn(10));;//15
+console.log(fn(10));//15
+console.log(fn(20));//25
+
+
+function Hello(name) {
+  function speak() {
+    console.log(name)
+  }
+
+  return speak;
+}
+
+var fn1 = Hello("Kyle");
+console.log(fn1());//Kyle
+
+// speak();//ReferenceError: speak is not defined
+
+
+var o = {
+  awesome: "cool"
+};
+
+console.log(o.awesome)//cool
+
+
