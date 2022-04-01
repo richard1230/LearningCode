@@ -39,16 +39,16 @@ console.log(fn(20));//25
 
 function Hello(name) {
   function speak() {
-    console.log("hello "+name)//Kyle
+    // console.log("hello "+name)//Kyle
   }
 
-  return {speak: speak};
+  return {say: speak};
 }
 
 //hello Kyle
 // this is : undefined
 var O = Hello("Kyle");
-console.log("this is : "+O.speak());
+console.log("this is : "+O.say());
 
 
 var o = {
