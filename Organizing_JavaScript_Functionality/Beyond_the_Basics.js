@@ -42,11 +42,19 @@ function Hello(name) {
     return name+" "+lastname;
   }
 
-  return {say: speak};
+  function firstName() {
+    return name;
+  }
+
+  return {
+    say: speak,
+    firstName:firstName
+  };
 }
 
 var O = Hello("Kyle");
 console.log("this is : "+O.say("Simpson"));//Kyle Simpson
+console.log("this is : "+O.firstName());//Kyle
 
 
 var o = {
