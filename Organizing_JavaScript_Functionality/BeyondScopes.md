@@ -1,6 +1,7 @@
 [地址](https://frontendmasters.com/courses/organizing-javascript/nested-scopes/)
 
 ## Nested Basics
+
 ```javascript
 
 function foo() {
@@ -46,5 +47,25 @@ console.log(fn(20));
 
 ```
 
-## Modules
+## Modules && Closure
 
+```javascript
+function Hello(name) {
+  function speak(lastname) {
+    return name + " " + lastname;
+  }
+
+  function firstName() {
+    return name;
+  }
+
+  return {
+    say: speak,
+    firstName: firstName
+  };
+}
+
+var O = Hello("Kyle");
+console.log("this is : " + O.say("Simpson"));//Kyle Simpson
+console.log("this is : " + O.firstName());//Kyle
+```
