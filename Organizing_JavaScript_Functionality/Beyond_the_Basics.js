@@ -38,15 +38,15 @@ console.log(fn(20));//25
 
 
 function Hello(name) {
-  function speak() {
-    return name;
+  function speak(lastname) {
+    return name+" "+lastname;
   }
 
   return {say: speak};
 }
 
 var O = Hello("Kyle");
-console.log("this is : "+O.say());//Kyle
+console.log("this is : "+O.say("Simpson"));//Kyle Simpson
 
 
 var o = {
