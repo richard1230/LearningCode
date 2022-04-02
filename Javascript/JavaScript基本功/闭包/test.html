@@ -5,31 +5,23 @@
   <title>Title</title>
 </head>
 <body>
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+
+</ul>
 <script>
-  function test8() {
-    var arr = [];
-
-    for (var i = 0; i < 10; i++) {
-      // 实际循环立刻执行函数：立刻执行函数保存i值
-      (function (j) {
-        // 立即执行函数AO中的 j = 0, 1, 2, 3......
-        // 每个立刻执行函数中都有一个唯一的j值
-        arr[j] = function () {
-          // 访问的是立刻执行函数AO中的j值：0, 1, 2....
-          document.write(j + ' ');
-        }
-      })(i);
+var oLi = document.querySelectorAll('li');
+for (var i = 0; i <oLi.length; i++) {
+  (function (j) {
+    oLi[j].onclick = function (){
+      console.log(j+1)
     }
-
-    return arr;
-  }
-
-  var myArr = test8();
-  console.log(myArr); // [ƒ, ƒ, ƒ, ƒ, ƒ, ƒ, ƒ, ƒ, ƒ, ƒ]
-
-  for (var j = 0; j < 10; j++) {
-    myArr[j](); //0 1 2 3 4 5 6 7 8 9
-  }
+  })(i)
+}
 
 </script>
 </body>
