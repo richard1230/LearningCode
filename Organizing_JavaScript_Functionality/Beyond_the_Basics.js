@@ -71,12 +71,14 @@ function hello1(name) {
 
   function speak(lastName) {
     // console.log(upper(name), lastName)
-    return upper(name)+" "+lastName
+    return upper(name) + " " + lastName
   }
 
-  return {
+  public_api = {
     say: speak
   }
+
+  return public_api
 }
 
 var o1 = hello1("Kyle")

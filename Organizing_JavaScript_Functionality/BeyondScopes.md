@@ -71,7 +71,24 @@ console.log("this is : " + O.firstName());//Kyle
 ```
 
 ## Public vs Private
-```javascript
 
+```javascript
+function hello1(name) {
+  function upper(str) {
+    return str.toUpperCase()
+  }
+
+  function speak(lastName) {
+    // console.log(upper(name), lastName)
+    return upper(name) + " " + lastName
+  }
+
+  return {
+    say: speak
+  }
+}
+
+var o1 = hello1("Kyle")
+console.log(o1.say("Simpson"));//KYLE Simpson
 
 ```
