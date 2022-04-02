@@ -79,32 +79,15 @@ console.log(arr[1]());//10
 
 
 
-function test8() {
-  var arr = [];
 
-  for (var i = 0; i < 10; i++) {
-    // 实际循环立刻执行函数：立刻执行函数保存i值
-    (function (j) {
-      // 立即执行函数AO中的 j = 0, 1, 2, 3......
-      // 每个立刻执行函数中都有一个唯一的j值
-      arr[j] = function () {
-        // 访问的是立刻执行函数AO中的j值：0, 1, 2....
-        document.write(j + ' ');
-      }
-    })(i);
-  }
 
-  return arr;
+
+var a = 10;
+if (function b() {
+}) {
+  a += typeof (b);
 }
-
-var myArr = test8();
-console.log(myArr); // [ƒ, ƒ, ƒ, ƒ, ƒ, ƒ, ƒ, ƒ, ƒ, ƒ]
-
-for (var j = 0; j < 10; j++) {
-  myArr[j](); //0 1 2 3 4 5 6 7 8 9
-}
-
-
+console.log(a);//
 
 
 
