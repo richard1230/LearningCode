@@ -39,7 +39,7 @@ console.log(fn(20));//25
 
 function Hello(name) {
   function speak(lastname) {
-    return name+" "+lastname;
+    return name + " " + lastname;
   }
 
   function firstName() {
@@ -48,13 +48,13 @@ function Hello(name) {
 
   return {
     say: speak,
-    firstName:firstName
+    firstName: firstName
   };
 }
 
 var O = Hello("Kyle");
-console.log("this is : "+O.say("Simpson"));//Kyle Simpson
-console.log("this is : "+O.firstName());//Kyle
+console.log("this is : " + O.say("Simpson"));//Kyle Simpson
+console.log("this is : " + O.firstName());//Kyle
 
 
 var o = {
@@ -62,5 +62,30 @@ var o = {
 };
 
 console.log(o.awesome)//cool
+
+
+function hello1(name) {
+  function upper(str) {
+    return str.toUpperCase()
+  }
+
+  function speak(lastName) {
+    // console.log(upper(name), lastName)
+    return upper(name)+" "+lastName
+  }
+
+  return {
+    say: speak
+  }
+}
+
+var o1 = hello1("Kyle")
+console.log(o1.say("Simpson"));//KYLE Simpson
+
+
+
+
+
+
 
 

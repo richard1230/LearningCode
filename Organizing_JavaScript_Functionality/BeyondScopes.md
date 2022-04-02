@@ -69,3 +69,9 @@ var O = Hello("Kyle");
 console.log("this is : " + O.say("Simpson"));//Kyle Simpson
 console.log("this is : " + O.firstName());//Kyle
 ```
+
+## Public vs Private
+```javascript
+
+
+```
