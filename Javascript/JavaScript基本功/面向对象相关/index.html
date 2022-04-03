@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  var teacher = {
+    name: '张三',
+    age: 32,
+    sex: 'male',
+    height: 176,
+    weight: 130,
+    teach: function () {
+      console.log('I am teaching JavaScript')
+    },
+    smoke: function () {
+      console.log('I am smoking')
+    },
+    eat: function () {
+      console.log('I am having a dinner')
+      return 'I am having a dinner'
+    }
+  }
+
+  // console.log(teacher.eat)
+  document.write(teacher.eat +`<br>`)//function () { ......}
+
+  document.write(teacher.eat()+`<br>`)// I am having a dinner
+
+  teacher.age = 30
+  document.write(teacher.age+`<br>`)//30
+
+  document.write(teacher+`<br>`)//
+  console.log(teacher)         //
+  delete teacher.weight
+  delete teacher.eat      //注意:后面没有括号
+  console.log(teacher)
+
+
+
+
+</script>
+
+</body>
+</html>
