@@ -19,7 +19,7 @@ console.log(hp2.ram)//16G
 // 所有被该构造函数构造出的对象都可以继承原型上的属性和方法
 
 phone.prototype.screen = '16:9'
-console.log(hp2.screen)//18:9
+console.log(hp2.screen)//18:9, this中有先找this，没有找原型
 console.log(hp1.screen)//18:9
 
 
@@ -27,9 +27,10 @@ console.log(hp1.screen)//18:9
 //需要将数值写死的变量就写到原型里面
 //写插件的时候由于不同实例所使用的方法都是一样的,故一般都将方法写到原型中
 
-function Handphone(color, brand) {
+function Handphone(color, brand, system) {
   this.color = color;
   this.brand = brand;
+  this.system = system;
 }
 
 // var hp1 = new Handphone()
@@ -48,16 +49,76 @@ var hp22 = new Handphone('red', '小米')
 console.log(hp22.call());// hello i am calling
 
 
-function Test() {
+console.log(Handphone.prototype);
+
+
+function Car() {
+  // var this = {
+  //   __proto__: Car.prototype
+  // }
 }
 
-Test.prototype.name = 'prototype';
+console.log(Car.prototype);//consture默认指向构造函数本身,但是可以更改
+console.log('========================================')
+Car1.prototype.name = "Benz";
 
-var test = new Test();
+function Car1() {
+}
 
-test.name = 'proto';
-console.log(Test.prototype, test)//{ name: 'prototype' } Test { name: 'proto' }
-delete Test.prototype.name
+Car1.prototype.name = "Mazda";
+var car1 = new Car1();
+console.log(car1.name)//Mazda
+console.log('========================================')
+
+Car10.prototype.name = "Benz";
+
+function Car10() {
+}
+
+var car10 = new Car10();
+Car10.prototype.name = "Mazda";
+
+console.log(car10.name)//Mazda
+console.log('========================================')
+Car2.prototype.name = "Benz";
+
+function Car2() {
+}
+
+var car2 = new Car2();
+Car2.prototype = {        //如果这里的代码放在实例化之后，那么
+  name: 'Mzada'           //name 就不会发生变化
+}
+console.log(car2.name)//Benz,
+                      // 这里需要详细解释一下:
+                      //constructor是指向构造函数本身的
+                      //实例化之前:是下面这样的:
+                      //Car.prototype.constructor -> Car() -> prototype -> name: "Benz"
+//如果Car2.prototype这里的代码放在实例化之后，那么name 就不会发生变化
+//__proto__--->  一个实例化的对象的属性
+// function Car() {
+//   // var this = {
+//   //   __proto__: Car.prototype={
+//          name : "Benz"
+//        }
+//   // }
+// }
+console.log('========================================')
+Car3.prototype.name = "Benz";
+
+function Car3() {
+}
+
+Car3.prototype = {
+  name: 'Mzada'
+}
+
+var car3 = new Car3();
+
+console.log(car3.name)//Mzada
+
+
+
 
 
 

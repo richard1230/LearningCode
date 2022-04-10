@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  function Handphone(color, brand,system) {
+    this.color = color;
+    this.brand = brand;
+    this.system = system;
+  }
+
+
+  Handphone.prototype = {
+    screen: "18.9",
+    rom: "64G",
+    ram: "6G",
+    call: function () {
+      console.log(" hello i am calling")
+    }
+  }
+
+
+  var hp22 = new Handphone('red', '小米')
+
+  console.log(Handphone.prototype);
+  function Car() {}
+
+  console.log(Car.prototype);//constructor: ƒ Car()
+
+</script>
+
+</body>
+</html>
