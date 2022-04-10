@@ -34,10 +34,6 @@ function Handphone(color, brand) {
 
 // var hp1 = new Handphone()
 
-// Handphone.prototype.screen = "18:9"
-// Handphone.prototype.call = function () {
-//   console.log(" hello i am calling")
-// }
 Handphone.prototype = {
   screen: "18.9",
   rom: "64G",
