@@ -26,7 +26,6 @@ function fn1() {
 test1(fn1)//b: 2
 
 
-
 function sunSched() {
   var sunSched = '';
 
@@ -35,7 +34,7 @@ function sunSched() {
       sunSched = thing;
       console.log("sunSched: " + sunSched)
     },
-    showSched:function () {
+    showSched: function () {
       console.log("My schedule on sunday is " + sunSched)
     }
   }
@@ -50,6 +49,24 @@ sunSched.showSched()//My schedule on sunday is studying
 sunSched.setSched('walking');
 sunSched.showSched();//My schedule on sunday is walking
 
+
+//累加器
+function test() {
+  var num = 0;
+
+  function add() {
+    console.log(++num)
+  }
+
+  return add;
+}
+
+var add = test();
+add()
+add()
+add()
+add()
+add()
 
 
 
