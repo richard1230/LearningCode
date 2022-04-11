@@ -118,8 +118,20 @@ var car3 = new Car3();
 console.log(car3.name)//Mzada
 
 
+  (function () {
+    var a = 1;
 
+    function add() {
+      a++;
+      console.log(a);
+    }
 
+    window.add = add;
+  })();
+
+add();//2
+add();//3
+add();//4
 
 
 
