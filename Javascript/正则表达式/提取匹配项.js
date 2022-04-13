@@ -472,6 +472,7 @@ repeatStr.match(repeatRegex); // Returns ["row row row", "row"]
 let repeatNum = "42 42 42";
 let reRegex = /(^\d+)\s\1\s\1$/; // 修改这一行
 let result013 = reRegex.test(repeatNum);
+console.log(result013);
 
 /*
 你的正则表达式应该使用数字的简写字符类。
@@ -515,7 +516,7 @@ let str = "one two three";
 let fixRegex = /(\w+)\s(\w+)\s(\w+)/; // 修改这一行
 let replaceText = "$3 $2 $1"; // 修改这一行
 let result014 = str.replace(fixRegex, replaceText);
-
+console.log(result014);
 
 //删除开头和结尾的空白
 let hello = "   Hello, World!  ";
