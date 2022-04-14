@@ -42,7 +42,7 @@ testStr.match(repeatRegex);
 let twinkleStar = "Twinkle, twinkle, little star";
 let starRegex = /Twinkle/gi; // 修改这一行
 let result1 = twinkleStar.match(starRegex); // 修改这一行
-console.log(result1);
+console.log(result1);//["Twinkle", "twinkle"]
 
 
 //匹配出现零次或多次的字符
@@ -52,7 +52,7 @@ let chewieRegex = /Aa*/; // 修改这一行
 
 let result2 = chewieQuote.match(chewieRegex);
 console.log("匹配出现零次或多次的字符================================================================================");
-console.log(result2);
+console.log(result2);//["Aaaaaaaaaaaaaaaa", 0, "Aaaaaaaaaaaaaaaarrrgh!", undefined]
 
 //用惰性匹配来查找字符
 // 可以将正则表达式 /t[a-z]*i/ 应用于字符串 "titanic"。
@@ -66,14 +66,14 @@ console.log(result2);
 let text = "<h1>Winter is coming</h1>";
 let myRegex = /<.*?>/; // 修改这一行
 let result3 = text.match(myRegex);
-console.log(result3);
+console.log(result3);//["<h1>", 0, "<h1>Winter is coming</h1>", undefined]
 
 
 //匹配字符串的开头
 //^ 的另外一个功能:
 /*
 
-在之前的挑战中，使用字符集中前插入符号（^）来创建一个否定字符集，
+在之前的挑战中，使用字符集中前插入符号（^）来创建一个否定字符集，(在[]里面的^为否定,其他情况为以...开始)
 形如 [^thingsThatWillNotBeMatched]。
 除了在字符集中使用之外，脱字符还用于匹配字符串的开始位置。
 
@@ -86,8 +86,8 @@ firstRegex.test(notFirst);
 
 */
 let rickyAndCal = "Cal and Ricky both like racing.";
-let calRegex = /^Cal/; // 修改这一行
-let calRegex1 = /^Cu/; // 修改这一行
+let calRegex = /^Cal/; // 是否以 Cal为开头
+let calRegex1 = /^Cu/; // 是否以 Cu为开头
 
 let result0 = calRegex.test(rickyAndCal);
 let result111 = calRegex1.test(rickyAndCal);
@@ -118,8 +118,8 @@ let result01 = lastRegex.test(caboose);
 let result0011 = lastRegex1.test(caboose);
 
 
-console.log(result01);
-console.log(result0011);
+console.log(result01);//true
+console.log(result0011);//false
 
 
 
