@@ -34,25 +34,62 @@
   var student = new Student();
   student.students++;//<===>student.students = student.students + 1;
                      // student自己本身其实是没有students这个属性的,那这里就增加一个属性,而后再把501赋值给这个属性
-                      //类似于下面这个代码:
-                     // var obj bj= {name:'obj'};  obj.age = 13;
+  //类似于下面这个代码:
+  // var obj bj= {name:'obj'};  obj.age = 13;
+  //而后Student的属性里面就有了students:501
   student.success.baidu = '100';
   console.log(student, teacher);
-  //Student为子代,Teacher为父代
-  // Student
+  //student:
+  //   Object { pSkill: "HTML/CSS", students: 501 }
   // pSkill: "HTML/CSS"
   // students: 501
-  //=====================
+  // <prototype>: Object { mSkill: "JS/JQ", students: 500, success: {…} }
+  //   mSkill: "JS/JQ"
+  //   students: 500
+  //   success: Object { alibaba: "28", tencent: "30", baidu: "100" }
+  //   alibaba: "28"
+  //   baidu: "100"
+  //   tencent: "30"
+  //   <prototype>: Object { … }
+  //     <prototype>: Object {  }
+  //       <prototype>: Object { tSkill: "Java", … }
+  //         constructor: function Professor()
+  //         tSkill: "Java"
+
+  //teacher:
+  //   Object { mSkill: "JS/JQ", students: 500, success: {…} }
   // mSkill: "JS/JQ"
   // students: 500
+  // success: Object { alibaba: "28", tencent: "30", baidu: "100" }
+  // <prototype>: Object {  }
+  //   <prototype>: Object { tSkill: "Java", … }
+  //     constructor: function Professor()
+  //     tSkill: "Java"
 
   //子代可以更改父代里面的引用类型数据
   //子代不能更改父代里面的原生类型数据
 
-
   //小结:原型链的终点:
   // 1. Object.prototype
   //2.Object.prototype的属性里面有个toString的方法
+
+  function Car() {
+    this.brand = 'Benz';
+  }
+
+  Car.prototype = {
+    brand: 'Mazda',
+    intro: function () {
+      console.log('我是' + this.brand + '车');
+    }
+  }
+  var car = new Car();
+  // this指向实例对象本身
+  car.intro(); // 我是Benz车; car这个实例对象调用的intro方法
+  // 直接访问原型
+  Car.prototype.intro(); // 我是Mazda车; Car.prototype(注意:prototype也是一个对象)调用的intro方法
+
+  //其实整个调用过程为: 先到构造函数里面找有没对应的属性或者方法,没有的话再到prototype里面去找
 
 
 </script>
