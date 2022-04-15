@@ -118,7 +118,7 @@ var car3 = new Car3();
 console.log(car3.name)//Mzada
 
 
-  (function () {
+  ;(function () {
     var a = 1;
 
     function add() {
@@ -132,7 +132,6 @@ console.log(car3.name)//Mzada
 add();//2
 add();//3
 add();//4
-
 
 
 
