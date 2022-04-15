@@ -6,51 +6,53 @@
 </head>
 <body>
 <script>
-Professor.prototype.tSkill = 'Java';
-function Professor() {
-}
+  Professor.prototype.tSkill = 'Java';
 
-var professor = new Professor();
-Teacher.prototype = professor;
-
-function Teacher() {
-  this.mSkill = 'JS/JQ'
-  this.students = 500;//原生类型
-  this.success = {   //引用类型(主要是函数,数组,对象)
-    alibaba:'28',
-    tencent: '30'
+  function Professor() {
   }
-}
 
-var teacher = new Teacher();
+  var professor = new Professor();
+  Teacher.prototype = professor;
 
-Student.prototype = teacher;
-function Student() {
-  this.pSkill = 'HTML/CSS'
-}
+  function Teacher() {
+    this.mSkill = 'JS/JQ'
+    this.students = 500;//原生类型
+    this.success = {   //引用类型(主要是函数,数组,对象)
+      alibaba: '28',
+      tencent: '30'
+    }
+  }
 
-var student = new Student();
-student.students++;
-student.success.baidu = '100';
-console.log(student,teacher);
-//Student为子代,Teacher为父代
-// Student
-// pSkill: "HTML/CSS"
-// students: 501
-//=====================
-// mSkill: "JS/JQ"
-// students: 500
-//子代可以更改父代里面的引用类型数据
-//子代不能更改父代里面的原生类型数据
+  var teacher = new Teacher();
+
+  Student.prototype = teacher;
+
+  function Student() {
+    this.pSkill = 'HTML/CSS'
+  }
+
+  var student = new Student();
+  student.students++;//<===>student.students = student.students + 1;
+                     // student自己本身其实是没有students这个属性的,那这里就增加一个属性,而后再把501赋值给这个属性
+                      //类似于下面这个代码:
+                     // var obj bj= {name:'obj'};  obj.age = 13;
+  student.success.baidu = '100';
+  console.log(student, teacher);
+  //Student为子代,Teacher为父代
+  // Student
+  // pSkill: "HTML/CSS"
+  // students: 501
+  //=====================
+  // mSkill: "JS/JQ"
+  // students: 500
+
+  //子代可以更改父代里面的引用类型数据
+  //子代不能更改父代里面的原生类型数据
 
 
-
-//小结:原型链的终点:1. Object.prototype
-//2.Object.prototype的属性里面有个toString的方法
-
-
-
-
+  //小结:原型链的终点:
+  // 1. Object.prototype
+  //2.Object.prototype的属性里面有个toString的方法
 
 
 </script>
