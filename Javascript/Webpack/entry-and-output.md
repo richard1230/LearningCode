@@ -14,3 +14,35 @@ $npx webpack
 ```
 打包完成之后,会多出一个`dist/main.js`文件,此文件是被压缩的;
 如果想要使用`dist/main.js`文件,创建一个文件`dist/index.html`
+添加如下至`dist/index.html`:
+```html
+<div id="app"></div>
+<script src="./main.js"></script>
+```
+运行`dist/index.html`
+
+## 小结1
+默认入口: `src/index.js`;
+出口:`dist/main.js`
+
+## 自己配置
+
+在根目录下面创建一个配置文件`projectname/webpack.config.js`
+这里的根目录为:
+`/Users/....../CodeLearning/Javascript/Webpack/entry-and-output`
+
+```javascript
+const path = require('path');
+
+module.exports = {
+  //入口与出口
+  entry: './src/index.js',
+  output:{
+    //路径
+    path: path.resolve(__dirname,'dist'),
+    //路径下的文件
+    filename: 'main.js'
+  }
+}
+```
+
