@@ -46,3 +46,27 @@ module.exports = {
 }
 ```
 
+## 将不同的文件打包到各自的文件中
+
+```javascript
+const path = require('path');
+
+module.exports = {
+  entry: {
+    main: './src/index.js',
+    sub: './src/index.js'
+  },
+  output:{
+    path: path.resolve(__dirname,'dist'),
+    filename: '[name].js'
+  }
+}
+```
+此时dist下面生成两个文件了;
+```shell
+$tree ./dist
+./dist
+├── index.html
+├── main.js
+└── sub.js
+```
