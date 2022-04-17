@@ -1,4 +1,6 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -8,14 +10,26 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /.jpg$/,
-        use: 'file-loader',
-        // vue-loader
+        test: /.(jpg|png|gif)$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            // 占位符 placeholder
+            name: '[name]_[hash].[ext]',
+            outputPath: 'images/'
+          }
+        }
       }
     ]
   },
   output: {
-    filename: 'bundle.js',
+    filename: 'main.js',
     path: path.resolve(__dirname, 'dist')
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html'
+    }),
+    new CleanWebpackPlugin()
+  ]
 }
