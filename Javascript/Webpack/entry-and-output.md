@@ -12,7 +12,7 @@ $yarn add webpack@4.29.6 webpack-cli@3.2.3 --dev
 ## 打包
 $npx webpack
 ```
-打包完成之后,会多出一个`dist/main.js`文件,此文件是被压缩的;
+打包完成之后,会多出一个`dist/main.js`文件,此文件是被压缩的;<br>
 如果想要使用`dist/main.js`文件,创建一个文件`dist/index.html`
 添加如下至`dist/index.html`:
 ```html
@@ -24,7 +24,7 @@ $npx webpack
 ## 小结1
 默认入口: `src/index.js`;<br>
 
-出口:`dist/main.js`
+出口:`dist/main.js`<br>
 
 ## 自己配置
 
@@ -108,7 +108,7 @@ module.exports = {
     filename: '[name].js'
   },
   plugins: [
-    new HtmlWebpackPlugin({
+    new HtmlWebpackPlugin({  
       template: './src/index.html'
     })
   ]
