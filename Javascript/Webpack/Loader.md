@@ -144,3 +144,24 @@ module: {
     ]
   }
 ```
+配置文件见:
+https://github.com/richard1230/CodeLearning/blob/main/Javascript/Webpack/Loader/webpack.config.js
+
+
+## url-loader
+
+```shell
+yarn add url-loader
+```
+使用url-loader会帮我们把图片变成base64的字符串;
+优点:
+dist---> 少了 `.jpg` 图片文件 --->  减少一次图片的HTTP 请求;
+
+页面加载: js加载完毕;
+图片进入到 bundel.js中(通过base64形式);
+图片过大 ---> bundle.js过大 ---> 页面加载完毕时间很长  --->  空白页面
+
+图片只有1，2kb --->  bundle.js(base64)
+
+图片很大---> file-loader ---> 生成单独的`.jpg`
+去发送额外的HTTP请求,js抽次加载时间就很短，页面很快就会出来
