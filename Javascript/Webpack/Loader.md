@@ -6,7 +6,6 @@ Webpack默认情况下只能给js进行打包;
 
 比如想要给jpg这种图片打包，就要使用file-loader;
 
-
 ```shell
 ## 安装webpack
 $yarn add webpack webpack-cli --dev
@@ -126,53 +125,59 @@ plugins: [
 
 ```javascript
 module: {
-    rules: [
-      {
-        test: /.(jpg|png|gif)$/,//表示能够处理后缀为jpg,png,gif结尾的图片
-        use: {
-          loader: 'file-loader',
-          options: {
-            // 占位符 placeholder,表示生成的图片的路径
-            //为dist/images/
-            //名字为 `src/`中jpg的图片的名字这里为avatar
-            //avatar_hash值.后缀
-            name: '[name]_[hash].[ext]',
-            outputPath: 'images/'
-          }
+  rules: [
+    {
+      test: /.(jpg|png|gif)$/,//表示能够处理后缀为jpg,png,gif结尾的图片
+      use: {
+        loader: 'file-loader',
+        options: {
+          // 占位符 placeholder,表示生成的图片的路径
+          //为dist/images/
+          //名字为 `src/`中jpg的图片的名字这里为avatar
+          //avatar_hash值.后缀
+          name: '[name]_[hash].[ext]',
+          outputPath: 'images/'
         }
       }
-    ]
-  }
+    }
+  ]
+}
 ```
+
 配置文件见:
 https://github.com/richard1230/CodeLearning/blob/main/Javascript/Webpack/Loader/webpack.config.js
-
 
 ## url-loader
 
 ```shell
 yarn add url-loader
 ```
-使用url-loader会帮我们把图片变成base64的字符串;
-优点:
+
+使用url-loader会帮我们把图片变成base64的字符串; 优点:
 dist---> 少了 `.jpg` 图片文件 --->  减少一次图片的HTTP 请求;
 
-页面加载: js加载完毕;
-图片进入到 bundel.js中(通过base64形式);
-图片过大 ---> bundle.js过大 ---> 页面加载完毕时间很长  --->  空白页面
+页面加载: js加载完毕; 图片进入到 bundel.js中(通过base64形式); 图片过大 ---> bundle.js过大 ---> 页面加载完毕时间很长 --->  空白页面
 
 图片只有1，2kb --->  bundle.js(base64)
 
 图片很大---> file-loader ---> 生成单独的`.jpg`
 去发送额外的HTTP请求,js抽次加载时间就很短，页面很快就会出来
 
-
 ## style-loader和css-loader
+
+首先安装:
+
+```shell
+ yarn add style-loader css-loader
+```
+
+配置文件:
+
 ```javascript
 const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -211,6 +216,41 @@ module.exports = {
       template: './src/index.html'
     }),
     new CleanWebpackPlugin()
+  ]
+}
+```
+
+## sass-loader和postcss-loader
+
+安装:
+
+```shell
+sudo npm install sass sass-loader -D
+yarn add postcss
+yarn add postcss-loader
+
+yarn add autoprefixer
+
+```
+
+package.json:
+
+```json
+"browserslist":[
+"> 1%",
+大于市场1%的浏览器
+"last 2 versions"
+与上2个版本兼容
+],
+
+```
+
+postcss.config.js:
+
+```javascript
+module.exports = {
+  plugins: [
+    require('autoprefixer')
   ]
 }
 ```
