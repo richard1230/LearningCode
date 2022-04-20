@@ -255,3 +255,67 @@ module.exports = {
 }
 ```
 
+
+## CSS模块化
+createAvatar部分代码
+```javascript
+import avatar from "./avatar.jpg";
+
+function createAvatar() {
+  var img = new Image();
+  img.src = avatar;
+  img.className += 'avatar';
+
+  var app = document.getElementById('app');
+  app.appendChild(img);
+}
+
+export default createAvatar;
+```
+index.js代码
+```javascript
+import avatar from './avatar.jpg';
+//全局引入,就是说index.css会同时影响createAvatar()和代码a部分
+//但是实际的需求是只影响部分(这里为代码a部分),另一部分不受影响
+import './index.css';
+import createAvatar from "./createAvatar";
+
+//创建img
+createAvatar();
+
+
+//创建img,设为代码a
+var img = new Image();
+img.src = avatar;
+img.className += 'avatar';
+
+var app = document.getElementById('app');
+app.appendChild(img);
+
+
+```
+怎么实现上面的需求?
+```javascript
+{
+        test: /.scss$/,
+        use : [
+          'style-loader',//将css-loader生成的css代码放入html的head标签里面
+          'css-loader'  //帮助分析css文件之间的引用关系并生成css代码
+        ]
+      }
+```
+变为:
+```javascript
+  {
+        test: /.scss$/,
+        use : [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true  //让css-loader启用CSS Modules(css模块化)功能
+            }
+          },
+        ]
+      }
+```
