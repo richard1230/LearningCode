@@ -15,12 +15,12 @@ function Test() {
 
 console.log(Test.prototype)
 
-const test = new Test()
+var test = new Test()
 console.log(test.__proto__);
 //对象的__proto__  等于 该对象的构造函数的prototype
 console.log(test.__proto__ === Test.prototype);
 
-console.log(Test.prototype.__proto__ === Object.prototype);
+console.log(Test.prototype.__proto__ === Object.prototype);//true
 console.log(Object.prototype.__proto__);//null
 
 console.log("====================我是分割线=================");

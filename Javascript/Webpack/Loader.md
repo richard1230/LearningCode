@@ -319,4 +319,39 @@ app.appendChild(img);
         ]
       }
 ```
+源代码见:
+https://github.com/richard1230/CodeLearning/tree/main/Javascript/Webpack/css_modules
 
+## 打包字体图标
+
+```javascript
+module: {
+    rules: [
+      {
+        test: /.(jpg|png|gif)$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            // 占位符 placeholder
+            name: '[name]_[hash].[ext]',
+            outputPath: 'images/',
+            limit: 2048,
+          },
+        },
+      },
+      {
+        test: /.scss$/,
+        use: [
+          'style-loader', 
+          'css-loader', 
+          'postcss-loader', 
+          'sass-loader'
+        ],
+      },
+      {
+        test: /.(eot|svg|ttf|woff)/,//一般下载好一个iconfont字体图标之后,会包含这几种格式的文件
+        use: 'file-loader' //使用file-loader来打包这几种格式的图片
+      }
+    ],
+  }
+```
