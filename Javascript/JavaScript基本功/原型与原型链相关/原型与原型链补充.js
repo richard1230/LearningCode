@@ -67,10 +67,21 @@ console.log(obj111)//obj111是没有任何属性的,原型也没
 obj111.num = 1;
 var obj222 = Object.create(obj111);
 console.log(obj222)
-obj111.toString()//这里会报错
+// obj111.toString()//这里会报错
 //不是所有的对象都继承于Object.prototype,如果是继承于的，那么上面就不应该报错
 //undefined,null没有toString方法
 //number有toString方法
+
+
+
+
+
+
+
+
+
+
+
 
 
 

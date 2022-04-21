@@ -355,3 +355,5 @@ module: {
     ],
   }
 ```
+源代码见:
+https://github.com/richard1230/CodeLearning/tree/main/Javascript/Webpack/fonts
