@@ -29,3 +29,122 @@ console.log(new Set([1, 2, 3, 4, 5]))//Set(5) { 1, 2, 3, 4, 5 }
 // 4: 5
 
 ```
+
+## 生成器函数
+
+```javascript
+//生成器函数需要有关键字 *
+function* test() {
+  yield 5;
+  yield 2;
+  yield 3;
+  yield 4;
+}
+
+var iter = test();
+
+console.log(iter.next())//{ value: 5, done: false }
+console.log(iter.next())//{ value: 2, done: false }
+
+
+// for (const i of iter) {
+//   console.log(i)
+// }
+
+console.log('=============================================')
+
+function test0() {
+  console.log(1)
+}
+
+var iter = test0();//有返回值
+
+
+function* test01() {
+  console.log(1)
+  yield 5;
+  console.log(2)
+  yield 2;
+  yield 3;
+  yield 4;
+}
+
+var iter = test01();//没有任何返回值
+console.log(iter.next())
+// 1
+// { value: 5, done: false }
+
+
+console.log(iter.next())
+// 2
+// { value: 2, done: false }
+
+//要想打印后面的数据必须调用iter.next()
+
+console.log('=============================================')
+
+
+function* test02() {
+  console.log(1)
+  return 1
+}
+
+var iter = test02();//没有任何返回值
+console.log(iter)//不返回任何值,只返回迭代器对象: Object [Generator] {}
+console.log(iter.next())//{ value: 1, done: true }
+
+
+function* test03() {
+  console.log(1)
+  yield 1;
+}
+
+var iter = test03()
+console.log(iter.next())//{ value: 1, done: false }
+console.log(iter.next())//{ value: undefined, done: true }
+
+
+//生成器函数中一般不要手动去return一个值
+
+
+console.log('=============================================')
+
+
+function* test04() {
+  let val1 = yield 1;//this is val1:two
+  console.log("this is val1:" + val1)
+  let val2 = yield 2;// this is val2:this is three
+  console.log("this is val2:" + val2)
+  let val3 = yield 3;//this is val3:four
+  console.log("this is val3:" + val3)
+  let val4 = yield 4;// this is val4:five
+  console.log("this is val4:" + val4)
+}
+
+var iter = test04()
+console.log(iter.next('oneone'))//{ value: 1, done: false }
+
+console.log(iter.next('two'))
+// this is val1:two
+// { value: 2, done: false }
+
+
+console.log(iter.next('this is three'))
+// this is val2:this is three
+// { value: 3, done: false }
+
+
+console.log(iter.next('four'))
+// this is val3:four
+// { value: 4, done: false }
+
+
+console.log(iter.next('fivefive'))
+// this is val4:fivefive
+// { value: undefined, done: true }
+```
+
+
+
+
+
