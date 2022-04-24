@@ -27,36 +27,45 @@
 //遍历和迭代的区别
 
 
-// var obj = {
-//   a:1,
-//   b:2,
-//   c:3,
-//   [Symbol.iterator](){
-//     var index = 0;
-//     let map = new Map();
-//     map.set('a',1);
-//     map.set('b',2);
-//     map.set('c',3);
-//     console.log(map)
-//     return {
-//       next(){
-//         var mapEntries = [...map.entries()];
-//         if(index < map.size){
-//           return {
-//             value: mapEntries[index++],done:false
-//           }
-//         }
-//         return {value: undefined,done: true}
-//       }
-//     }
-//   }
-// }
+var obj = {
+  a: 1,
+  b: 2,
+  c: 3,
+  [Symbol.iterator]: function* () {
+    var index = 0;
+    let map = new Map();
+    map.set('a', 1);
+    map.set('b', 2);
+    map.set('c', 3);
+    console.log(map)
+    // return {
+    //   next(){
+    //     var mapEntries = [...map.entries()];
+    //     if(index < map.size){
+    //       return {
+    //         value: mapEntries[index++],done:false
+    //       }
+    //     }
+    //     return {value: undefined,done: true}
+    //   }
+    // }
+    var mapEntries = [...map.entries()];
+    while (index < mapEntries.length) {
+      yield mapEntries[index++]
+    }
+    // if(index < map.size){
+    //   return {
+    //     value: mapEntries[index++],done:false
+    //   }
+    // }
+    // return {value: undefined,done: true}
+  }
+}
 //
-// for (const i in obj) {
-//   console.log(i);
-//   console.log( typeof i);
-//
-// }
+for (const i in obj) {
+  console.log(i);
+}
+
 // let map = new Map();
 // map.set('a',1);
 // map.set('b',2);
@@ -184,20 +193,5 @@ console.log(iter.next('four'))
 console.log(iter.next('fivefive'))
 // this is val4:fivefive
 // { value: undefined, done: true }
-
-
-
-
-//MDN官方说法:
-// 一旦遇到 yield 表达式，生成器的代码将被暂停运行，直到生成器的 next() 方法被调用。
-// 每次调用生成器的next()方法时，生成器都会恢复执行，直到达到以下某个值：
-
-// yield，导致生成器再次暂停并返回生成器的新值。下一次调用next()时，在yield之后紧接着的语句继续执行。
-
-// throw用于从生成器中抛出异常。这让生成器完全停止执行，并在调用者中继续执行，正如通常情况下抛出异常一样。
-
-// 到达生成器函数的结尾；在这种情况下，生成器的执行结束，并且IteratorResult给调用者返回undefined并且done为true。
-
-// 到达return 语句。在这种情况下，生成器的执行结束，并将IteratorResult返回给调用者，其值是由return语句指定的，并且done 为true。
 
 
