@@ -195,3 +195,257 @@ console.log(iter.next('fivefive'))
 // { value: undefined, done: true }
 
 
+console.log('======================hi=======================')
+
+//宏任务
+// setTimeout(()=>{
+//   console.log(" 宏任务:setTimeout");
+// },0)
+//
+//
+//
+// new Promise(resolve => {
+//   resolve();//微任务
+//   console.log("同步任务: promise")
+// }).then(value => console.log("微任务: 成功"))
+//
+// console.log("Promise之后的 那个 任务")
+
+// 同步任务: promise
+// Promise之后的 那个 任务
+// 微任务: 成功
+// 宏任务 : setTimeout
+
+console.log('=====================主线程的任务--->微任务队列--->宏任务队列========================')
+//正常情况下: 主线程的任务--->微任务队列--->宏任务队列
+
+let promise = new Promise(resolve => {
+  setTimeout(()=>{
+    console.log("setTimeout里面的宏观任务: setTimeout");
+    resolve();//微任务
+  },0);
+  console.log("同步任务:promise")
+}).then(value => console.log("微任务 成功"))
+
+console.log("Promise之后的 那个 任务")
+
+// 微任务: 成功
+// 宏任务 : setTimeout
+// setTimeout里面的宏观任务: setTimeout
+// 微任务 成功
+
+
+console.log('=================主要是promise相关:============================')
+
+let p1 = new Promise((resolve,reject)=>{
+  resolve('success')//resolve与reject同时有时,默认resolve
+  reject("fail");
+}).then(
+  value => console.log("resolve就打印： "+value),
+  reason => console.log("reject就打印: "+reason)
+)
+//resolve就打印： success
+
+
+let p2 = new Promise((resolve,reject)=>{
+  //如果这里什么都没有,下面的then里面就不会执行,什么都不会执行
+}).then(
+  value => console.log("resolve就打印： "+value),
+  reason => console.log("reject就打印: "+reason)
+)
+
+
+let p3 = new Promise((resolve,reject)=>{
+  resolve('success')//
+}).then(
+  //这里没有对应的函数
+)
+//什么都没输出
+
+
+
+let p4 = new Promise((resolve,reject)=>{
+  reject("fail");
+
+}).then(
+  value => console.log("resolve就打印： "+value),
+  reason => console.log("reject就打印: "+reason)
+)
+//reject就打印: fail
+
+
+
+let p5 = new Promise((resolve,reject)=>{
+    resolve("success...")
+}).then(
+  value => {
+    //aaaaa
+    return new Promise((resolve,reject)=>{
+      resolve("解决了")
+    })
+  },
+  reason => console.log("error: "+ reason)
+).then(
+  //这里的then是对aaaaa这里的Promise的处理
+  value => {
+    console.log("成功了: "+value)
+  }
+)
+//成功了: 解决了
+
+
+let p6 = new Promise((resolve,reject)=>{
+  resolve("success...")
+}).then(//aabbb
+  value => {
+    //
+     new Promise((resolve,reject)=>{
+      resolve("解决了")
+    })
+  },
+  reason => console.log("error: "+ reason)
+).then(
+  //这里的then是对aabbb处的处理
+  value => {
+    console.log("成功了: "+value)
+  }
+)
+//成功了: undefined
+
+
+let p7 = new Promise((resolve,reject)=>{
+  resolve("success...")
+}).then(//aabbb
+  value => {
+   console.log("hello: "+value)
+  },
+  reason => console.log("error: "+ reason)
+
+).then(
+  //这里的then是对aabbb处的处理
+  value => {
+    console.log("成功了: "+value)
+  }
+)
+//hello: success...
+//成功了: undefined
+
+let p8 = new Promise((resolve,reject)=>{
+  resolve("ok");
+}).then(//aabbb
+ value => {
+   new Promise((resolve,reject)=>{
+     setTimeout(()=>{
+       reject("处理失败")
+     },3000);
+   });
+ },
+  reason => console.log("错误："+reason)
+)
+//这里会报错,因为没有对错误进行处理
+//Uncaught (in promise) 处理失败
+
+
+
+let p9 = new Promise((resolve,reject)=>{
+  resolve("ok");
+}).then(//aabbb
+  value => {
+    new Promise((resolve,reject)=>{
+      setTimeout(()=>{
+        reject("处理失败")
+      },3000);
+    }).then(
+      null,
+      r=>{console.log("error: "+r)}
+    );
+  },
+  reason => console.log("错误："+reason)
+)
+//error: 处理失败
+
+console.log('=================其他类型的promise封装:============================')
+
+let p10 = new Promise((resolve,reject)=>{
+  resolve("ok");
+}).then(//aabbb
+  value => {
+   return  {
+     then(resolve,reject){
+       setTimeout(()=>{
+         resolve("这是对象")//aabbcc
+       },3000)
+     }
+   };
+  },
+).then(//这里的then的处理必须要等aabbcc处的resolve的状态改变之后才可执行
+  value => {
+    console.log(value)
+  }
+)
+//这是对象
+
+let p11 = new Promise((resolve,reject)=>{
+  resolve("ok");
+}).then(//aabbb
+  value => {
+    class Hd{
+      then(resolve,reject){
+        setTimeout(()=>{
+          resolve("这是对象")//aabbcc
+        },3000)
+      }
+    }
+    return new Hd();
+  },
+).then(//这里的then的处理必须要等aabbcc处的resolve的状态改变之后才可执行
+  value => {
+    console.log(value)
+  }
+)
+//这是对象
+
+console.log('=================promise封装AJAX请求 :============================')
+
+function request() {
+  return new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+      resolve("连接上了")
+    },3000)
+  })
+}
+
+request().then(value => console.log("成功了： "+value))
+//成功了： 连接上了
+
+
+//https://api.github.com/users/defunkt
+//
+
+function ajax(url) {
+  return new Promise((resolve,reject)=>{
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET",url);
+    xhr.send();
+    xhr.onload = function () {
+      if (this.status === 200){
+        resolve(JSON.parse(this.response))
+      }else {
+        reject("加载失败")
+      }
+    }
+
+    xhr.onerror = function (){
+      reject(this)
+    }
+  })
+}
+
+
+let url = `https://api.github.com/users/defunkt`
+
+
+ajax(`${url}`).then(value => console.log(value),
+    reason => console.log("发生错误！！！"))
+
+

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  function ajax(url) {
+    return new Promise((resolve,reject)=>{
+      let xhr = new XMLHttpRequest();
+      xhr.open("GET",url);
+      xhr.send();
+      xhr.onload = function () {
+        if (this.status === 200){
+          resolve(JSON.parse(this.response))
+        }else {
+          reject("加载失败")
+        }
+      }
+
+      xhr.onerror = function (){
+        reject(this)
+      }
+    })
+  }
+
+
+  let url = `https://api.github.com/users/defunkt`
+
+  ajax(`${url}`).then(value => console.log(value),reason => console.log("发生错误！！！"))
+  ajax(`${url}`).then(value => console.log(value.avatar_url),reason => console.log("发生错误！！！"))
+
+</script>
+</body>
+</html>

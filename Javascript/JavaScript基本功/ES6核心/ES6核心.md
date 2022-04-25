@@ -158,6 +158,140 @@ throw用于从生成器中抛出异常。这让生成器完全停止执行，并
 
 
 
+## Promise
+一个promise对应一个resolve/resolve;
+后面的then是对前面promise的处理(也是一一对应);
+
+```javascript
+let p1 = new Promise((resolve,reject)=>{
+  resolve('success')//resolve与reject同时有时,默认resolve
+  reject("fail");
+}).then(
+  value => console.log("resolve就打印： "+value),
+  reason => console.log("reject就打印: "+reason)
+)
+//resolve就打印： success
+
+
+let p2 = new Promise((resolve,reject)=>{
+  //如果这里什么都没有,下面的then里面就不会执行,什么都不会执行
+}).then(
+  value => console.log("resolve就打印： "+value),
+  reason => console.log("reject就打印: "+reason)
+)
+
+
+let p3 = new Promise((resolve,reject)=>{
+  resolve('success')//
+}).then(
+  //这里没有对应的函数
+)
+//什么都没输出
+
+
+
+let p4 = new Promise((resolve,reject)=>{
+  reject("fail");
+
+}).then(
+  value => console.log("resolve就打印： "+value),
+  reason => console.log("reject就打印: "+reason)
+)
+//reject就打印: fail
+
+
+
+let p5 = new Promise((resolve,reject)=>{
+    resolve("success...")
+}).then(
+  value => {
+    //aaaaa
+    return new Promise((resolve,reject)=>{
+      resolve("解决了")
+    })
+  },
+  reason => console.log("error: "+ reason)
+).then(
+  //这里的then是对aaaaa这里的Promise的处理
+  value => {
+    console.log("成功了: "+value)
+  }
+)
+//成功了: 解决了
+
+
+let p6 = new Promise((resolve,reject)=>{
+  resolve("success...")
+}).then(//aabbb
+  value => {
+    //
+     new Promise((resolve,reject)=>{
+      resolve("解决了")
+    })
+  },
+  reason => console.log("error: "+ reason)
+).then(
+  //这里的then是对aabbb处的处理
+  value => {
+    console.log("成功了: "+value)
+  }
+)
+//成功了: undefined
+
+
+let p7 = new Promise((resolve,reject)=>{
+  resolve("success...")
+}).then(//aabbb
+  value => {
+   console.log("hello: "+value)
+  },
+  reason => console.log("error: "+ reason)
+
+).then(
+  //这里的then是对aabbb处的处理
+  value => {
+    console.log("成功了: "+value)
+  }
+)
+//hello: success...
+//成功了: undefined
+
+let p8 = new Promise((resolve,reject)=>{
+  resolve("ok");
+}).then(//aabbb
+ value => {
+   new Promise((resolve,reject)=>{
+     setTimeout(()=>{
+       reject("处理失败")
+     },3000);
+   });
+ },
+  reason => console.log("错误："+reason)
+)
+//这里会报错,因为没有对错误进行处理
+//Uncaught (in promise) 处理失败
+
+
+
+let p9 = new Promise((resolve,reject)=>{
+  resolve("ok");
+}).then(//aabbb
+  value => {
+    new Promise((resolve,reject)=>{
+      setTimeout(()=>{
+        reject("处理失败")
+      },3000);
+    }).then(
+      null,
+      r=>{console.log("error: "+r)}
+    );
+  },
+  reason => console.log("错误："+reason)
+)
+//error: 处理失败
+
+```
+
 
 
 
