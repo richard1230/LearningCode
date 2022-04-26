@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="box">123123</div>
+<div >123123</div>
+<div >12222</div>
+<div class="box">123123</div>
+<div class="box">223344</div>
+
+<input type="text" name="username" />
+<div class="text">123</div>
+<div class="text"> 12355 </div>
+<div>
+  <h1>
+    <p>
+      123
+    </p>
+  </h1>
+</div>
+<div>
+  <p>234</p>
+</div>
+
+<div class="box">123</div>
+<div class="box">234</div>
+<div class="box">345</div>
+
+<ul>
+  <li>
+    <h2> 我是标题标签 </h2>
+    <a href="">我是超链接</a>
+    <p>我是段落标签</p>
+  </li>
+</ul>
+
+<ul>
+  <li>
+   <!--<h2> 我是标题标签 </h2>   注释-->
+    <a href="">我是超链接</a>
+    <p>我是段落标签</p>
+    <h1>标题标签</h1>
+  </li>
+</ul>
+
+
+<script type="text/javascript">
+  // var box = document.getElementById("box")//一般不用id,只有这一个是单个的,其他都是一组一组的
+  // var boxes = document.getElementsByTagName("div")//类数组--->重要,这不是数组
+  // var box = document.getElementsByTagName("div")[0]
+  //  var boxes = document.getElementsByClassName("box")
+  // var boxes0 = document.getElementsByClassName("box")[0]
+  // boxes0.style.color = "red"
+  // var input1 = document.getElementsByName('username')//用的少
+
+  //querySelector() querySelectorAll  ---> 早就存在了
+  //HTML5 新引入的
+  //性能不行
+  //不实时
+  //公司里面要少用
+
+  // var div1 = document.querySelector('div')//默认选第一个
+  // var p1 = document.querySelector('div > p')
+  // var p2 = document.querySelector('div  p')
+
+  // var divs = document.querySelectorAll("div")//和下面效果一样,但是效果比不上前面的getElementsByName等函数
+  // var divs1 = document.querySelectorAll(".box")//和上面效果一样
+  // console.log(divs)
+  // divs[0].remove();
+  // console.log(divs)//会发现divs没有发生变化,--->不实时
+
+  //遍历节点树 - 元素节点树
+  //节点包含元素
+  //节点包含元素--> 元素节点 = DOM元素
+  //parentNode
+  //childNode  --->易错点
+  //1.元素节点
+  //2.属性节点
+  //3.文本节点
+  //4.注释节点
+  //5.document
+  //6.DocumentFragment
+  // var a = document.getElementsByTagName('a')[0]
+
+  var li = document.getElementsByTagName('li')[0];
+  console.log(li.childNodes.length)//9
+  //nextSibling，previousSibling,firstChild,lastChild，parentNode，childNode--->用于遍历节点树
+
+
+  //遍历元素节点树
+  //parentElement
+  //children
+  //childElementCount = children.legth
+  //firstElementChild,lastElementChild
+  //previousElementSibling,nextElementSibling
+
+
+</script>
+
+</body>
+</html>

@@ -217,7 +217,7 @@ console.log('======================hi=======================')
 // 宏任务 : setTimeout
 
 console.log('=====================主线程的任务--->微任务队列--->宏任务队列========================')
-//正常情况下: 主线程的任务--->微任务队列--->宏任务队列
+//正常情况下: 主线程的任务--->微任务队列--->宏任务队列(setTimeout就是宏任务)
 
 let promise = new Promise(resolve => {
   setTimeout(()=>{
@@ -447,5 +447,20 @@ let url = `https://api.github.com/users/defunkt`
 
 ajax(`${url}`).then(value => console.log(value),
     reason => console.log("发生错误！！！"))
+
+console.log('=================封装 promise============================')
+
+function timeout(delay = 1000) {
+  return new Promise(resolve => setTimeout(resolve,delay))
+}
+
+timeout(2000)
+.then(()=>{
+  console.log("baidu.com");
+  return timeout(2000)
+})
+.then(value => console.log("hahahha"))
+
+
 
 
