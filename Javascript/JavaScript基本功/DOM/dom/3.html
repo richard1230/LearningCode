@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--<div>123</div>-->
+<!--<p>234</p>-->
+<div>
+  <p class="text" name="p">111</p>
+  <input type="text" name="username">
+</div>
+<script type="text/javascript">
+  // function Document() {
+  //
+  // }
+  //
+  // Document.prototype = {
+  //   getElementById: function () {},
+  //   ...
+  //   }
+  //
+  //   var document = new Document();
+
+  HTMLDocument.prototype.say = function () {
+    console.log("我在说话")
+  }
+
+  Document.prototype.eat = function () {
+    console.log("我在吃")
+  }
+
+  document.say();//我在说话
+  document.eat()//我在吃
+
+
+  Text.prototype.aaa = 'aaa';
+  CharacterData.prototype.bbb = 'bbb';
+  var div = document.getElementsByTagName('div')[0];
+  var text = div.childNodes[0];
+  console.log(text.aaa)///aaa
+  console.log(text.bbb)//bbb
+
+
+  Element.prototype.aaa = 'aaa';
+  HTMLElement.prototype.bbb = 'bbb';
+  HTMLDivElement.prototype.ccc = 'ccc';
+  var div = document.getElementsByTagName('div')[0];
+  typeof document.getElementsByTagName('div')[0]//object类型
+  document.getElementsByTagName('div')[0].constructor === HTMLDivElement//true
+  //就是说div的构造就是HTMLDivElement
+
+  var p = document.getElementsByTagName('p')[0];//而p的构造是HTMLParagraphElement
+
+  console.log(div.aaa)//aaa
+  console.log(div.bbb)//bbb
+  console.log(div.ccc)//ccc
+
+  console.log(p.aaa);//aaa
+  console.log("p.bbb: "+p.bbb)//bbb
+  console.log(p.ccc)//没有任何结果，因为HTMLDivElement与HTMLParagraphElement是同一级的
+  //HTMLDivElement与HTMLParagraphElement的父级为HTMLElement
+
+  //判断对象类型,这里可以判断是什么类型的标签
+  Object.prototype.toString.call(div)
+  //"[object HTMLDivElement]"
+
+
+  //Node
+  //DOM操作深入!!!!
+  Document.prototype.getElementById()
+  Document.prototype.getElementsByName()
+
+  //getElementById,getElementsByName只有Document.prototype才有!!!!!!
+  // var div = document.getElementsByName('div')[0];
+  // div.getElementById()//会报错
+
+
+  document.__proto__ //---》HTMLDocument
+  //HTMLDocument，这说明document是HTMLDocument实例化之后构造出来的
+  //一切的原型链是以原型来连接的
+
+   // Document.prototype.querySelectorAll()
+  //getElementsByTagName
+  //getElementsByClassName
+  //querySelector(),querySelectorAll()
+  //上面这四个函数在Document.prototype和  Element.prototype里面都有！！！！！！
+
+  //*  --->获取标签用的,只能配getElementsByTagName
+  var all = document.getElementsByTagName('*')
+  console.log(all)
+
+  var body = document.body;//这里的body是通过document.body来使用的，这个属性是系统内置的,只能使用，不能访问
+  //HTMLDocument.prototype.body  //会报错
+  var head = document.head;
+
+
+</script>
+
+</body>
+</html>
