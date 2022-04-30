@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+  //函数内部的this ---> 指向window
+  //全局的this ---> 指向window (默认情况下)
+  // function f(b) {
+  //   this.d = 3;
+  //   c = 2
+  //   window.f = 7
+  //   var a = 1;
+  //
+  // }
+  //
+  // f(123)
+  // console.log(this.d)//3
+  // console.log(c)//2
+  // console.log(f)//7
+  // console.log(a)//会报错
+
+  // function foo(){
+  //   a = 1 ;
+  //   console.log(this.a);
+  // }
+  // var a = 10;
+  // foo();//1,-->这个函数里面的a其实是全局的,相当于函数里面的a将外面的a给覆盖了
+  //
+  // function foo(){
+  //   var  a = 1 ;
+  //   console.log(this.a);//函数内部的this ---> 指向window
+  // }
+  // var a = 10;
+  // foo();//10
+
+
+
+
+  console.log("=======================================")
+  //this的值是在函数执行时决定的,不是在函数定义的时候决定的
+  //
+
+  // function test() {
+  //   console.log('this: '+this);
+  // }
+  //
+  // test()//this: [object Window]
+  //
+  // test.call({name: 'hello'});//this: [object Object]
+  // test.apply({name:'this is apply'})//this: [object Object]
+
+  class Person{
+    constructor(name) {
+      this.name = 18;
+      console.log("constructor里面的this:"+this);
+    };
+    test11(){
+      console.log("对象方法里面的this: ",this)
+    };
+
+    asyncTest(){
+      console.log("对象方法里面的this,但是是在setTimeout外面的: ",this)//this指向Person
+
+      setTimeout(function () {
+        console.log('setTimeout 回调中的this: ',this)
+      },0)
+    }
+
+    asyncTest1(){
+
+      setTimeout(()=> {
+        console.log('setTimeout 回调中的this,注意这里用的是箭头函数: ',this)
+      },0)
+    }
+  }
+
+  const zs = new Person(20);//constructor里面的this:[object Object]
+  zs.test11();//对象方法里面的this:  Person
+  zs.asyncTest();//setTimeout 回调中的this:  Window---->因为是直接执行的
+  zs.asyncTest1()//setTimeout 回调中的this,注意这里用的是箭头函数:  Person
+                // =====>注意:这里的this与上一级作用域this指向是一样的!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

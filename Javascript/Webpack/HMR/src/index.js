@@ -23,4 +23,4 @@ if (module.hot) {
     document.body.removeChild(numberDiv);
     number();
   })
-}
+}u

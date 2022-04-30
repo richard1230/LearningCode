@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>
+  已进行<span>0</span>秒
+</h1>
+
+<script type="text/javascript">
+  //日期对象  Date()
+  //实例化
+  // var date = new Date();
+
+
+  // date.getDate() ：一个月的第几天  1-31  返回几号
+  // date.getDay()：当前是一周中的第几天
+
+  //每隔特定的毫秒数执行一次内部的函数
+  // setInterval(function () {
+  //   console.log("hello,world")
+  // },1000)
+  // function test() {
+  //   console.log(1)
+  // }
+  //
+  // function test2() {
+  //   console.log(2)
+  // }
+  //
+  // setInterval(test,1000)//
+  // setInterval('test2()',1000)// 和上面的用法等效
+
+  var oH1 = document.getElementsByTagName('h1')[0],
+    oSpan = oH1.getElementsByTagName('span')[0],
+    sec = 0;
+
+  //timer1是计时器的标识
+  timer1 = setInterval(function () {
+    oSpan.innerText = sec++;
+    if(sec>10){
+      clearInterval(timer1)
+    }
+  }, 1000);
+
+
+
+</script>
+
+</body>
+</html>

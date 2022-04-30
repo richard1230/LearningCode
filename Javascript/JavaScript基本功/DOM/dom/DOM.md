@@ -471,4 +471,6 @@ for (let i = 0; i < 1000; i++) {
   oFrag.appendChild(oLi)//注意:这里的oFrag不在DOM节点树里面!!!
 }
 oUI.appendChild(oFrag);
+
 ```
+![oFrag](https://mmbiz.qpic.cn/mmbiz_png/YmmVSe19Qj5VS8icRuoHicPoSrwLEKtLNicALUngkudtuPrLF695k3cRtZ2DkuTmmy9Jnbia2kKtYwDibRyLoQzkKLw/0?wx_fmt=png)
