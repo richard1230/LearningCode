@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<ul id="list"></ul>
+
+
+<script type="text/javascript">
+  // document.createDocumentFragment()
+  //创建文档碎片
+  //o开头的表示文档对象
+  var oUI = document.getElementById('list');
+
+  // for (let i = 0; i < 10000; i++) {
+  //   var oLi = document.createElement('li');
+  //   oLi.innerHTML = i+ ': 这是第' +  i + '个项目';
+  //   oLi.className = 'list-item';
+  //   oUI.appendChild(oLi)
+  // }
+  //上面这部分代码有个问题,每次 创建Li的时候都要回流一次(就是要测算某些元素直接的距离和几何关系,然后渲染)
+  //每调用一次appendChild就要计算一下几何数据
+  //下面看解决方法：
+  // var oDiv = document.createElement('div');
+  // for (let i = 0; i < 1000; i++) {
+  //   var oLi = document.createElement('li');
+  //   oLi.innerHTML = i + ': 这是第' + i + '个项目';
+  //   oLi.className = 'list-item';
+  //   // oUI.appendChild(oLi)
+  //   oDiv.appendChild(oLi)//注意:这里的oDiv不在节点树里面!!!
+  // }
+  // oUI.appendChild(oDiv)
+
+  //但是上面的代码仍然还有一个不足:
+  //多了个div节点,因为li就是要在ul里面，不需要div
+  //终极解决方案:
+  // createDocumentFragment()
+  var oFrag = document.createDocumentFragment();
+  for (let i = 0; i < 1000; i++) {
+    var oLi = document.createElement('li');
+    oLi.innerHTML = i + ': 这是第' + i + '个项目';
+    oLi.className = 'list-item';
+    // oUI.appendChild(oLi)
+    oFrag.appendChild(oLi)//注意:这里的oFrag不在DOM节点树里面!!!
+  }
+ oUI.appendChild(oFrag);
+
+
+</script>
+
+</body>
+</html>

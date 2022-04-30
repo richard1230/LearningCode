@@ -206,12 +206,15 @@ Object.prototype.toString.call(div)
 1.getElementById,getElementsByName只有Document.prototype才有!!!!!!<br>
 2.getElementsByTagName ,getElementsByClassName ,querySelector(),querySelectorAll()
 这四个函数在Document.prototype和 Element.prototype里面都有！！！！！！
+
 ```html
+
 <div>
   <p class="text" name="p">111</p>
   <input type="text" name="username">
 </div>
 ```
+
 ```javascript
 //getElementById,getElementsByName只有Document.prototype才有!!!!!!
 // var div = document.getElementsByName('div')[0];
@@ -237,7 +240,235 @@ var body = document.body;//这里的body是通过document.body来使用的，这
 var head = document.head;
 
 ```
+
 ## DOM节点操作
 
+创建:
+
+```javascript
+//创建
+var div = document.createElement('div');
+div.innerHTML = 123;
+document.body.appendChild(div);
+
+var text = document.createTextNode('Hello world')
+document.body.appendChild(text)
+
+```
+
+增加子节点:
+
+```html
+<a href="">我是超链接</a>
+
+```
+
+```javascript
+ var a = document.getElementsByTagName('a')[0];
+var div = document.createElement('div');
+div.innerHTML = '<p>我是段落标志</p>'
+document.body.appendChild(div);//增加子节点--->总是在父级元素的最下边增加节点
+```
+
+![增加子节点](https://mmbiz.qpic.cn/mmbiz_png/YmmVSe19Qj5hCEZaaqP63CmMQNQ4PCus5K3QWqhoLSTV4gUfDvKtThMD4oKYjLPxiae5ProLLSeJR4pLPVLjWYA/0?wx_fmt=png)
+
+减少节点:
+
+```javascript
+ var a = document.getElementsByTagName('a')[0];
+var div = document.createElement('div');
+div.innerHTML = '<p>我是段落标志</p>'
+document.body.appendChild(div);
+div.appendChild(a);//除了增加，还有剪切节点的功能,这里就是体现
+//a标签从上面移到了下面
+```
+
+![减少节点](https://mmbiz.qpic.cn/mmbiz_png/YmmVSe19Qj5hCEZaaqP63CmMQNQ4PCusP8eRUy6lV7KwNAiaRBE0tmxyPvuJlDFfMIwR2dpfjgOsVMxedTTkeQw/0?wx_fmt=png)
+
+### 插入节点
+
+插入前：
+
+```javascript
+<div>
+  <p>我是段落标签</p>
+</div>
+```
+
+插入操作:
+
+```javascript
+//插入: 在父级c节点下的子节点b之前插入a节点
+var div = document.getElementsByTagName('div')[0];
+var p = document.getElementsByTagName('p')[0];
+var a = document.createElement('a');
+a.href = 'www.baidu.com';
+//插入: 在父级div节点下的子节点p之前插入a节点
+div.insertBefore(a, p)
+```
+
+插入后:
+
+```javascript
+<div>
+  <a href="www.baidu.com"></a>
+  <p>我是段落标签</p>
+</div>
+```
+
+## 删除
+
+```html
+
+<div>
+  <h1>我是标题</h1>
+  <p>我是段落标签</p>
+</div>
+```
+
+```javascript
+ // //removeChild(子节点)--->删除子节点
+// var div = document.createElement('div');
+// document.body.appendChild(div);
+// body.removeChild(div)//这一步其实只是将上一步的div从文档中抽离了(就是说你在视图中看不了了)
+// //但是其实还是在内存里面的!!!
+
+//节点:
+//元素  文本  注释  属性  document  documentFragment
+
+//  <p>我是段落标签</p>  //--->这是一个元素
+//元素--->元素节点具有下面的若干属性:
+//nodeName nodeValue nodeType attributes  hasChildNOdes
+//元素  -> 构造函数实例化             -->    div节点
+//div       new HTMLDivElement()            removeChild(div)
+//          div对象存到了内存当中             只是删除了节点
 
 
+//那么真正能够销毁的操作又是什么
+var div = document.getElementsByTagName('div')[0];
+var p = document.getElementsByTagName('p')[0];
+p.remove()
+
+
+```
+
+### setAttribute
+
+```html
+
+<style>
+  .running {
+    color: green;
+  }
+
+  .warning {
+    color: yellow;
+  }
+
+  .danger {
+    color: red;
+  }
+</style>
+
+<div class="running ">
+  系统正常运行中...
+</div>
+```
+
+```javascript
+  var div = document.getElementsByTagName('div')[0]
+
+function setSystemStatus(status) {
+  div.setAttribute('class', status);
+  switch (status) {
+    case 'running':
+      div.innerHTML = '系统正常运行中';
+      break;
+    case 'warning':
+      div.innerHTML = '系统有警告';
+      break;
+    case 'danger':
+      div.innerHTML = '系统存在危险';
+      break;
+    default:
+      div.innerHTML = '系统处于为知状态';
+
+  }
+
+}
+```
+
+## data- 属性
+
+```html
+<p data-name="linus" data-age="18">
+  My name is Linus
+</p>
+<script type="text/javascript">
+  //HTML5给元素增加了一个 data- * 属性
+  var p = document.getElementsByTagName('p')[0];
+  // p.dataset
+  // DOMStringMap {name: 'linus', age: '18'}
+  // age: "18"
+  // name: "linus"
+  // p.dataset.name
+  // 'linus'
+  // p.dataset.age
+  // '18'
+  // p.getAttribute('data-name')
+  // 'linus'
+  // p.getAttribute('data-age')
+  // '18'
+</script>
+```
+
+### 创建文档碎片
+
+文档碎片:<br>
+是一个节点,但是它不存在于dom节点树里面,但是又可以接受li,最后又可以交给Ul; 它就是一个容器，可以保存li,最后保存好之后这些片段又可以交给ul(DOM结构);
+在写列表的时候,都要先使用DocumentFragment保存列表的dom结构,保存完之后再交给外层容器!!!
+
+```html
+
+<ul id="list"></ul>
+```
+
+```javascript
+// document.createDocumentFragment()
+//创建文档碎片
+//o开头的表示文档对象
+var oUI = document.getElementById('list');
+
+// for (let i = 0; i < 10000; i++) {
+//   var oLi = document.createElement('li');
+//   oLi.innerHTML = i+ ': 这是第' +  i + '个项目';
+//   oLi.className = 'list-item';
+//   oUI.appendChild(oLi)
+// }
+//上面这部分代码有个问题,每次 创建Li的时候都要回流一次(就是要测算某些元素直接的距离和几何关系,然后渲染)
+//每调用一次appendChild就要计算一下几何数据
+//下面看解决方法：
+// var oDiv = document.createElement('div');
+// for (let i = 0; i < 1000; i++) {
+//   var oLi = document.createElement('li');
+//   oLi.innerHTML = i + ': 这是第' + i + '个项目';
+//   oLi.className = 'list-item';
+//   // oUI.appendChild(oLi)
+//   oDiv.appendChild(oLi)//注意:这里的oDiv不在节点树里面!!!
+// }
+// oUI.appendChild(oDiv)
+
+//但是上面的代码仍然还有一个不足:
+//多了个div节点,因为li就是要在ul里面，不需要div
+//终极解决方案:
+// createDocumentFragment()
+var oFrag = document.createDocumentFragment();
+for (let i = 0; i < 1000; i++) {
+  var oLi = document.createElement('li');
+  oLi.innerHTML = i + ': 这是第' + i + '个项目';
+  oLi.className = 'list-item';
+  // oUI.appendChild(oLi)
+  oFrag.appendChild(oLi)//注意:这里的oFrag不在DOM节点树里面!!!
+}
+oUI.appendChild(oFrag);
+```

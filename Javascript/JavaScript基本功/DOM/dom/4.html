@@ -4,18 +4,126 @@
   <meta charset="UTF-8">
   <title>Title</title>
 </head>
+<!--<a href="">我是超链接</a>-->
+<!--<div class="box1" >-->
+<!--  <h1>我是标题</h1>-->
+<!--  <p>我是段落标签</p>-->
+<!--  <a href="">我是超链接</a>-->
+<!--<ul id="list"></ul>-->
+<!--</div>-->
+<style>
+  .running{
+    color: green;
+  }
+
+  .warning{
+    color: yellow;
+  }
+
+  .danger{
+    color: red;
+  }
+</style>
+
+<div class="running ">
+  系统正常运行中...
+</div>
 <body>
 <script type="text/javascript">
   //创建
-  var div = document.createElement('div');
-  div.innerHTML=123;
-  document.body.appendChild(div);
-
-  var text = document.createTextNode('Hello world')
-  document.body.appendChild(text)
+  // var div = document.createElement('div');
+  // div.innerHTML=123;
+  // document.body.appendChild(div);
+  //
+  // var text = document.createTextNode('Hello world')
+  // document.body.appendChild(text)
 
   //appendChild  增加子节点--->总是在父级元素的最下边增加节点
   //在 Node.prototype里面
+
+  // var a = document.getElementsByTagName('a')[0];
+  // var div = document.createElement('div');
+  // div.innerHTML = '<p>我是段落标志</p>'
+  // document.body.appendChild(div);
+  // div.appendChild(a);//除了增加，还有剪切节点的功能,这里就是体现
+
+  //插入: 在父级c节点下的子节点b之前插入a节点
+  // var div = document.getElementsByTagName('div')[0];
+  // var p = document.getElementsByTagName('p')[0];
+  // var a = document.createElement('a');
+  // a.href = 'www.baidu.com';
+  // //插入: 在父级div节点下的子节点p之前插入a节点
+  // div.insertBefore(a,p)
+  // a.innerHTML = '我是超链接'
+  //
+  // //removeChild(子节点)--->删除子节点
+  // var div = document.createElement('div');
+  // document.body.appendChild(div);
+  // body.removeChild(div)//这一步其实只是将上一步的div从文档中抽离了(就是说你在视图中看不了了)
+  // //但是其实还是在内存里面的!!!
+
+  //节点:
+  //元素  文本  注释  属性  document  documentFragment
+
+  //  <p>我是段落标签</p>  //--->这是一个元素
+  //元素--->元素节点具有下面的若干属性:
+  //nodeName nodeValue nodeType attributes  hasChildNOdes
+  //元素  -> 构造函数实例化             -->    div节点
+  //div       new HTMLDivElement()            removeChild(div)
+  //          div对象存到了内存当中             只是删除了节点
+
+
+  //那么真正能够销毁的操作又是什么
+  // var div = document.getElementsByTagName('div')[0];
+  // var p = document.getElementsByTagName('p')[0];
+  // p.remove()
+
+  //innerHTML   innerText
+  //
+  var div = document.getElementsByTagName('div')[0]
+  //replaceChild(new,origin);
+ //  div.setAttribute('id','box');
+ //
+ // var attr = div.getAttribute('class')
+  
+  function setSystemStatus(status) {
+    div.setAttribute('class',status);
+    switch (status) {
+      case 'running':
+        div.innerHTML = '系统正常运行中';
+        break;
+        case 'warning':
+          div.innerHTML = '系统有警告';
+        break;
+        case 'danger':
+          div.innerHTML = '系统存在危险';
+          break;
+          default:
+            div.innerHTML = '系统处于为知状态';
+
+    }
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
 
 </body>

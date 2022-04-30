@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<!--<p  data-name="linus" data-age="18">-->
+<!--  My name is Linus-->
+<!--</p>-->
+<a href="javascript:;"  data-uri="txwz" data-sort="free">天下无贼</a><br/>
+<a href="javascript:;"  data-uri="fczlm" data-sort="pay">复仇者联盟</a><br/>
+<a href="javascript:;"  data-uri="hgf" data-sort="free">黑寡妇</a><br/>
+<a href="javascript:;"  data-uri="gtx" data-sort="pay">钢铁侠</a><br/>
+<script type="text/javascript">
+  //HTML5给元素增加了一个 data- * 属性
+// var p = document.getElementsByTagName('p')[0];
+  // p.dataset
+  // DOMStringMap {name: 'linus', age: '18'}
+  // age: "18"
+  // name: "linus"
+  // p.dataset.name
+  // 'linus'
+  // p.dataset.age
+  // '18'
+  // p.getAttribute('data-name')
+  // // 'linus'
+  // p.getAttribute('data-age')
+  // '18'
+
+  var links = document.getElementsByTagName('a');
+
+  for (let i = 0; i < links.length; i++) {
+    (function (j) {
+      links[j].onclick = function () {
+        var sort = this.dataset.sort;
+        var uri = this.dataset.uri;
+
+        if (sort === 'free'){
+             window.open('http://www.baidu.com');
+        }else {
+          alert("这是付费的")
+        }
+      } 
+    })(i);
+  }
+</script>
+</body>
+</html>
