@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div>
+  <p>p标签</p>
+  <h1>h1标签</h1>
+  <a href="">超级链接</a>
+  <strong>strong</strong>
+  <em>em</em>
+  <h2>h2</h2>
+</div>
+
+<script type="text/javascript">
+  //写寻找兄弟元素节点  参数 + 找之后， - 找之前， 0 找自己
+  var strong = document.getElementsByTagName('strong')[0];
+
+
+  // for ( elem = elem.nextSibling ; elem && elem.nodeType !==1 ; elem = elem.nextSibling) {
+  //
+  // }
+  //
+  // for(1;2;3){
+  //    1存在;满足2这个条件,执行3
+  //    1存在;不满足2这个条件,退出循环
+
+  // }
+
+  Element.prototype.elemStibling = function (n) {
+    var elem = this;
+
+    while (n) {
+      if (n > 0) {
+        elem = elem.nextSibling;
+        while (elem && elem.nodeType !== 1) {
+          elem = elem.nextSibling;
+        }
+        n--;
+      } else if (n < 0) {
+        elem = elem.previousSibling;
+        while (elem && elem.nodeType !== 1) {
+          elem = elem.previousSibling;
+        }
+        n++;
+      }
+    }
+
+    return elem;
+  }
+
+   strong.elemStibling(0)
+  // <strong/>strong</strong>
+  strong.elemStibling(1)
+  // <em>em</em>
+  strong.elemStibling(-1)
+  // <a href>超级链接</a>
+
+</script>
+</body>
+</html>

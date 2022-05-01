@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div class="box">
+  <ul>
+    <li>
+      <h1>111</h1>
+      <a href="">22222</a>
+      <p>33333</p>
+      <div>
+        <ul>
+          <li>44444</li>
+          <li>
+            <h2>55555</h2>
+            <a href="">66666</a>
+            <p>777777</p>
+          </li>
+        </ul>
+
+      </div>
+    </li>
+  </ul>
+  <div>
+    <p>
+      <a>88888</a>
+    </p>
+    <h1>
+      <strong>99999</strong>
+      <span>00000</span>
+    </h1>
+  </div>
+</div>
+
+<script type="text/javascript">
+  var box = document.getElementsByClassName('box')[0];
+
+  getFullchildren(box)
+
+  function getFullchildren(node) {
+    var children = node.childNodes,
+      len = children.length,
+      item;
+
+    if (node && node.nodeType === 1) {
+      console.log(node)
+    }
+
+    for (let i = 0; i < len; i++) {
+      item = children[i];
+      if (item.nodeType === 1) {
+        getFullchildren(item)
+      }
+    }
+  }
+
+</script>
+
+</body>
+</html>

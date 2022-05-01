@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div>
+  <p></p>
+</div>
+
+<script type="text/javascript">
+var p = document.getElementsByTagName('p')[0];
+
+setInterval(function () {
+  p.innerHTML = new Date().getDateTime();
+},1000)
+
+Date.prototype.getDateTime = function () {
+  var year = this.getFullYear(),
+    month = this.getMonth() + 1,
+    day = this.getDate(),
+    hours = this.getHours(),
+    minutes = this.getMinutes(),
+    seconds = this.getSeconds();
+  function setZero(num) {
+    if(num < 10){
+      num = '0' + num ;
+    }
+    return num;
+  }
+
+  return year + '-' + setZero(month) + '-' + setZero(day) + ' ' + setZero(hours) +
+         ':' + setZero(minutes) +  ':' + setZero(seconds);
+}
+</script>
+
+</body>
+</html>

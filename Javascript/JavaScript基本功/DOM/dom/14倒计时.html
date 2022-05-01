@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<p></p>
+<script type="text/javascript">
+  var oPara = document.getElementsByTagName('p')[0],
+    endTime = new Date(2022, 5, 15, 23, 59, 59).getTime(),
+    t = null;
+
+  t = setInterval(function () {
+    oPara.innerHTML = new Date().countDown(endTime, t);
+  }, 1000)
+
+  Date.prototype.countDown = function (endTime, timer) {
+    var nowTime = this.getTime(),
+      lefTime = (endTime - nowTime) / 1000,
+      d, h, m, s;
+
+    if (lefTime >= 0) {
+      d = Math.floor(lefTime / 60 / 60 / 24);
+      h = Math.floor(lefTime / 60 / 60 % 24);
+      m = Math.floor(lefTime / 60 % 60);
+      s = Math.floor(lefTime % 60);
+    } else {
+      clearInterval(timer)
+    }
+
+    return d + '天' + h + '时' + m + '分钟' + s + '秒';
+  }
+
+
+  // Math.round(-5.3)//-5
+  // Math.round(-5.5)//-5
+  // Math.round(-5.6)//-6
+  // Math.round(5.5)//6
+
+</script>
+
+</body>
+</html>

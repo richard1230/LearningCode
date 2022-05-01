@@ -37,6 +37,8 @@
   //多了个div节点,因为li就是要在ul里面，不需要div
   //终极解决方案:
   // createDocumentFragment()
+  // var oUI = document.getElementById('list');
+
   var oFrag = document.createDocumentFragment();
   for (let i = 0; i < 1000; i++) {
     var oLi = document.createElement('li');

@@ -371,3 +371,36 @@ new new foo().getName ();      // 3
 
 
 ```
+5th题
+```javascript
+  class Person{
+    constructor(name) {
+      this.name = 18;
+      console.log("constructor里面的this:"+this);
+    };
+    test11(){
+      console.log("对象方法里面的this: ",this)
+    };
+
+    asyncTest(){
+      console.log("对象方法里面的this,但是是在setTimeout外面的: ",this)//this指向Person
+
+      setTimeout(function () {
+        console.log('setTimeout 回调中的this: ',this)
+      },0)
+    }
+
+    asyncTest1(){
+      setTimeout(()=> {
+        console.log('setTimeout 回调中的this,注意这里用的是箭头函数: ',this)
+      },0)
+    }
+  }
+
+  const zs = new Person(20);//constructor里面的this:[object Object]
+  zs.test11();//对象方法里面的this:  Person
+  zs.asyncTest();//setTimeout 回调中的this:  Window---->因为是直接执行的
+  zs.asyncTest1()//setTimeout 回调中的this,注意这里用的是箭头函数:  Person
+                // =====>注意:这里箭头函数的this与上一级作用域this指向是一样的!!!
+```
+

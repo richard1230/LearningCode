@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div>
+  <ul>
+    <li>
+      <p>
+        <a href=""></a>
+      </p>
+    </li>
+  </ul>
+</div>
+<script type="text/javascript">
+  //在原型上面写一个元素的第N层父级元素
+  var a = document.getElementsByTagName('a')[0];
+  Element.prototype.elemParent = function (n) {
+    var type = typeof (n),
+      elem = this;
+
+    if (type === 'undefined' || type !== 'number') {
+      return elem.parentNode;
+    } else if (n < 0) {
+      return undefined
+    }
+
+
+    while (n) {
+      if (elem.nodeName === 'HTML') {
+        elem = null
+        return elem
+      }
+      elem = elem.parentNode;
+      n--;
+    }
+    return elem
+  }
+
+  console.log(a.elemParent(3))
+</script>
+
+</body>
+</html>

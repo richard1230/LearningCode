@@ -474,3 +474,104 @@ oUI.appendChild(oFrag);
 
 ```
 ![oFrag](https://mmbiz.qpic.cn/mmbiz_png/YmmVSe19Qj5VS8icRuoHicPoSrwLEKtLNicALUngkudtuPrLF695k3cRtZ2DkuTmmy9Jnbia2kKtYwDibRyLoQzkKLw/0?wx_fmt=png)
+
+
+## 总结
+
+1.只有`getElementById`是Element单数,其余为复数;
+- 1.getElementById,getElementsByName只有Document.prototype才有!!!!!!<br>
+- 2.`getElementsByTagName ,getElementsByClassName ,querySelector(),querySelectorAll()`,这四个函数在`Document.prototype`和` Element.prototype`里面都有！！！！！！
+
+2.`querySelector() querySelectorAll`一般不用；
+
+3.`nextSibling`与`nextElementSibling`区别:<br>
+nextSibling属性返回元素节点之后的兄弟节点（包括文本节点、注释节点即回车、换行、空格、文本等等）;<br>
+nextElementSibling属性只返回元素节点之后的兄弟元素节点（不包括文本节点、注释节点）;<br>
+
+
+4.节点类型:
+- 1.元素节点  -> 1
+- 2.属性节点   --> 2
+- 3.文本节点    -> 3
+- 4.注释节点   -> 8
+- 5.document -> 9
+- 6.DocumentFragment  -> 11
+
+```javascript
+ div.nodeType
+  // 1
+  div.getAttributeNode('class').nodeType
+  //2
+  div.getAttributeNode('id')
+  // box
+  div.getAttributeNode('id').nodeType//2
+  div.firstChild.nodeValue = "hello"
+  div.firstChild.nodeType
+  // 3
+```
+
+5.判断对象类型,这里可以判断是什么类型的标签
+```javascript
+Object.prototype.toString.call(div)
+//"[object HTMLDivElement]"
+```
+
+
+6. `*  --->获取标签用的,只能配getElementsByTagName,  获取所有元素节点`
+```javascript
+  var all = document.getElementsByTagName('*')
+    console.log(all)
+
+var body = document.body;//这里的body是通过document.body来使用的，这个属性是系统内置的,只能使用，不能访问
+//HTMLDocument.prototype.body  //会报错
+var head = document.head;
+```
+
+7.添加自定义属性:
+```html
+<a href="javascript:;"  data-uri="txwz" data-sort="free">天下无贼</a><br/>
+<a href="javascript:;"  data-uri="fczlm" data-sort="pay">复仇者联盟</a><br/>
+<a href="javascript:;"  data-uri="hgf" data-sort="free">黑寡妇</a><br/>
+<a href="javascript:;"  data-uri="gtx" data-sort="pay">钢铁侠</a><br/>
+```
+```javascript
+//HTML5给元素增加了一个 data- * 属性
+var p = document.getElementsByTagName('p')[0];
+  p.dataset
+  // DOMStringMap {name: 'linus', age: '18'}
+  // age: "18"
+  // name: "linus"
+  p.dataset.name
+  // 'linus'
+  p.dataset.age
+  // '18'
+  p.getAttribute('data-name')
+  // 'linus'
+  p.getAttribute('data-age')
+  // '18'
+```
+
+8.与`ul`和`li`相关的文档碎片操作(可以提高性能)
+```html
+<ul id="list"></ul>
+```
+```javascript
+var oUI = document.getElementById('list');
+
+  var oFrag = document.createDocumentFragment();
+  for (let i = 0; i < 1000; i++) {
+    var oLi = document.createElement('li');
+    oLi.innerHTML = i + ': 这是第' + i + '个项目';
+    oLi.className = 'list-item';
+    // oUI.appendChild(oLi)
+    oFrag.appendChild(oLi)//注意:这里的oFrag不在DOM节点树里面!!!
+  }
+ oUI.appendChild(oFrag);
+```
+
+
+  
+
+
+
+

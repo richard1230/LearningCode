@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div>
+  <h1>我是标题标签</h1>
+  <p>我是段落标签</p>
+  <a href="">我是超链接标签</a>
+</div>
+
+
+<script type="text/javascript">
+  //在原型上写一个遍历一个父元素的子元素节点
+  var div = document.getElementsByTagName('div')[0];
+  //   childNodes = div.childNodes;
+  // console.log(childNodes);
+  // 0: text
+  // 1: h1
+  // 2: text
+  // 3: p
+  // 4: text
+  // 5: a
+  // 6: text
+
+  Element.prototype.elemChildren = function (index) {
+    var childNodes = this.childNodes,
+      len = childNodes.length,
+      item;
+    var temp = {
+      'length': 0,
+      'push': Array.prototype.push,
+      'splice': Array.prototype.splice
+    };
+    for (let i = 0; i < len; i++) {
+      item = childNodes[i];
+
+      if (item.nodeType === 1) {
+        temp.push(item)
+      }
+    }
+
+    if (index !== undefined && typeof (index) !== 'number') {//存在且不为number类型,就是string类型
+      return undefined;
+    }
+    return index === undefined ? temp : temp[index];
+  }
+
+  console.log(div.elemChildren());
+  // 0: h1
+  // 1: p
+  // 2: a
+  console.log(div.elemChildren(0))//h1
+  console.log(div.elemChildren(1));//p
+  console.log(div.elemChildren(2))//a
+
+</script>
+
+</body>
+</html>
