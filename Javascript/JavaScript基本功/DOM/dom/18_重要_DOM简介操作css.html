@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    <!--
+    aaa
+
+    -->
+    .div {
+
+    }
+  </style>
+</head>
+<body>
+
+<div style=""><!--  bbb--></div>
+
+
+<script type="text/javascript">
+
+  var oDiv = document.getElementsByTagName('div')[0];
+
+  oDiv.style.width = '200px';
+  oDiv.style.height = "200px";
+  oDiv.style.backgroundColor = "green";
+  // oDiv.style.border = '5px solid #000';
+  oDiv.style.position = 'absolute';
+  oDiv.style.left = '200px';
+  oDiv.style.top = '300px';
+
+  // elem.style.xxx --> 可读可写css属性(bbb处的属性), 但是访问不到aaa处(就是样式表)的属性!!!
+  // 复合值一定要拆解赋值
+  oDiv.style.border = '5px solid #000';
+  // 最好写成:
+  oDiv.style.borderWidth = '5px';
+  oDiv.style.borderStyle = 'solid';
+  oDiv.style.borderColor = '#000';
+  //保留字前面加css，遇到float写为: (目前css中只有float是保留字)
+  //elem.style.cssFloat = ‘left’;
+  oDiv.style.cssFloat = 'left';
+
+  // 查看css属性的方法
+  //   elem.style 里面有CSSStyleDeclaration属性
+  // 查看计算样式，常规：
+  // window.getComputeStyle(elem, null)[prop];
+  //   window.getComputeStyle(elem, null).prop;
+  //   E8 及以下：
+  // elem.currentStyle
+  //获取元素的样式属性====>兼容了不同的浏览器
+  function getStyles(el, prop) {
+    if (window.getComputedStyle) {
+      if (prop) {
+        return parseInt(window.getComputedStyle(el, null)[prop]);
+      } else {
+        return window.getComputedStyle(el, null);
+      }
+    } else {
+      if (prop) {
+        return parseInt(el.currentStyle[prop]);
+      } else {
+        return el.currentStyle;
+      }
+    }
+  }
+
+  getStyles(oDiv, 'height')
+  //offsetWidth / offsetHeight 访问物理宽高，会包含padding值------->会影响开发的!!!
+
+
+
+
+</script>
+
+
+</body>
+</html>

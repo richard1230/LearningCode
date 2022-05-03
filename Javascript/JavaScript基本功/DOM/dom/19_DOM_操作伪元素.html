@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<style>
+  .box{
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    background-color: green;
+  }
+
+  /*.box::after{*/
+  /*  content: '';*/
+  /*  display: block;*/
+  /*  width: 50px;*/
+  /*  height: 50px;*/
+  /*  background-color: red;*/
+  /*}*/
+
+  /*.box.active::after{*/
+  /*  background-color: black;*/
+  /*}*/
+
+  .box.active{
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    border-radius: 50%;
+  }
+
+</style>
+<body>
+
+<div class="box"></div>
+<script  type="text/javascript">
+var div = document.getElementsByTagName('div')[0];
+
+  div.onclick = function () {
+    // this.style.backgroundColor = 'red';
+    // this.style.width = '200px';
+    // this.style.height = '200px';
+    // this.style.borderRadius = '50%';
+    //上面这种写法不行,按照下面来写
+    this.className += ' active';
+}
+
+</script>
+</body>
+</html>

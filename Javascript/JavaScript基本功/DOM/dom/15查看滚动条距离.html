@@ -5,6 +5,126 @@
   <title>Title</title>
 </head>
 <body>
+<!--<div style="height: 400px; border: 1px solid #000">-->
 
+
+<!--</div>-->
+<!--<button>点击</button>-->
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<script type="text/javascript">
+  //查看滚动条的距离
+  //常规window.pageXOffset/pageYOffset
+  //IE8/IE9及以下
+  // document.body.scrollLeft/scrollTop
+  // document.documentElement.scrollLeft/scrollTop
+  //不常见：
+  //  window.screenY/screenX
+
+  //某一位置:
+  // document.body.scrollTop
+  // 0
+  // document.documentElement.scrollTop
+  // 1070
+  // window.scrollY
+  // 1070
+  // window.scrollX
+  // 2436.5
+  // document.body.scrollLeft
+  // 0
+  // document.documentElement.scrollLeft
+  // 2436.5
+  // window.pageXOffset
+  // 2436.5
+  // window.pageYOffset
+  // 1070
+  // document.documentElement.style.overflowY = 'auto'
+  // var oBtn = document.getElementsByTagName('button')[0];
+  // oBtn.onclick = function () {
+  //   window.scrollTo(0,400)
+  // }
+
+  //封装滚动条,考虑到兼容性了,很重要!下面是企业的写法
+  //封装的是滚动条的位移
+  function getScrollOffset() {
+    if (window.pageXOffset) {
+      return {
+        left: window.pageXOffset,
+        top: window.pageYOffset
+      }
+    } else {
+      return {
+        left: document.body.scrollLeft + document.documentElement.scrollLeft,
+        //两者一般只有一个有效,故写为加法
+        top: document.body.scrollTop + document.documentElement.scrollTop
+      }
+    }
+  }
+
+  getScrollOffset()
+
+  //浏览器怪异模式和标准模式
+  document.compatMode
+  //标准模式，有<!DOCTYPE html>
+  // 'CSS1Compat'
+  document.compatMode
+  //怪异模式，无 <!DOCTYPE html>
+  // 'BackCompat'
+
+  // 可视窗口大小:
+  //常规:
+  // window.innerWidth; window.innerHeight
+  // IE9以及8以下:
+  //标准:
+  // document.documentElement.clientHeight
+  // document.documentElement.clientWidth
+  //怪异:
+  // document.body.clientWidth; document.body.clientHeight
+
+  //下面是考虑过兼容性之后的封装可视窗口
+  function getViewportSize() {
+    if (window.innerWidth) {
+      return {
+        width: window.innerWidth,
+        height: window.innerHeight,
+      }
+    } else {
+      if (document.compatMode === "BackCompat") {
+        return {
+          width: document.body.clientWidth,
+          height: document.body.clientHeight
+        }
+      }  else {
+        return {
+          width: document.documentElement.clientWidth,
+          height: document.documentElement.clientHeight
+        }
+      }
+    }
+  }
+  getViewportSize();
+
+  //封装html文档的高度和宽度
+  function getScrollSize() {
+    if(document.body.scrollWidth){
+      return{
+        width: document.body.scrollWidth,
+        height: document.body.scrollHeight
+      }
+    }else {
+      return {
+        width: document.documentElement.scrollWidth,
+        height: document.documentElement.scrollHeight
+      }
+    }
+  }
+
+  getScrollSize()
+
+
+
+
+
+</script>
 </body>
 </html>

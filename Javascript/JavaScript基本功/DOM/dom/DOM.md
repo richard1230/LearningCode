@@ -473,14 +473,16 @@ for (let i = 0; i < 1000; i++) {
 oUI.appendChild(oFrag);
 
 ```
-![oFrag](https://mmbiz.qpic.cn/mmbiz_png/YmmVSe19Qj5VS8icRuoHicPoSrwLEKtLNicALUngkudtuPrLF695k3cRtZ2DkuTmmy9Jnbia2kKtYwDibRyLoQzkKLw/0?wx_fmt=png)
 
+![oFrag](https://mmbiz.qpic.cn/mmbiz_png/YmmVSe19Qj5VS8icRuoHicPoSrwLEKtLNicALUngkudtuPrLF695k3cRtZ2DkuTmmy9Jnbia2kKtYwDibRyLoQzkKLw/0?wx_fmt=png)
 
 ## 总结
 
 1.只有`getElementById`是Element单数,其余为复数;
+
 - 1.getElementById,getElementsByName只有Document.prototype才有!!!!!!<br>
-- 2.`getElementsByTagName ,getElementsByClassName ,querySelector(),querySelectorAll()`,这四个函数在`Document.prototype`和` Element.prototype`里面都有！！！！！！
+- 2.`getElementsByTagName ,getElementsByClassName ,querySelector(),querySelectorAll()`,这四个函数在`Document.prototype`
+  和` Element.prototype`里面都有！！！！！！
 
 2.`querySelector() querySelectorAll`一般不用；
 
@@ -488,39 +490,40 @@ oUI.appendChild(oFrag);
 nextSibling属性返回元素节点之后的兄弟节点（包括文本节点、注释节点即回车、换行、空格、文本等等）;<br>
 nextElementSibling属性只返回元素节点之后的兄弟元素节点（不包括文本节点、注释节点）;<br>
 
-
 4.节点类型:
-- 1.元素节点  -> 1
-- 2.属性节点   --> 2
-- 3.文本节点    -> 3
-- 4.注释节点   -> 8
+
+- 1.元素节点 -> 1
+- 2.属性节点 --> 2
+- 3.文本节点 -> 3
+- 4.注释节点 -> 8
 - 5.document -> 9
-- 6.DocumentFragment  -> 11
+- 6.DocumentFragment -> 11
 
 ```javascript
  div.nodeType
-  // 1
-  div.getAttributeNode('class').nodeType
-  //2
-  div.getAttributeNode('id')
-  // box
-  div.getAttributeNode('id').nodeType//2
-  div.firstChild.nodeValue = "hello"
-  div.firstChild.nodeType
-  // 3
+// 1
+div.getAttributeNode('class').nodeType
+//2
+div.getAttributeNode('id')
+// box
+div.getAttributeNode('id').nodeType//2
+div.firstChild.nodeValue = "hello"
+div.firstChild.nodeType
+// 3
 ```
 
 5.判断对象类型,这里可以判断是什么类型的标签
+
 ```javascript
 Object.prototype.toString.call(div)
 //"[object HTMLDivElement]"
 ```
 
+6. `*  --->获取标签用的,只能配getElementsByTagName, 获取所有元素节点`
 
-6. `*  --->获取标签用的,只能配getElementsByTagName,  获取所有元素节点`
 ```javascript
   var all = document.getElementsByTagName('*')
-    console.log(all)
+console.log(all)
 
 var body = document.body;//这里的body是通过document.body来使用的，这个属性是系统内置的,只能使用，不能访问
 //HTMLDocument.prototype.body  //会报错
@@ -528,49 +531,297 @@ var head = document.head;
 ```
 
 7.添加自定义属性:
+
 ```html
-<a href="javascript:;"  data-uri="txwz" data-sort="free">天下无贼</a><br/>
-<a href="javascript:;"  data-uri="fczlm" data-sort="pay">复仇者联盟</a><br/>
-<a href="javascript:;"  data-uri="hgf" data-sort="free">黑寡妇</a><br/>
-<a href="javascript:;"  data-uri="gtx" data-sort="pay">钢铁侠</a><br/>
+<a href="javascript:;" data-uri="txwz" data-sort="free">天下无贼</a><br/>
+<a href="javascript:;" data-uri="fczlm" data-sort="pay">复仇者联盟</a><br/>
+<a href="javascript:;" data-uri="hgf" data-sort="free">黑寡妇</a><br/>
+<a href="javascript:;" data-uri="gtx" data-sort="pay">钢铁侠</a><br/>
 ```
+
 ```javascript
 //HTML5给元素增加了一个 data- * 属性
 var p = document.getElementsByTagName('p')[0];
-  p.dataset
-  // DOMStringMap {name: 'linus', age: '18'}
-  // age: "18"
-  // name: "linus"
-  p.dataset.name
-  // 'linus'
-  p.dataset.age
-  // '18'
-  p.getAttribute('data-name')
-  // 'linus'
-  p.getAttribute('data-age')
-  // '18'
+p.dataset
+// DOMStringMap {name: 'linus', age: '18'}
+// age: "18"
+// name: "linus"
+p.dataset.name
+// 'linus'
+p.dataset.age
+// '18'
+p.getAttribute('data-name')
+// 'linus'
+p.getAttribute('data-age')
+// '18'
 ```
 
 8.与`ul`和`li`相关的文档碎片操作(可以提高性能)
+
 ```html
+
 <ul id="list"></ul>
 ```
+
 ```javascript
 var oUI = document.getElementById('list');
 
-  var oFrag = document.createDocumentFragment();
-  for (let i = 0; i < 1000; i++) {
-    var oLi = document.createElement('li');
-    oLi.innerHTML = i + ': 这是第' + i + '个项目';
-    oLi.className = 'list-item';
-    // oUI.appendChild(oLi)
-    oFrag.appendChild(oLi)//注意:这里的oFrag不在DOM节点树里面!!!
+var oFrag = document.createDocumentFragment();
+for (let i = 0; i < 1000; i++) {
+  var oLi = document.createElement('li');
+  oLi.innerHTML = i + ': 这是第' + i + '个项目';
+  oLi.className = 'list-item';
+  // oUI.appendChild(oLi)
+  oFrag.appendChild(oLi)//注意:这里的oFrag不在DOM节点树里面!!!
+}
+oUI.appendChild(oFrag);
+```
+
+## 滚动条
+
+![滚动条](https://mmbiz.qpic.cn/mmbiz_png/YmmVSe19Qj7biaMnQqd0tpZ4icyDgSbZdqNIu62u6sTQaMXuqryPe2CZia2SqndXP6ss4fT7pcCInv9fKl38rrPiag/0?wx_fmt=png)
+滚动条距离注意点:
+
+```html
+
+<body>
+<div style="height: 400px; border: 1px solid #000">
+
+
+</div>
+<button>点击</button>
+```
+
+```javascript
+document.documentElement.style.overflowY = 'auto'
+var oBtn = document.getElementsByTagName('button')[0];
+oBtn.onclick = function () {
+  window.scrollTo(0, 400)
+}
+```
+
+![gdt01](https://mmbiz.qpic.cn/mmbiz_png/YmmVSe19Qj7biaMnQqd0tpZ4icyDgSbZdqCksZOicBshnAchfdfkVsO7iczhebdTFBX4DW99pmhL8c7icKOibLY7nytA/0?wx_fmt=png)
+这里页面滚动的距离为400px;
+
+![gdt02](https://mmbiz.qpic.cn/mmbiz_png/YmmVSe19Qj7biaMnQqd0tpZ4icyDgSbZdqUtNBOKZyot62zqkjeNyqnsfOnzYxkU2SKbtyp2HdSYFU2A4tEb6H0g/0?wx_fmt=png)
+
+![gdt03](https://mmbiz.qpic.cn/mmbiz_png/YmmVSe19Qj7biaMnQqd0tpZ4icyDgSbZdqiaG2rNZ43Qq18SHUMrRAK0Tb3Eu7xsJHiaFLSJC3ZE89icO5ar9XOvmYQ/0?wx_fmt=png)
+
+## 元素到窗口距离
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<style>
+  .parent {
+    /*position: absolute;*/
+    /*top: 100px;*/
+    /*left: 200px;*/
+    width: 300px;
+    height: 300px;
+    margin: 100px;
+    background-color: #999;
+    overflow: hidden;
   }
- oUI.appendChild(oFrag);
+
+  .son {
+    /*position: absolute;*/
+    /*top: 100px;*/
+    /*left: 100px;*/
+    width: 100px;
+    height: 100px;
+    margin: 100px;
+    /*padding: 10px;*/
+    background-color: #00FF00;
+  }
+</style>
+<body>
+
+<div class="parent">
+  <div class="son">
+
+  </div>
+</div>
+<script type="text/javascript">
+  var son = document.getElementsByClassName('son')[0];
+  son.offsetLeft//208
+  son.offsetParent
+  // <body class="localhost_63342" data-new-gr-c-s-check-loaded="14.1058.0" data-gr-ext-installed="">
+  // </body>
+</script>
+
+</body>
+</html>
+```
+
+添加如下:
+
+```html
+body{
+margin: 0;
+}
+
+son.offsetLeft
+//200
+
+
+```
+
+再看一种情况(父级有定位的时候):
+
+```html
+
+<style>
+  body {
+    margin: 0;
+  }
+
+  .parent {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    width: 300px;
+    height: 300px;
+    margin: 100px;
+    background-color: #999;
+    overflow: hidden;
+  }
+
+  .son {
+    /*position: absolute;*/
+    /*top: 100px;*/
+    /*left: 100px;*/
+    width: 100px;
+    height: 100px;
+    margin: 100px;
+    /*padding: 10px;*/
+    background-color: #00FF00;
+  }
+</style>
+
+<div class="parent">
+  <div class="son">
+
+  </div>
+</div>
+```
+
+```javascript
+var son = document.getElementsByClassName('son')[0];
+son.offsetLeft//100
+// offsetLeft只认其父级的定位元素,父级有定位元素，就只认其父级;
+//父级没有定位元素,就一直往上找,一直找到可视区域的边框
+son.offsetParent
+// <div class="parent"></div>
+```
+
+![定位](https://mmbiz.qpic.cn/mmbiz_png/YmmVSe19Qj7biaMnQqd0tpZ4icyDgSbZdqAO82Edtxh4lsOWNHYwgYYwP9ibXiaEg1icukbMh2mI0JZurcZ3MCkD2Hw/0?wx_fmt=png)
+
+## 操纵滚动条
+
+```javascript
+// 滚动条滚动到相应的坐标位置，返回值为undefined
+window.scroll(x, y);
+window.scrollTo(x, y);
+
+// 每次滚动相应的距离
+window.scrollBy(x, y);
+```
+
+## 操作伪元素
+
+操作伪元素：最好方式是加类
+
+```html
+<!DOCTYPE
+  html >
+< html
+lang = "en" >
+< head >
+< meta
+charset = "UTF-8" >
+< title > Title < /title>
+</head>
+<style>
+  .box {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    background-color: green;
+  }
+
+  .box::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+  }
+
+  .box.active::after {
+    background -color: black;
+  }
+
+
+</style>
+<body>
+
+<div class="box"></div>
+<script type="text/javascript">
+  var div = document.getElementsByTagName('div')[0];
+
+  div.onclick = function () {
+    this.className += ' active';//这里要有一个空格
+  }
+</script>
+</body>
+</html>
+```
+
+添加样式的写法(企业级写法):
+
+```html
+
+<style>
+  .box {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    background-color: green;
+  }
+
+
+  .box.active {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    border-radius: 50%;
+  }
+
+</style>
+<div class="box"></div>
+
+```
+
+```javascript
+var div = document.getElementsByTagName('div')[0];
+
+div.onclick = function () {
+  // this.style.backgroundColor = 'red';
+  // this.style.width = '200px';
+  // this.style.height = '200px';
+  // this.style.borderRadius = '50%';
+  //上面这种写法不行,按照下面来写
+  this.className += ' active';
+}
 ```
 
 
-  
+
 
 
 

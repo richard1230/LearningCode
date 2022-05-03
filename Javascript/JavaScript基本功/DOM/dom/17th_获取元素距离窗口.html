@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    .grandPa {
+      position: absolute;
+      top: 100px;
+      left: 100px;
+      width: 360px;
+      height: 360px;
+      background-color: #ccc;
+    }
+
+    .parent {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      width: 300px;
+      height: 300px;
+      background-color: #999;
+      overflow: hidden;
+    }
+
+    .son {
+      position: absolute;
+      top: 100px;
+      left: 100px;
+      width: 100px;
+      height: 100px;
+      background-color: #00FF00;
+    }
+  </style>
+</head>
+<body>
+<div class="grandPa">
+  <div class="parent">
+    <div class="son">
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  // 获取元素距离窗口左上角的位置距离
+  var son = document.getElementsByClassName('son')[0];
+
+  // 获取元素距离窗口左上角的位置距离
+  function getElemToDocPosition(el) {
+    var parent = el.offsetParent,
+      offsetLeft = el.offsetLeft,
+      offsetTop = el.offsetTop;
+
+    while (parent) {
+      offsetLeft += parent.offsetLeft;
+      offsetTop += parent.offsetTop;
+      parent = parent.offsetParent;
+    }
+
+    return {
+      left: offsetLeft,
+      top: offsetTop
+    }
+
+  }
+
+  getElemToDocPosition(son);
+
+</script>
+
+</body>
+</html>
