@@ -29,7 +29,7 @@
 
   // }
 
-  Element.prototype.elemStibling = function (n) {
+  Element.prototype.elemSisbling = function (n) {
     var elem = this;
 
     while (n) {
@@ -51,11 +51,11 @@
     return elem;
   }
 
-   strong.elemStibling(0)
+   strong.elemSisbling(0)
   // <strong/>strong</strong>
-  strong.elemStibling(1)
+  strong.elemSisbling(1)
   // <em>em</em>
-  strong.elemStibling(-1)
+  strong.elemSisbling(-1)
   // <a href>超级链接</a>
 
 </script>

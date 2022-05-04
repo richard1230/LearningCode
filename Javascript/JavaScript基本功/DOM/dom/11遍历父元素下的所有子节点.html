@@ -40,6 +40,9 @@
 
   getFullchildren(box)
 
+  //遍历一个节点的所有子节点,包含孙子节点
+  //先判断这个节点类型是否为1，如果为1则打印这个节点,
+  //遍历这个节点的子节点,如果子节点类型为1，则递归继续遍历
   function getFullchildren(node) {
     var children = node.childNodes,
       len = children.length,

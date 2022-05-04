@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    /*button{*/
+    /*  outline: none;*/
+    /*}*/
+
+    /*.loading{*/
+    /*  background-color: #ddd;*/
+    /*  color: #fff;*/
+    /*}*/
+
+  </style>
+</head>
+<body>
+
+<!--<button>加载更多</button>-->
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+</ul>
+<script type="text/javascript">
+//   元素天生具有事件
+//   JS绑定事件的实质是绑定事件的处理函数（反馈）
+// 事件 + 事件的反馈 = 前端交互、交互体验（前端的核心）
+//  var oBtn = document.getElementsByTagName('button')[0];
+
+ // oBtn.onclick = function () {
+ //   this.innerHTML = '加载中...';
+ //   this.className = 'loading';
+ //
+ //   var self = this;
+ //   console.log(self);
+ //   //button组件,就是外面的oBtn
+ //   setTimeout(function () {
+ //     // console.log("1")
+ //     // this.innerHTML = '加载更多';
+ //     // this.className = '';
+ //     // console.log(this)//this指的是window
+ //     self.innerHTML = '加载更多';
+ //     self.className = '';
+ //   },2000)
+ // }
+ //
+
+ // oBtn.addEventListener('click',function () {
+ //   this.innerHTML = '加载中...';
+ //   this.className = 'loading';
+ //   var self = this;
+ //   console.log(self);
+ //   setTimeout(function () {
+ //     self.innerHTML = '加载更多';
+ //     self.className = '';
+ //   },2000)
+ // },false)
+
+//一条笔试题
+var oLi = document.getElementsByTagName('li'),
+  len = oLi.length,
+  item;
+
+for (let i = 0; i < len; i++) {
+  (function (j) {
+      item = oLi[j];
+      item.addEventListener(
+        'click',function () {
+          console.log("点击之后的反应:" + j)
+        },false
+      )
+  })(i)
+}
+
+
+</script>
+
+</body>
+</html>

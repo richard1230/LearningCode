@@ -8,6 +8,10 @@
 <div>
   <h1>我是标题标签</h1>
   <p>我是段落标签</p>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+  </ul>
   <a href="">我是超链接标签</a>
 </div>
 
@@ -25,27 +29,31 @@
   // 5: a
   // 6: text
 
+  //孙子节点不会被打印,只有子节点被打印
+
   Element.prototype.elemChildren = function (index) {
-    var childNodes = this.childNodes,
-      len = childNodes.length,
+    var children = this.childNodes,
+        len = children.length,
       item;
-    var temp = {
+
+    temp = {
       'length': 0,
       'push': Array.prototype.push,
-      'splice': Array.prototype.splice
-    };
+      'splice':Array.prototype.splice
+    }
     for (let i = 0; i < len; i++) {
-      item = childNodes[i];
+      item = children[i];
 
-      if (item.nodeType === 1) {
+      if (item.nodeType === 1){
         temp.push(item)
       }
     }
 
-    if (index !== undefined && typeof (index) !== 'number') {//存在且不为number类型,就是string类型
-      return undefined;
+    if (index !== undefined && typeof (index) !== 'number'){
+        return undefined;
     }
-    return index === undefined ? temp : temp[index];
+
+    return index === undefined ? temp :temp[index]
   }
 
   console.log(div.elemChildren());
@@ -54,7 +62,7 @@
   // 2: a
   console.log(div.elemChildren(0))//h1
   console.log(div.elemChildren(1));//p
-  console.log(div.elemChildren(2))//a
+  console.log(div.elemChildren(2));
 
 </script>
 

@@ -10,6 +10,12 @@
   <a href="">22222</a>
   <p>333333</p>
   <strong>44444</strong>
+  <ul>
+    <li>999</li>
+  </ul>
+  <ul>
+    <li>99909</li>
+  </ul>
 </div>
 
 <script type="text/javascript">
@@ -17,14 +23,13 @@
     children = div.childNodes,
     len = children.length;
 
-  var h1 = document.getElementsByTagName('h1')[0];
-  var strong = document.getElementsByTagName('strong')[0];
+  // var h1 = document.getElementsByTagName('h1')[0];
+  // var strong = document.getElementsByTagName('strong')[0];
 
   while (len--){
     console.log(children[len]);
     div.appendChild(children[len]);
   }
-
 </script>
 
 </body>
