@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<style>
+  .wrapper{
+    width: 300px;
+    height: 300px;
+    background-color: #00FF00;
+  }
+
+  .wrapper .outer{
+    width: 200px;
+    height: 200px;
+    margin-left: 300px;
+    background-color: red;
+  }
+
+  .wrapper .outer .inner{
+    width: 100px;
+    height: 100px;
+    margin-left: 200px;
+    background-color: orange;
+  }
+
+</style>
+<body>
+
+<div class="wrapper">
+  <div class="outer">
+    <div class="inner"></div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  var wrapper = document.getElementsByClassName('wrapper')[0],
+      outer = document.getElementsByClassName('outer')[0],
+    inner = document.getElementsByClassName('inner')[0];
+
+  // wrapper.addEventListener('click',function () {
+  //   console.log("冒泡中: wrapper " )
+  // },false)
+  // outer.addEventListener('click',function () {
+  //   console.log("冒泡中: outer " )
+  // },false)
+  //
+  // inner.addEventListener('click',function () {
+  //   console.log("冒泡中: inner " )//aaa
+  // },false)
+  //
+  //
+  // wrapper.addEventListener('click',function () {
+  //   console.log("捕获: wrapper " )
+  // },true)
+  //
+  // outer.addEventListener('click',function () {
+  //   console.log("捕获: outer " )
+  // },true)
+  //
+  // inner.addEventListener('click',function () {
+  //   console.log("捕获: inner " )//bbb
+  // },true)
+
+  // 点击inner部分,点击谁,谁就不存在冒泡与捕获,按照绑定顺序执行,
+  // 此时aaa在bbb的前面,所以才有下面ab的顺序
+
+  // 捕获: wrapper
+  // 捕获: outer
+  // 冒泡中: inner  //a
+  // 捕获: inner    //b
+  // 冒泡中: outer
+  // 冒泡中: wrapper
+
+
+  wrapper.addEventListener('click',function () {
+    console.log("捕获: wrapper " )
+  },true)
+
+  outer.addEventListener('click',function () {
+    console.log("捕获: outer " )
+  },true)
+
+  inner.addEventListener('click',function () {
+    console.log("捕获: inner " )//bbb-b
+  },true)
+
+  wrapper.addEventListener('click',function () {
+    console.log("冒泡中: wrapper " )
+  },false)
+  outer.addEventListener('click',function () {
+    console.log("冒泡中: outer " )
+  },false)
+
+  inner.addEventListener('click',function () {
+    console.log("冒泡中: inner " )//aaa-a
+  },false)
+
+  // 点击inner部分,点击谁,谁就不存在冒泡与捕获,按照绑定顺序执行,
+  // 此时aaa-a在bbb-b的后面,所以才有下面bbaa的顺序
+
+  // 捕获: wrapper
+  // 捕获: outer
+  // 捕获: inner    //bb
+  // 冒泡中: inner  //aa
+  // 冒泡中: outer
+  // 冒泡中: wrapper
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

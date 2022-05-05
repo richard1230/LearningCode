@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>DOM1</title>
+  <style type="text/css">
+    .wrapper {
+      width: 100px;
+      height: 100px;
+      background-color: orange;
+    }
+  </style>
+<body>
+<button>增加li</button>
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+  <li>6</li>
+  <li>7</li>
+  <li>8</li>
+  <li>9</li>
+  <li>10</li>
+</ul>
+<script type="text/javascript">
+  var oList = document.getElementsByTagName('ul')[0],
+    oBtn = document.getElementsByTagName('button')[0],
+    oLi = document.getElementsByTagName('li');
+
+  // 利用冒泡机制的 事件委托
+  //点击li之后,就会利用冒泡机制传给上一层的父元素(这里是ul),
+  // 同时获取相对应的事件对象e,以及事件源对象target
+  oList.onclick = function (e) {
+    var e = e || window.event, // 事件兼容性
+      tar = e.target || e.srcElement; // 事件源兼容性
+
+    // 获取内容
+    console.log(this); // ul..ul
+    console.log(tar); // li..li
+    console.log(tar.innerText); // li的文本
+
+
+    // 获取下标,这个是固定的套路,要熟悉!!!
+    // Array.prototype.indexOf.call(DOM对象集合, 当前事件源)
+    var index = Array.prototype.indexOf.call(oLi, tar);
+    console.log("当前的li的index为: " + index);
+  }
+
+
+  //增加li
+  oBtn.onclick = function () {
+    var li = document.createElement('li');
+    li.innerText = oLi.length + 1;
+    oList.appendChild(li);
+  }
+</script>
+</body>
+</html>
