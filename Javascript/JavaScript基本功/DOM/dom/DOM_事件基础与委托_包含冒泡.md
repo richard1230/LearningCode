@@ -260,6 +260,79 @@ inner.addEventListener('click', function () {
 
 ```
 
+## 如果不取消冒泡所带来的问题
+![冒泡](https://mmbiz.qpic.cn/mmbiz_png/YmmVSe19Qj6NNHALcHhJsJhVr3TX1vwfPpYQKXjanwg4PuroqxOzicROngicBF0VjjjNvYRS5A2J3GFOe3yrkFLw/0?wx_fmt=png)
+
+
+```html
+<style>
+  .wrapper{
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background-color: #00FF00;
+  }
+  .apply{
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 80px;
+    height: 30px;
+    background-color: red;
+    color: #fff;
+    line-height: 30px;
+    text-align: center;
+  }
+</style>
+
+
+<div class="wrapper">
+  <div class="apply">立即申请</div>
+</div>
+
+```
+```javascript
+var wrapper = document.getElementsByClassName('wrapper')[0],
+      apply = document.getElementsByClassName('apply')[0];
+
+ wrapper.addEventListener('click',function () {
+   console.log("详情");
+ },false);
+ apply.addEventListener('click',function () {
+   console.log("apply");
+ },false);
+```
+
+
+### 取消冒泡封装之后
+![取消封装](https://mmbiz.qpic.cn/mmbiz_png/YmmVSe19Qj6NNHALcHhJsJhVr3TX1vwfDroR2gu2rvlywFcWWPuC0WW36XuXElfC9n5jOhiaZS9YJ88ptH2ibsEA/0?wx_fmt=png)
+
+
+```javascript
+var wrapper = document.getElementsByClassName('wrapper')[0],
+      apply = document.getElementsByClassName('apply')[0];
+
+ wrapper.addEventListener('click',function () {
+   console.log("详情");
+ },false);
+ apply.addEventListener('click',function (e) {
+   var e = e || window.event;
+   cancelBubble(e)
+   console.log("apply");
+ },false);
+
+ // IE: e.cancelBubble = true;
+ function cancelBubble(e) {
+   // 兼容IE8，IE8事件存放在 window.event
+   var e = e || window.event;
+   if (e.stopPropagation) {
+     e.stopPropagation();
+   } else {
+     e.cancelBubble = true;
+   }
+ }
+```
+
 ## 取消冒泡封装
 
 ```javascript
@@ -287,7 +360,7 @@ document.oncontextmenu = function (e) {
   // e.returnValue = false; // IE9以下
 }
 
-// 封装
+// 封装取消默认事件
 function stopEvent(e) {
   var e = e || window.event;
   if (e.preventDefault) {
