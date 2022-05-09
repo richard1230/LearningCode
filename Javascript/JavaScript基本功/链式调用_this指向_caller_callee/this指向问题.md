@@ -192,6 +192,21 @@ foo();//10
 new 绑定 > 显性绑定 > 隐式绑定 > 默认绑定
 ```
 
+## this补充
+
+```javascript
+var a = 5;
+  function f2() {
+    a = 0;
+    console.log(a);
+    console.log(this.a);
+    var a ;
+    console.log(a);
+  }
+  f2();//此时this指代的是windows--->0 5 0
+  new f2();//此时this指代的是具体的对象--->0 undefined 0
+```
+
 ## 面试题
 ```javascript
 var x = 10;

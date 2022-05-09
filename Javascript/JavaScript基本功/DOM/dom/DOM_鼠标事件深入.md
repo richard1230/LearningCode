@@ -581,6 +581,8 @@ t = setTimeout(function () {
 所以设置延时器清零，就是为当你只点击了1次的情况，它会延迟500毫妙自动给你清零，然后你下一次双击的时候，就可以重新获取时间戳，重新计算ceTime - cbTime，从而进入语句。
 
 
+utils.js代码地址
 
+https://github.com/richard1230/CodeLearning/blob/main/Javascript/JavaScript%E5%9F%BA%E6%9C%AC%E5%8A%9F/DOM/dom/utils.js
 
 

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+  var sche = {
+    wakeup: function () {
+      console.log("I am wakeuping ");
+      return this;
+    },
+
+    morning: function () {
+      console.log(" I am morning ")
+      return this;
+    },
+
+    afternoon: function () {
+      console.log(" I am afternoon")
+      return this;
+    }
+  }
+
+  sche.wakeup().morning().afternoon();
+
+
+  var myLang = {
+    No1: "html",
+    No2: "CSS",
+    myStudyingLang: function (num) {
+      console.log(this['No' + num])
+    }
+  }
+
+  myLang.myStudyingLang(2)//CSS
+  console.log("==================分割线==================")
+
+  var car0 = {
+    brand: "Benz",
+    color: 'red',
+    displacement: '3.0',
+    width: '2.5'
+  }
+
+  for (const key in car0) {
+    // console.log(Car.key)//  undefined
+    //为什么是undefined
+    // js引擎的工作流程://这个原理很重要!!!
+    // Car.key ---> Car['key'] ---> undefined
+    console.log(key + ":" + car0[key])//brand:Benz color:red  displacement:3.0 width:2.5
+  }
+  console.log("==================分割线==================")
+  //hasOwnProperty  ---->很有用
+
+  function Car() {
+    this.brand = 'Benz';
+    this.color = 'red';
+    this.displacement = '3.0';
+  }
+
+  Object.prototype.name = 'Object'
+
+  Car.prototype = {
+    lang: 5,
+    width:2.5
+  }
+
+  var car = new Car();
+
+  for (const key in car) {
+     console.log(key + ":" + car[key]);
+     //brand:Benz color:red  displacement:3.0 lang:5  width:2.5 name:Object
+  }
+
+  for (const key in car) {
+    if (car.hasOwnProperty(key)){//寻找对象自身的属性,排除原型上面的属性
+      console.log(key +":" +  car[key]);//brand:Benz color:red  displacement:3.0
+    }
+  }
+
+  console.log("==================分割线==================")
+
+  var car01 = {
+    brand: "Benz",
+    color: 'red',
+  }
+
+  console.log('displacement' in car01)//false,注意必须要有引号
+
+  function Car02() {
+    this.brand = 'Benz';
+    this.color = 'red';
+  }
+
+  Car02.prototype = {
+    displacement: '3.0'
+  }
+
+  var car02 = new Car02();
+
+  console.log('displacement' in car02)//true
+
+  console.log("==================分割线==================")
+  //instanceof 重要!!!
+  console.log(car02 instanceof Car02)//true
+  console.log(car02 instanceof  Object)//true
+  console.log([] instanceof  Array)//true
+  console.log([] instanceof  Object)//true
+  console.log({} instanceof  Object)//true
+
+
+  var a = [];
+
+  //判断a是否为数组的几种方法
+  console.log(a.constructor)// ƒ Array() { [native code] }
+  //判断其构造器是否为Array
+
+  console.log(a instanceof  Array)//true
+
+  //判断数组的方法
+  var str = Object.prototype.toString.call(a),
+    tuple = '[object Array]';
+  // console.log(str)//[object Array]
+  if (str === tuple){
+    console.log('是数组')//是数组
+  }else {
+    console.log("不是数组")
+  }
+
+
+
+  console.log("==================分割线====callee==============")
+  //callee/caller
+  function test(a,b,c) {
+    console.log(arguments.callee);//返回的是实参列表所对应的函数,其实就是arguments.callee当前所在的这个函数
+    console.log(test.length)//3
+    console.log(arguments.callee.length)//3
+    console.log(arguments.length)//2
+  }
+  //arguments是实参列表,
+
+  test(1,2)
+  // console.log(arguments.callee);
+  // ƒ test(a,b,c) {
+  //  console.log(arguments.callee)
+  // console.log(test.length)
+  // console.log(arguments.callee.length)
+  // console.log(arguments.length)
+  // }
+
+
+  // arguments.callee常用于调用匿名函数,递归的时候
+  var sum = (function (n) {
+    if (n <= 1){
+      return 1;
+    }
+    return n + arguments.callee(n - 1);
+  })(10)
+
+  console.log('sum:  '+sum)
+
+  test1()
+  function test1() {
+    test2();
+  }
+
+  function test2() {
+    console.log(test2.caller)//打印调用test2的那个函数
+  }
+  // test1() {
+  //   test2();
+  // }
+
+  console.log("==================分割线====面试题==============")
+
+  //JS的typeof可能返回的值有哪些?
+  // object(包含null)/boolean/number/string/undefined/function
+
+  var f = (function f() {
+    return '1';
+  },
+      function g(){
+    return 2
+      }
+
+  );
+
+  //其实就是 f = (f(), g()) --->返回g()//就是说返回括号里面最后那个值
+  console.log(typeof f)//function
+
+
+  var f1 = (function f() {
+      return '1';
+    },
+      function g(){
+        return 2
+      }
+
+  )();
+//相当于执行g()--->返回2
+  console.log(typeof f1)//number
+
+
+  console.log(undefined == null)//true
+  console.log(undefined === null)//false
+  console.log(isNaN('100'))//考察隐式转换 --->false
+  console.log(parseInt('1a')== 1)//true
+  console.log(parseInt('11a'))//11
+  console.log(parseInt('12a1'))//12
+  console.log(NaN == NaN)//false,NaN不等于任何东西
+
+  function isNaN1(num) {
+    var res = Number(num) + '';
+    console.log("res: " + res)
+    if (res == NaN){
+      return true
+    }else {
+      return  false
+    }
+  }
+
+  console.log(isNaN1('abc'));//false
+
+  function isNaN2(num) {
+    var res = Number(num) + '';
+    console.log("res: " + res)
+    if (res == "NaN"){
+      return true
+    }else {
+      return  false
+    }
+  }
+
+  console.log(isNaN2('abc'));//true
+
+
+  console.log({} == {})//false，因为两个空对象存在不同地址里面
+  //怎样让其相等--->赋值
+  var obj = {}
+  obj1 = obj;
+  console.log( "obj1 == obj" , obj1 == obj)//true
+
+  var a = 5;
+  function f2() {
+    a = 0;
+    console.log(a);
+    console.log(this.a);
+    var a ;
+    console.log(a);
+  }
+  f2();//此时this指代的是windows--->0 5 0
+  new f2();//此时this指代的是具体的对象--->0 undefined 0
+
+</script>
+
+</body>
+</html>
