@@ -173,7 +173,8 @@ function addEvent(el, type, fn) {
   } else if (el.attachEvent) {
     // IE8及以下
     el.attachEvent('on' + type, function () {
-      fn.call(el);
+      fn.call(el);//这里为什么要这么写?
+      //函数里面的this是指向window的,这里这么写是为了改变this的指向,使this指向el
     });
   } else {
     // 最低版本
