@@ -100,7 +100,7 @@ function getViewportSize() {
   }
 }
 
-
+//封装html文档的高度和宽度
 function getScrollSize() {
   if (document.body.scrollWidth) {
     return {
@@ -115,7 +115,7 @@ function getScrollSize() {
   }
 }
 
-// 获取元素距离窗口左上角的位置距离
+// 获取元素距离窗口左上角的位置坐标
 function getElemToDocPosition(el) {
   var parent = el.offsetParent,
     offsetLeft = el.offsetLeft,
@@ -134,6 +134,7 @@ function getElemToDocPosition(el) {
 
 }
 
+//获取当前鼠标位置在文档(将滚动条包含在内)中的坐标
 function pagePos(e) {
   // 获取滚动距离
   var sLeft = getScrollOffset().left,
@@ -165,7 +166,7 @@ function getStyles(el, prop) {
   }
 }
 
-// 事件封装
+// 事件监听封装(考虑到兼容性)
 function addEvent(el, type, fn) {
   if (el.addEventListener) {
     // W3C
@@ -183,7 +184,7 @@ function addEvent(el, type, fn) {
 }
 
 
-// 解除事件
+// 解除事件监听
 function removeEvent(el, type, fn) {
   if (el.addEventListener) {
     el.removeEventListener(type, fn, false);
@@ -194,7 +195,7 @@ function removeEvent(el, type, fn) {
   }
 }
 
-
+//取消冒泡
 function cancelBubble(e) {
   // 兼容IE8，IE8事件存放在 window.event
   var e = e || window.event;
