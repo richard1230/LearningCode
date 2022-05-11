@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+  ;(function () {
+    var Compute = function () {
+    }
+
+    Compute.prototype = {
+      plus: function (a,b) {
+        return a + b;
+      },
+      minus: function (a,b) {
+        return a - b;
+      },
+      mul:function (a,b) {
+        return  a * b;
+      },
+      div: function (a,b) {
+        return a / b;
+      }
+    }
+
+    window.Compute = Compute;
+  })()
+
+  var compute = new Compute();
+  var res = compute.mul(3,6)
+  console.log(res)
+</script>
+
+</body>
+</html>

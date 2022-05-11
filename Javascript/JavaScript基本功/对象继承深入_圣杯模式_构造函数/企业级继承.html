@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+  function Teacher() {
+      this.name = 'Mr. Li';
+      this.tSkill = 'Java';
+  }
+  Teacher.prototype = {
+    pSkill: 'JS/JQ'
+  }
+
+  var t = new Teacher();
+  console.log(t);
+
+  function Student() {
+    this.name = 'Mr. Wang';
+  }
+
+  function Buffer() {
+  }
+
+  Buffer.prototype = Teacher.prototype;
+  var buffer = new Buffer();
+  Student.prototype = buffer;
+  Student.prototype.age = 18;
+
+  var s = new Student();
+  console.log(s);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div class="box">
+  <h1>{{title}}</h1>
+  <p>{{content}}}</p>
+</div>
+<script type="text/javascript">
+  //模板替换
+   var oBox = document.getElementsByClassName('box')[0];
+   var tpl = oBox.innerHTML;
+
+   var res = tpl.replace(/{{(.*?)}}/g,function (node,key) {
+     return {
+       title: '我是一个测试标题',
+       content: '我是一个测试内容'
+     }[key];
+   });
+
+   oBox.innerHTML = res;
+</script>
+
+</body>
+</html>

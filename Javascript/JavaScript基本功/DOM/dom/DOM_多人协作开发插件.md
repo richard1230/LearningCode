@@ -1,5 +1,7 @@
 ## 多人协作开发
 
+这种模式必须要手写熟练!!!
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
