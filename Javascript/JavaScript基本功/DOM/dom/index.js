@@ -1,5 +1,6 @@
 ;(function () {
 
+//插件就是要立即执行的
   var Test = function (opt) {
     this.num1 = opt.num1;
     this.num2 = opt.num2;

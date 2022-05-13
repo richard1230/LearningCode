@@ -14,12 +14,12 @@
    var oBox = document.getElementsByClassName('box')[0];
    var tpl = oBox.innerHTML;
 
-   var res = tpl.replace(/{{(.*?)}}/g,function (node,key) {
+   var res = tpl.replace(/{{(.*?)}}/gim,function (node,key) {
      return {
        title: '我是一个测试标题',
        content: '我是一个测试内容'
      }[key];
-   });
+   });//node指代的是{{xxxx}}
 
    oBox.innerHTML = res;
 </script>

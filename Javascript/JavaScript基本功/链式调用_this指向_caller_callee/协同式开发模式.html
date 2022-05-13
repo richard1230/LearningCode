@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<script  type="text/javascript">
+  window.onload = function () {
+    init();
+  }
+
+  function init() {
+    console.log(initFb(10))
+    console.log(initDiv(100))
+  }
+
+  var initFbm= (function () {
+    function fb(n) {
+      if(n <= 0){
+       return 0
+      }
+
+      if(n <= 2){
+        return 1
+      }
+      return fb(n - 1)+fb(n - 2)
+    }
+    return fb;
+  })();
+
+  var initDiv = (function () {
+    function div(n) {
+      var arr = [];
+      for (let i = 0; i <= n ; i++) {
+        if (i % 3 === 0 ||i % 5 === 0 || i % 7 === 0){
+          arr.push(i);
+        }
+      }
+      return arr;
+    }
+    return div;
+  })()
+
+
+
+</script>
+
+</body>
+</html>
