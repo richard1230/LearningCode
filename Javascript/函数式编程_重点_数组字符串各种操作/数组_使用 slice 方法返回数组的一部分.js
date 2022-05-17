@@ -6,6 +6,8 @@ slice 方法可以从已有数组中返回指定元素。
 这是复制整个数组的简单方式。 slice 返回一个新数组，不会修改原始数组。
 
 const arr = ["Cat", "Dog", "Tiger", "Zebra"];
+          //   0      1      2         3
+          //   -4     -3      -2       -1
 const newArray = arr.slice(1, 3);
 newArray 值为 ["Dog", "Tiger"]
 

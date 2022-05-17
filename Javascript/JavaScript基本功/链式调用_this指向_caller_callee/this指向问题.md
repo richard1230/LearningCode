@@ -347,6 +347,7 @@ function getName () { console.log(5);}
         // 通过上面对 getName的分析基本上答案已经出来了
 
 foo.getName ();                // 2
+                              //其实是将foo当做对象了,调用的是对象foo的getName()方法
                                // 下面为了方便，我就使用输出值来简称每个getName函数
                                // 这里有小伙伴疑惑是在 2 和 3 之间，觉得应该是3 , 但其实直接设置
                                // foo.prototype上的属性，对当前这个对象的属性是没有影响的,如果要使
@@ -360,8 +361,10 @@ getName ();                    // 4
                                // 小伙伴可以看文章最后的链接
                                
 foo().getName ();              // 1 
-                               // 这里的foo函数执行完成了两件事, 1. 将window.getName设置为1,
+                               // 这里的foo函数执行完成了两件事,
+                               // 1. 将window.getName设置为1,
                                // 2. 返回window , 故等价于 window.getName(); //注意:foo里的getName 创建到全局window上,故输出 1
+                              
 getName ();                    // 1
                                // 刚刚上面的函数刚把window.getName设置为1,故同上 输出 1,就是说getName被覆盖了
                                
@@ -370,13 +373,13 @@ new foo.getName ();            // 2
                                // 该执行还是执行，然后返回一个新对象，输出 2 (虽然这里没有接收新
                                // 创建的对象但是我们可以猜到，是一个函数名为 foo.getName 的对象
                                // 且__proto__属性里有一个getName函数，是上面设置的 3 函数)
-                               
+                               //注意:执行顺序: xxx = foo.getName() ---> new x
 new foo().getName ();          // 3
                                // 这里特别的地方就来了,new 是对一个函数进行构造调用,它直接找到了离它
                                // 最近的函数,foo(),并返回了应该新对象,等价于 var obj = new foo();
                                // obj.getName(); 这样就很清晰了,输出的是之前绑定到prototype上的
                                // 那个getName  3 ,因为使用new后会将函数的prototype继承给 新对象
-                               
+                               //yyy = new foo() --> yyy.getName()
 new new foo().getName ();      // 3
                                // 哈哈，这个看上去很吓人，让我们来分解一下：
                                // var obj = new foo();

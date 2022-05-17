@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+  Object.prototype.num = 1
+  var person = {
+    name: "张三",
+    age: 18,
+    height: 180,
+    son: {
+      first: {
+        name: "Jenny",
+        age: 18
+      },
+      second: {
+        name: "Richard",
+        age: 18
+      },
+    },
+    car: ["Benz", "Mazda"]
+  }
+
+  // 浅拷贝的问题:
+  //person2里面多了个num属性
+  //person2里面的son一变,person里面也跟着变
+  person2 = {}
+  for (const key in person) {
+    person2[key] = person[key]
+  }
+
+  person2.name = "Lee"
+  person2.son.third = "Ben"//person里面也同时改变了,故为浅拷贝
+  console.log(person, person2)
+
+
+  //深拷贝
+  function deepClone(origin, target) {
+    //如果不传对象就传{}
+    var target = target || {},
+      toStr = Object.prototype.toString,
+      arrType = '[object Array]';
+    for (var key in origin) {
+      if (origin.hasOwnProperty(key)) {//这是为了保证key是自己的,不是Prototype里面的
+        //typeof null  === 'object' --->这是个遗留问题
+        //判断键 是否为引用值
+        if (typeof (origin[key]) === 'object' && origin[key] !== null) {
+          //判断origin[key]其为数组类型还是对象
+          toStr.call(origin[key]) === arrType ? target[key] = []
+            : target[key] = {};
+          deepClone(origin[key], target[key]);
+        } else {//判断键 不是 引用值 的时候
+          target[key] = origin[key]
+        }
+
+      }
+    }
+    return target;
+  }
+
+
+  var person3 = deepClone(person);
+  person3.son.third = {
+    name: "hello world",
+    age: 1
+  }
+
+  console.log(person, person3)
+
+</script>
+
+</body>
+</html>

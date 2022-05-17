@@ -85,6 +85,43 @@
                 // =====>注意:这里的this与上一级作用域this指向是一样的!!!
 
 
+  console.log("==============this终极一问=========================")
+
+  var name = '222';
+
+  var a = {
+    name: '111',
+    say: function () {
+      console.log(this.name)
+    }
+  }
+
+  var fun = a.say;
+  fun();// 222
+
+  a.say();//111
+  var b = {
+    name:'333',
+    say: function (fun) {
+      fun();
+    }
+  }
+
+
+  /*var b = {
+    name:'333',
+    say: function (fun) {
+      fun();--->
+      function () {
+      console.log(this.name)
+    }()
+    //此时变成了一个立即执行函数--->是fun函数调用的,fun在外面的,故指向window--->222
+    }
+  }*/
+  b.say(a.say);//222
+
+  b.say = a.say;
+  b.say()//333
 
 
 
