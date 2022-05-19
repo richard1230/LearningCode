@@ -44,9 +44,10 @@
       oPos = [], // 记录原先位置
       wWidth = getViewportSize().width,
       wHeight = getViewportSize().height,
-      elemWidth = getStyles(this, 'width'),
+      elemWidth = getStyles(this, 'width'),//注意:这里是元素块的物理宽度width
       elemHeight = getStyles(this, 'height');
 
+      console.log(" elemWidth "+ elemWidth);// elemWidth 100
     drag.call(this);
 
     function drag() {
@@ -58,13 +59,15 @@
         var e = e || window.event;
         bTime = new Date().getTime();
         oPos = [getStyles(_self, 'left'), getStyles(_self, 'top')]
-        x = pagePos(e).X - getStyles(_self, 'left');
+        x = pagePos(e).X - getStyles(_self, 'left');//注意:这里的getStyles获取的是style样式中的left,而不是width了!!!
         y = pagePos(e).Y - getStyles(_self, 'top');
+
+        console.log("getStyles(_self, 'left') "+ getStyles(_self, 'left'));
 
         addEvent(document, 'mousemove', mouseMove);
         addEvent(document, 'mouseup', mouseUp);
-        cancleBubble(e);
-        preventDefaultEvent(e);
+        cancelBubble(e);
+        stopEvent(e);
       })
 
       function mouseMove(e) {
@@ -72,10 +75,11 @@
           elemLeft = pagePos(e).X - x,
           elemTop = pagePos(e).Y - y;
 
+        //处理边界问题
         if (elemLeft <= 0) {
           elemLeft = 0;
         } else if (elemLeft >= wWidth - elemWidth) {
-          elemLeft = wWidth - elemWidth - 1;  // 避免误差
+          elemLeft = wWidth - elemWidth - 1;  // 1是误差问题
         }
 
         if (elemTop <= 0) {
@@ -92,8 +96,6 @@
         var e = e || window.event;
         eTime = new Date().getTime();
 
-        console.log(eTime - bTime);
-        console.log(oPos[0]);
 
 
         if (eTime - bTime < 100) {
@@ -113,7 +115,9 @@
     window.open('http://www.baidu.com');
   });
 
-
+  document.onclick = function (e) {
+    console.log(e)//
+  }
 
 
 

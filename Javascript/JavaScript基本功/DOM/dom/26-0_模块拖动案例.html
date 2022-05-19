@@ -5,12 +5,12 @@
   <title>Title</title>
 </head>
 <style>
-  body{
+  body {
     margin: 0;
   }
 
-  a{
-      position: absolute;
+  a {
+    position: absolute;
     top: 0;
     left: 0;
     width: 100px;
@@ -18,7 +18,7 @@
     background-color: green;
   }
 
-  div{
+  div {
     display: none;
     position: absolute;
     top: 0;
@@ -95,20 +95,21 @@
   });
 
 
-
-//写到原型上面
+  //写到原型上面
   Element.prototype.dragNclcik = (function (elemclick) {
 
     var bTime = 0, // 记录点击时间
       eTime = 0,
       oPos = []; // 记录原先位置
 
-    drag.call(this);
+    drag.call(this);//改变this指向,如果不这么写,drag里面的this
+    //将会指向window,改完之后,里面的this将和外面的一样
+    //this指向调用它的对象
 
     function drag() {
       var x,
         y,
-        _self = this;
+        _self = this;//
 
       addEvent(_self, 'mousedown', function (e) {
         var e = e || window.event;
@@ -148,6 +149,40 @@
       }
     }
   })
+
+  /*
+ var dragNclcik = (function(a,b){
+ //这是模块的写法
+ console.log(a,b)
+ })
+
+ dragNclcik(3,4)
+
+写到原型上:
+Element.prototype.dragNclcik =(function(){
+})
+
+dragNclcik(ele,fn)--->改为ele.dragNclcik(fn)
+
+
+this指向问题:
+
+function a(){
+ console.log(this);//this指向调用它的对象
+ drag.call(this);//改变this指向,如果不这么写,drag里面的this
+    //将会指向window,改完之后,里面的this将和外面的一样
+    //this指向调用它的对象
+
+ function drag(){
+
+ var _self = this//将外层的this保存下来
+ addEvent(_self, event1,fn1);//这里写this原因:想要的是外面的this
+ //addEvent里面的this就是这个函数的第一个参数,这里的event1事件需要的是外面的this
+ addEvent(document,event2,fn2);//这里的event2事件不需要外面的this
+ }
+}
+
+ * */
 
   // //调用
   // var oLink = document.getElementsByTagName('a')[0];

@@ -56,8 +56,8 @@
 
       addEvent(_self, 'mousedown', function (e) {
         var e = e || window.event,
-          btnCode = e.button;
-        if (btnCode === 2) {
+          btnCode = e.button;//e. 这个操作及其消耗性能,所以要先保存一下
+        if (btnCode === 2) {//右键
           var mLeft = pagePos(e).X,
             mTop = pagePos(e).Y;
 
@@ -77,7 +77,7 @@
           menu.style.top = mTop + 'px';
           menu.style.display = 'block';
 
-        } else if (btnCode === 0) {
+        } else if (btnCode === 0) {//左键
           bTime = new Date().getTime();
           oPos = [getStyles(_self, 'left'), getStyles(_self, 'top')]
           menu.style.display = 'none';
@@ -87,15 +87,15 @@
 
           addEvent(document, 'mousemove', mouseMove);
           addEvent(document, 'mouseup', mouseUp);
-          cancleBubble(e);
-          preventDefaultEvent(e);
+          cancelBubble(e);
+          stopEvent(e);
         }
 
       })
 
       addEvent(document, 'contextmenu', function (e) {
         var e = e || window.event;
-        preventDefaultEvent(e);
+        stopEvent(e);
       })
 
       addEvent(document, 'click', function (e) {
@@ -103,7 +103,7 @@
       })
 
       addEvent(menu, 'click', function (e) {
-        cancleBubble(e)
+        cancelBubble(e)
       })
 
       function mouseMove(e) {
@@ -111,6 +111,7 @@
           elemLeft = pagePos(e).X - x,
           elemTop = pagePos(e).Y - y;
 
+        //处理边界问题
         if (elemLeft <= 0) {
           elemLeft = 0;
         } else if (elemLeft >= wWidth - elemWidth) {
@@ -151,6 +152,8 @@
   oLink.dragNclcik(oMenu, function () {
     window.open('http://www.baidu.com');
   });
+
+
 
 
 </script>
