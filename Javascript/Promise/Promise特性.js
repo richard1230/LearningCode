@@ -13,6 +13,7 @@ function readFile(pathname) {
   })
 }
 
+//异步任务的完成与否 取决于当前 promise 的状态
 let promise = readFile('./name.txt')
 //pending 进行中
 //rejected 已经失败
