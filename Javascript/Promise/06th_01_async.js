@@ -27,3 +27,5 @@ readFile('./name.txt', 'utf-8')
 
 //输出:
 // richard---> I am in score.txt
+
+
