@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+
+  let isMount = true;
+  let workInprogressHook = null;
+  const fiber = {
+    stateNode: App,
+    memoizedState: null,
+  }
+  function useState(initialState) {
+    let hook;
+    if (isMount) {
+      hook = {
+        memoizedState: initialState,
+        next: null,
+        queue: {
+          pending: null
+        }
+      }
+      if (!fiber.memoizedState) { //调用第一个useState的时候走这
+        fiber.memoizedState = hook;
+      } else {//第二个useState
+        workInprogressHook.next = hook
+      }
+      workInprogressHook = hook;
+
+    } else { //update
+      hook = workInprogressHook
+      workInprogressHook = workInprogressHook.next
+    }
+
+    let baseState = hook.memoizedState;
+
+    if (hook.queue.pending) {//使用useState中的setXXX更新值走这里
+      let firstUpdate = hook.queue.pending.next;
+
+      do {
+        const action = firstUpdate.action;
+        baseState = action(baseState);
+        firstUpdate = firstUpdate.next;
+      } while (firstUpdate !== hook.queue.pending.next)
+      hook.queue.pending = null;
+    }
+
+    hook.memoizedState = baseState;
+    return [baseState, dispatchAction.bind(null, hook.queue)]
+
+  }
+
+  //对应useState中的setXXX
+  function dispatchAction(queue, action) {
+    const update = {
+      action,
+      next: null
+    }
+
+    if (queue.pending === null) {//更新每一个useState的？
+      //u0--> u0 ---> u0
+      update.next = update;
+    } else { //
+      update.next = queue.pending.next;
+      queue.pending.next = update;
+    }
+    queue.pending = update;
+    schedule();
+  }
+
+  function schedule() {
+    workInprogressHook = fiber.memoizedState
+    const app = fiber.stateNode();//这里需要再次调用App--->再次调用useState
+    console.log("app: ",app)
+    isMount = false;
+    return app;
+  }
+
+
+  function App() {
+    const [num, updateNum] = useState(0);
+    // debugger;
+    const [num1, updateNum1] = useState(10);//每次渲染的时候这几个useState顺序一定要相同
+
+    console.log('isMount: ', isMount)
+    console.log("num: ", num)
+    console.log("num1: ", num1)
+
+    return {
+      onClick() {
+        updateNum(num => num + 1)
+      },
+      onFocus() {
+        updateNum1(num => num + 10)
+      }
+
+    }
+  };
+  window.app = schedule();
+  app.onClick();
+  app.onClick();
+  app.onClick();
+  app.onFocus();
+  app.onFocus();
+</script>
+
+</body>
+</html>

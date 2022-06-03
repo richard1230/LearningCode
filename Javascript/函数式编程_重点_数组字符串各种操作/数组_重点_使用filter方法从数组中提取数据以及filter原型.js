@@ -136,6 +136,8 @@ const filteredList = watchList.map(user => ({
 // 只修改这一行上面的代码
 
 console.log(filteredList);
+
+console.log("================================")
 /*
 [
   { title: 'Inception', rating: '8.8' },
