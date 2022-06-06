@@ -1,0 +1,18 @@
+
+## authentication flow
+![auth01](./auth01.jpg)
+![auth02](./auth02.jpg)
+![auth03](./auth03.jpg)
+![auth04](./auth04.jpg)
+![auth05](./auth05.jpg)
+![auth06](./auth06.jpg)
+![auth07](./auth07.jpg)
+![auth08](./auth08.jpg)
+![auth09](./auth09.jpg)
+![auth10](./auth10.jpg)
+![auth11](./auth11.jpg)
+![auth12](./auth12.jpg)
+![auth13](./auth13.jpg)
+![auth14](./auth14.jpg)
+![auth15](./auth15.jpg)
+![auth16](./auth16.jpg)
