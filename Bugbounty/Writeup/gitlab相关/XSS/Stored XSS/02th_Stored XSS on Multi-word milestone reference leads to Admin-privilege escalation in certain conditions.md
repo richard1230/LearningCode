@@ -14,12 +14,15 @@ ryhmnlfj小哥于2022年1月份提交了这个漏洞:
 
 ## 复现步骤
 受害者:
+
 1.以受害者的身份登陆gitlab;
 
 2.创建一个任何人都可以创建issue的公共项目;
 
 3.在创建过issue之后，退出账号;
+
 攻击者:
+
 1.以攻击者的身份登陆gitlab;
 
 2.创建一个私有项目;
@@ -45,6 +48,7 @@ New Milestone &lt;script&gt;alert(document.domain)&lt;/script&gt;
 8.登出
 
 victim:
+
 1.再次以受害者的身份登入gitlab;
 
 2.转到攻击者第7步创建的问题页面。XSS将自动执行。
