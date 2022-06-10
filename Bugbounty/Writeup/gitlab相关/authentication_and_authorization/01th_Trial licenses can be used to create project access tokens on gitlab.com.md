@@ -15,7 +15,7 @@ gitlab漏洞系列-试用许可证越权可以在gitlab.com上创建项目访问
 
 2.在Group2中创建一个项目作为Project1;
 
-3.现在通过进入Group2`的`https://gitlab.com/groups/Group2/-/edit`来完成在Group1中传输Group2,
+3.现在通过进入Group2`的`https://gitlab.com/groups/Group2/-/edit`  来完成在Group1中传输Group2,
 
 4.现在Group2和它的项目Project1都在Group1中，我们现在可以通过`https://gitlab.com/groups/Group1/-/billings`向Group1申请试用许可证。
 
