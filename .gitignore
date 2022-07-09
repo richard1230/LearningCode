@@ -69,5 +69,6 @@ yarn-debug.log*
 yarn-error.log*
 
 .idea/
+.vscode
 
 yarn_add.sh
