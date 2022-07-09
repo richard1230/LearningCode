@@ -22,16 +22,16 @@
   // console.log(c)//2
   // console.log(f)//7
   // console.log(a)//会报错
-
+  //
   // function foo(){
-  //   a = 1 ;
+  //   a = 1 ;//这里的a为全局的a
   //   console.log(this.a);
   // }
   // var a = 10;
   // foo();//1,-->这个函数里面的a其实是全局的,相当于函数里面的a将外面的a给覆盖了
   //
   // function foo(){
-  //   var  a = 1 ;
+  //   var  a = 1 ;//这里的a为函数内部的a
   //   console.log(this.a);//函数内部的this ---> 指向window
   // }
   // var a = 10;
@@ -80,7 +80,7 @@
 
   const zs = new Person(20);//constructor里面的this:[object Object]
   zs.test11();//对象方法里面的this:  Person
-  zs.asyncTest();//setTimeout 回调中的this:  Window---->因为是直接执行的
+  zs.asyncTest();//setTimeout 回调中的this:  Window   ---->因为是直接执行的
   zs.asyncTest1()//setTimeout 回调中的this,注意这里用的是箭头函数:  Person
                 // =====>注意:这里的this与上一级作用域this指向是一样的!!!
 

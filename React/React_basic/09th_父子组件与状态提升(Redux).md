@@ -2,7 +2,7 @@
 状态提升：两个无父子关系的组件共享一个数据并且同步数据变化;<br>
 
 类组件调用（实例化）的时候，组件内部的状态是唯一且独立的
- ```jsx
+```jsx
  class Info extends React.Component {
   // constructor(propos) { 
   //      super(propos)
