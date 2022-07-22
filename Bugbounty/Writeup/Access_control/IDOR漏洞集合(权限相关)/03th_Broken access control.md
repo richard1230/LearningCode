@@ -54,7 +54,7 @@ Content-Length: 89
 {"status":true,"errorMessage":"Username does not exist. Please enter correct Username."}
 ```
 4.然后，转到这个路径/resetPassword。您会注意到这个页面已经打开，没有问题:
-![图](../images/broken.png)
+![图](../../images/broken.png)
 
 发现可以越权查看用户或报告信息了;
 
