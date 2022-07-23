@@ -1,5 +1,5 @@
 
-
+[TOC]
 
 ## tools
 
@@ -13,3 +13,8 @@ https://github.com/tomnomnom/anew
 https://github.com/shenwei356/rush
 
 
+
+## 从JS文件中提取接口
+```shell
+🧨cat file.js | grep -aoP "(?<=(\"|\'|\`))\/[a-zA-Z0-9_?&=\/\-\#\.]*(?=(\"|\'|\`))" | sort -u 🔥
+```
