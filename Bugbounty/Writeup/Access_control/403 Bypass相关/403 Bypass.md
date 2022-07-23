@@ -85,7 +85,7 @@ python3 forbiddenpass.py -t https://site --path login
 
 ```
 
-
+# 403 tricks
 ## 403 Bypass tricks
 https://twitter.com/mamunwhh/status/1496786769316294659
 ```
@@ -103,7 +103,7 @@ X-Original-URL: /api/v1/user/id/
 ```
 
 
-## A trick
+## trick01
 https://systemweakness.com/how-i-bypassed-403-forbidden-domain-using-a-simple-trick-c2d538de04b8
 
 ```
@@ -116,6 +116,18 @@ dig redacted.com
 
 
 
+## trick02
+https://twitter.com/remonsec/status/1290354885850886144
+```shell
+$ http://site.com/wp-admin/install.php > 403
+$ http://site.com/wp-admin/install.php/* > 200
+```
+![img_2.png](img_2.png)
+
+## trick03
+https://twitter.com/iam_j0ker/status/1303658167205728256
+![img_3.png](img_3.png)
 
 
-
+还有一个工具仓库:<br>
+https://github.com/yunemse48/403bypasser
