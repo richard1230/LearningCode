@@ -139,6 +139,19 @@ https://docs.google.com/presentation/d/1ek6DzXKBQd6xUiVNGRT33pMACs8M13CSoYCkgepD
 
 已经下载了!!!
 
+## tricks04
+https://twitter.com/h4x0r_dz/status/1317218511937261570
+![img_4.png](img_4.png)
+
+![img_5.png](img_5.png)
+
+![img_6.png](img_6.png)
+
+
+## tricks05
+https://github.com/Dheerajmadhukar/4-ZERO-3
+
+
 
 
 
