@@ -118,6 +118,9 @@ https://dewcode.medium.com/my-bug-hunting-journey-with-idors-part-2-422a737fb733
 登录另一个用户帐户/创建另一个帐户 > 复制该用户 GUID > 交换它。可以看到我能够访问受害者的个人资料。
 ![img_6.png](img_6.png)
 
+### uuid的绕过
+![img_10.png](img_10.png)
+
 
 ## 小结
 始终查看 id、uid、name、role、email、appid、invoice_id 和任何 CRUD（创建、读取、更新、删除）操作。您必须监控所有请求和参数以在测试时检测 IDOR。

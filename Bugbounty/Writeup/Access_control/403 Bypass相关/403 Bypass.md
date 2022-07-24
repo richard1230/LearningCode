@@ -131,3 +131,15 @@ https://twitter.com/iam_j0ker/status/1303658167205728256
 
 还有一个工具仓库:<br>
 https://github.com/yunemse48/403bypasser
+
+
+## 重要ppt
+
+https://docs.google.com/presentation/d/1ek6DzXKBQd6xUiVNGRT33pMACs8M13CSoYCkgepDKZk/edit#slide=id.gb344e2d586_0_278
+
+已经下载了!!!
+
+
+
+
+
