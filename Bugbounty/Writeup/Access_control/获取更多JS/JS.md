@@ -35,11 +35,16 @@ https://gist.github.com/seqrity/d67608eb6372cd6f455bfeeefa77b9c2
 
 
 ## a trick
+https://twitter.com/nullenc0de/status/1306665103744552961
 
 1) Find JavaScript files
 2) ffuf -w js_files.txt -u FUZZ -mr "sourceMappingURL"
 3) Download sourcemap
 4) https://github.com/chbrown/unmap
 5) Browse configs or just grep for API keys/Creds
+
+## a tool
+https://github.com/KathanP19/JSFScan.sh
+
 
 
