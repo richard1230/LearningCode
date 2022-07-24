@@ -14,3 +14,13 @@ https://github.com/portswigger/log4shell-everywhere
 ## method03
 
 https://github.com/proferosec/log4jScanner
+
+
+## method04
+https://twitter.com/pdnuclei/status/1469757887526227974
+
+![img.png](img.png)
+
+
+## poc
+https://github.com/tangxiaofeng7/CVE-2021-44228-Apache-Log4j-Rce
