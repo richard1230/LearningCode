@@ -27,3 +27,8 @@ https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/raf
 
 ## tools
 ![img.png](img.png)
+
+## fuzz出潜在的危险文件可以造成信息泄露
+https://github.com/Bo0oM/fuzz.txt/blob/master/fuzz.txt
+
+
