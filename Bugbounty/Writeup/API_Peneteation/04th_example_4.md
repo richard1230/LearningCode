@@ -53,6 +53,7 @@ URL GET/POST data: POST METHOD:
 2.记下这两个账户的公司(organization)id
 
 3.账户A用公司B的id重复上述请求
+![img_15.png](img_15.png)
 
 4.你就可以窃取受害者mopub API令牌
 
