@@ -11,6 +11,10 @@ api漏洞系列-一个认证绕过
 
 2.你现在会得到一个segment ID。
 
+![img_17.png](img_17.png)
+
+![img_18.png](img_18.png)
+
 
 3.现在转到API链接:`https://app.mopub.com/networks/v2/api/segment/%5BSegment_id%5D`  <br>
 
