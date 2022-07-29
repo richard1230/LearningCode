@@ -1,3 +1,5 @@
+api漏洞系列-shopify中一个越权漏洞
+
 ## 前言
 
 声明：文章中涉及的程序(方法)可能带有攻击性，仅供安全研究与教学之用，读者将其信息做其他用途，由用户承担全部法律及连带责任，文章作者不承担任何法律及连带责任。
@@ -28,4 +30,4 @@ URL GET/POST data: GET METHOD:
 在`while42.myshopify.com `处测试:(用`X-Shopify-Access-Token: 77a01fc64f65fd16b0b38bc31694e4ce`)
 
 
-![img_19.png](img_19.png)
+![img_20.png](img_20.png)
