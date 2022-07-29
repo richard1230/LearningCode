@@ -35,11 +35,23 @@ https://api.hackerone.com/v1/reports/[report_id]
 ![img_21.png](img_21.png)
 
 
-响应为:
+响应为(包含被邀请的用户电子邮件:):
 
 
 ```
-"activities":{"data":[{"type":"activity-external-user- invited","id":"1406712","attributes":{"message":null,"created_at":"2017-01- 08T01:57:27.614Z","updated_at":"2017-01- 08T01:57:27.614Z","internal":true,"email":"<victim's_email@example.com>"}
+"activities":
+{
+"data":[
+{
+"type":"activity-external-user- invited",
+"id":"1406712",
+"attributes":{
+"message":null,
+"created_at":"2017-01- 08T01:57:27.614Z",
+"updated_at":"2017-01- 08T01:57:27.614Z",
+"internal":true,
+"email":"<victim's_email@example.com>"
+}
 
 ```
 
