@@ -10,4 +10,13 @@ https://0iq.me/gip/
 
 ![img.png](img.png)
 
+
+
+
 ![img_1.png](img_1.png)
+
+
+eg:  (Facebook internal assets report)(site: *.*.60.* | site: *.*.)
+
+
+
