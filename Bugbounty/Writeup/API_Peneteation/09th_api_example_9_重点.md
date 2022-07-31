@@ -61,5 +61,36 @@ api漏洞系列-OAuth中的race conditions问题
 
 虽然代码只能使用一次来获取access_token，但refresh_token通常也只能使用一次。在这种情况下，竞争条件漏洞允许攻击者生成大量的access_token和refresh_token对。这将使受害者很难撤销对恶意应用程序的访问。
 
+0)注册一个使用目标提供者的OAuth 2.0 API的应用程序。获取应用程序的凭证  <br>
+1)在浏览器中打开应用授权链接。通常它看起来是这样的: <br>
+`https://OAUTH_PROVIDER_DOMAIN/oauth/authorize?client_id=APPLICATION_ID&redirect_uri = https://APPLICATION_REDIRECT_URI&response_type=code`  <br>
+
+2)登录受害者的账户(如果需要的话)，并允许访问应用程序 <br>
+
+3)通过回调获取代码值: <br>
+`https://APPLICATION_REDIRECT_URI?code=AUTHORIZATION_CODE_VALUE` <br>
+
+4)合法获取access_token和refresh_token。通常可以由请求来完成，如下所示:  <br>
+
+![img_23.png](img_23.png)
 
 
+5)尝试利用竞态条件刷新令牌。我使用了以下脚本:
+
+![img_24.png](img_24.png)
+
+对于有Race Condition bug的目标，它的执行结果会给出1到20个不同的access_token值(可能与refresh_token值成对)。<br>
+
+6)检查获得的access_tokens，就像前面的概念证明一样。它们都是有效的，并且适用于API。 <br>
+7)请注意Race Condition是概率漏洞。可能需要对PoC做一些尝试来重现它。攻击者通常可以向服务器生成一些额外的负载(不是DoS，而是许多对脆弱脚本的请求)，以增加成功利用的机会。<br>
+8)这里的执行流程有两个可能的方向: <br>
+8A)进入受害者账户的设置或应用程序页面，撤销其访问权限 <br>
+应用程序。然后重复步骤5，查看是否所有access_token都无效。如果所有的access_token都无效，那么尽管成功利用了竞态条件，但这是良好的行为。实际上，在某些情况下，只有一个access_token被撤销，而其他所有的token都保持有效。 <br>
+8B)对其中一个access_token使用撤销请求(如/oauth/revoke)。然后重复步骤5，查看在这种情况下，只有一个令牌被撤销，而其他所有令牌都保持活动(除了一个被测试的目标)。 <br>
+利用refresh_token比利用access_token更危险，因为攻击者不会失败。每次利用至少提供一个新的可进一步使用的refresh_token。因此，令牌对的数量呈指数增长。 <br>
+
+
+## 影响:
+
+生成大量的令牌用于访问是一个严重的问题，它违反了OAuth框架的RFC和最佳实践。该漏洞使受害者无法拒绝恶意应用程序的访问(对于测试的大多数实现)。<br>
+因为目标(例如/oauth/token)脚本容易受到竞态条件的攻击，所以有比我演示的更多的攻击向量。例如，应用程序可以无限刷新其访问权限，而用户也不能撤销访问权限。 <br>
