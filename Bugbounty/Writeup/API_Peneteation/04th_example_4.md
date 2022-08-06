@@ -74,3 +74,6 @@ URL GET/POST data: POST METHOD:
 
 
 
+## 小结
+
+这是一个标准的越权漏洞:

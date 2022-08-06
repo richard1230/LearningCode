@@ -125,3 +125,9 @@ Content-Type: application/vnd.vimeo.user+jsonCache-Control: no-cache, max-age=31
 ## 漏洞影响
 
 该漏洞允许恶意应用程序保持对受害者帐户的访问活动，即使访问已经被撤销。不仅绕过了授权，而且还剥夺了受害者管理应用程序访问的能力。
+
+
+## 小结
+
+OAuth相关的，后面在继续总结一下;
+

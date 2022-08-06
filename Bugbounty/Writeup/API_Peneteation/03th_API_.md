@@ -49,5 +49,6 @@ curl https://www.zopim.com/api/v2/agents \
 8.帐户将创建,邮箱密码为:` email = lol@gmail.com & password=csrfcsrf`
 
 
+## 小结
 
-
+客户端禁用,但是终端仍然可以利用命令行访问(利用`access_token`)
