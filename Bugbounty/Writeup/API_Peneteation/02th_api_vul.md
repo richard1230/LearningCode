@@ -129,5 +129,5 @@ Content-Type: application/vnd.vimeo.user+jsonCache-Control: no-cache, max-age=31
 
 ## 小结
 
-OAuth相关的，后面在继续总结一下;
+OAuth相关的，后面在继续总结一下;(与11做对比)
 
