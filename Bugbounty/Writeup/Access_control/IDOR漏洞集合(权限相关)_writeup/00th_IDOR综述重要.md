@@ -161,7 +161,9 @@ https://hackerone.com/reports/397130  <br>
 
 
 
+## IDOR相关技能集合
 
+![img_11.png](img_11.png)
 
 
 
