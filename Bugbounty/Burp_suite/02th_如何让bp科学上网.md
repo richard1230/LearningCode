@@ -14,3 +14,7 @@
 在burp上面又加了个梯子 请求就浏览器==> burp ==>梯子 出去 <br>
 回包就是: <br>
 你说的 梯子==> burp==> 浏览器 <br>
+
+推荐: https://mp.weixin.qq.com/s/_W81T5gE-dFdiRZ8tgfggA
+
+
