@@ -32,3 +32,28 @@ https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/raf
 https://github.com/Bo0oM/fuzz.txt/blob/master/fuzz.txt
 
 
+## how  to find Hidden API Functionality Exposure
+
+https://github.com/KathanP19/HowToHunt/blob/master/API_Testing/Hidden_API_Functionality_Exposure.md
+
+Application programming interfaces (APIs) have become a critical part of almost every business. APIs are responsible for transferring information between systems within a company or to external companies. For example, when you log in to a website like Google or Facebook, an API processes your login credentials to verify they are correct.
+- Swagger UI Documentation
+- Attack | Brute force
+- Common wordlist for API Enum :
+
+- https://wordlists.assetnote.io/
+- https://github.com/Net-hunter121/API-Wordlist
+
+
+## Steps to Perform This Attack :
+>Step 1 : Capture the request into Burp, Send the request to repeater and intruder tab. <br>
+Step 2 : Add the endpoint into the intruder tab and add the payload from the word-list. <br>
+Step 3 : First use dictionary attack with SecLists (https://github.com/danielmiessler/SecLists) on the Endpoint. <br>
+Step 4 : Either use your customized list or use the ones which I have provided in the above step. <br>
+Step 5 : Then simply start the attack, start checking for 200 status.  <br>
+Step 7 : Once there is HTTP 200 OK status, start the recursive scan on the same endpoint for juicy information like swagger doc and so on.  <br>
+step 8 : Other method is to change the API version and try bruteforcing the same endpoint  <br>
+
+Eg:Redacted.com/api/v1/{Endpoint} ----- Redacted.com/api/v2/{Endpoint}   <br>
+
+Note: There will be minimum limits per request which will be assigned without API keys so make sure to utilize manual approach as much as you can, then the rest can be automated for scanning the vulnerability in API with automated tools.
