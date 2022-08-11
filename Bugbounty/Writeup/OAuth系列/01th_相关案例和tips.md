@@ -1,0 +1,14 @@
+
+
+## 案例
+
+https://xz.aliyun.com/t/11585    <br>
+https://nosec.org/home/detail/2187.html <br>
+第二个链接里面第一个案例和第一个链接里面一个案例重合，有具体操作步骤！！！很经典！！
+
+
+## tips
+
+https://github.com/HolyBugx/HolyTips/blob/main/Checklist/OAuth.md
+
+

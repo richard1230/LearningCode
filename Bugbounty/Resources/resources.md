@@ -3,6 +3,7 @@
 
 https://github.com/zeroc00I/AllVideoPocsFromHackerOne
 
+https://github.com/reddelexc/hackerone-reports
 
 
 经典writeup的地方:
