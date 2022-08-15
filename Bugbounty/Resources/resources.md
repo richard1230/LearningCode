@@ -11,3 +11,6 @@ https://github.com/reddelexc/hackerone-reports
 https://pentester.land/list-of-bug-bounty-writeups.html
 
 
+https://www.bugbountyhunter.com/program?id=shopify
+
+

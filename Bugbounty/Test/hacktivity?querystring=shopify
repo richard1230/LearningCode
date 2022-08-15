@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--[if lte IE 8]>
+  <meta http-equiv="refresh" content="0; url=/browser-not-supported.html">
+  <![endif]-->
+
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  
+
+  <title>HackerOne</title>
+
+  <meta
+    name="slack-app-id"
+    content="A0BFC2YUS" />
+    <meta
+      name="sentry-release-id"
+      content="213b2b9" />
+  <meta property="og:site_name" content="HackerOne" />
+  <meta property="fb:app_id" content="345444188982280" />
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="ddRnofhL0EwWJOicZKPK/uqc5IXeJJGqhIzlcLv+9QqNwCMt85IpdRClxwhailmB4rAjKHeJbGO1Hcs9IBty5Q==" />
+    <link rel="stylesheet" media="all" href="/assets/static/css/main.7db9f8e3.css" />
+  <link rel="stylesheet" media="all" href="/assets/vendor-15ee4573575dd8e19a3cc51d9b1aae0c754012e126a9a69ccde702fe2f9d7f4b.css" integrity="sha256-Fe5Fc1dd2OGaPMUdmxquDHVAEuEmqaaczecC/i+df0s=" />
+  <script src="/assets/constants-6eed6da45d823b8b5cf2b55d24187040c4726e2804a66159d3721b17167d1b6f.js" integrity="sha256-bu1tpF2CO4tc8rVdJBhwQMRybigEpmFZ03IbFxZ9G28="></script>
+      <script src="/assets/static/js/main.3a08faad.js"></script>
+  <script src="/assets/application-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js" integrity="sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="></script>
+
+  <base target="_parent" />
+</head>
+<body class="js-application controller_hacktivity action_index _layout signed-out" data-locale="en">
+<div class="alerts">
+</div>
+
+  <div class="js-application-root full-size"></div>
+  <noscript>
+  <div class="js-disabled">
+    It looks like your JavaScript is disabled. To use HackerOne, enable JavaScript in your browser and refresh this page.
+  </div>
+</noscript>
+
+  
+  
+</body></html>
