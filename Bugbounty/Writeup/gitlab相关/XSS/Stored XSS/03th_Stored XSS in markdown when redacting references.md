@@ -7,7 +7,9 @@ gitlab漏洞系列-存在于markdown中的存储型XSS
 
 
 ## 背景
+
 vakzz大佬于2020年提交了这个漏洞:
+
 可以通过`ReferenceRedactorFilter`将任意html注入到标记中。这是因为data-original属性允许存储html编码的数据，然后将其提取并用作链接内容。如果原始数据已经被html编码，那么它将在编校后被未编码:
 ```ruby
     def redacted_node_content(node)  
