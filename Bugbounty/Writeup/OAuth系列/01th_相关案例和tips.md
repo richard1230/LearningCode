@@ -6,6 +6,8 @@ https://xz.aliyun.com/t/11585    <br>
 https://nosec.org/home/detail/2187.html <br>
 第二个链接里面第一个案例和第一个链接里面一个案例重合，有具体操作步骤！！！很经典！！
 
+https://blog.csdn.net/eason612/category_11839775.html  <br>
+不错的学习资源
 
 ## tips
 
