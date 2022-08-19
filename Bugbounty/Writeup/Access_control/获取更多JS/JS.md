@@ -46,5 +46,10 @@ https://twitter.com/nullenc0de/status/1306665103744552961
 ## a tool
 https://github.com/KathanP19/JSFScan.sh
 
+## tips-grep
+
+https://twitter.com/intigriti/status/1469648166303809536
+
+![img.png](img.png)
 
 
