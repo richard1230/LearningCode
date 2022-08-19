@@ -150,3 +150,8 @@ function getRating(watchList) {
 
 console.log(getRating(watchList));
 
+
+
+
+
+

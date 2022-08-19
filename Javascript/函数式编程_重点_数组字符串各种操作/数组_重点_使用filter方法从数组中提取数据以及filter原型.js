@@ -188,3 +188,20 @@ console.log(s.myFilter(function (item) {
 * 这个回调函数的返回值一般都是boolean类型
 *
 * */
+
+
+console.log("============filter 与  map===test===============")
+
+var o = {a:true,c:false,b:true}
+
+console.log("Object.entries(o)");
+console.log(Object.entries(o));
+
+console.log("Object.entries(o).filter(k => k[1])");
+
+//filter返回值是boolean,这里默认是筛选出 k[1] 为 true 的选项
+console.log(Object.entries(o).filter(k => k[1]));//[ [ 'a', true ], [ 'c', false ], [ 'b', true ] ]
+
+
+console.log("Object.entries(o).filter(k => k[1]).map(kv => kv[0])");
+console.log(Object.entries(o).filter(k => k[1]).map(kv => kv[0]));

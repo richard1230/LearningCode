@@ -13,6 +13,9 @@ console.log(names);
 * [ 'John', 'Amy', 'camperCat' ]
 * */
 
+//https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+//返回值: 数组--->一个由原数组每个元素执行回调函数的结果组成的新数组。
+
 
 // 全局变量
 const watchList = [
