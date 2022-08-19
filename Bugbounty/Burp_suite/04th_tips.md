@@ -28,4 +28,12 @@ https://twitter.com/intigriti/status/1467111453945733139/photo/1
 
 ![img_11.png](img_11.png)
 
+## 插件
+https://twitter.com/PortSwiggerRes/status/1554835594882125832
+
+https://github.com/portswigger/diff-last-response
+
+https://portswigger.net/bappstore/902ef17f5aaa4f8eabe00491de3b241d
+
+
 
