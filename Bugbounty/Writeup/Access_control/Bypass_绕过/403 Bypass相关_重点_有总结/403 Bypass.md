@@ -169,3 +169,13 @@ https://twitter.com/intigriti/status/1454412777011879941/photo/1
 
 ![img_8.png](img_8.png)
 
+## tips08
+
+https://twitter.com/intigriti/status/1497552035855675394/photo/1
+
+![img_9.png](img_9.png)
+
+
+
+
+
