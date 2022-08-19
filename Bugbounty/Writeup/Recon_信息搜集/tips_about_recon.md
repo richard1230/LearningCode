@@ -19,4 +19,11 @@ https://0iq.me/gip/
 eg:  (Facebook internal assets report)(site: *.*.60.* | site: *.*.)
 
 
+## Top Shodan Dorks for Finding Sensitive IoT Data
+https://twitter.com/0xhunster/status/1548382647759491074
+
+![img_2.png](img_2.png)
+
+
+
 
