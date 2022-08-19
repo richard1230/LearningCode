@@ -57,3 +57,5 @@ step 8 : Other method is to change the API version and try bruteforcing the same
 Eg:Redacted.com/api/v1/{Endpoint} ----- Redacted.com/api/v2/{Endpoint}   <br>
 
 Note: There will be minimum limits per request which will be assigned without API keys so make sure to utilize manual approach as much as you can, then the rest can be automated for scanning the vulnerability in API with automated tools.
+
+
