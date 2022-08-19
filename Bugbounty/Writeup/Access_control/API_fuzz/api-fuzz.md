@@ -59,3 +59,9 @@ Eg:Redacted.com/api/v1/{Endpoint} ----- Redacted.com/api/v2/{Endpoint}   <br>
 Note: There will be minimum limits per request which will be assigned without API keys so make sure to utilize manual approach as much as you can, then the rest can be automated for scanning the vulnerability in API with automated tools.
 
 
+## ffuf
+https://twitter.com/intigriti/status/1462038022787158018
+
+![img_4.png](img_4.png)
+
+
