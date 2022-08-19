@@ -163,3 +163,9 @@ https://mp.weixin.qq.com/s/N32dGX3a6OYpaQa4a_EDrQ
 
 例如:`/.;/example.so`
 
+
+## tips07
+https://twitter.com/intigriti/status/1454412777011879941/photo/1
+
+![img_8.png](img_8.png)
+
