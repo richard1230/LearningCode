@@ -9,3 +9,6 @@ https://zhuanlan.zhihu.com/p/398572483
 
 ## blog 01
 https://www.softwaretestinghelp.com/sql-injection-how-to-test-application-for-sql-injection-attacks/#The_Essence_of_this_Attack
+
+https://gerbenjavado.com/manual-sql-injection-discovery-tips/
+
