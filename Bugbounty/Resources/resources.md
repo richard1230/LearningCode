@@ -15,4 +15,8 @@ https://www.bugbountyhunter.com/program?id=shopify
 
 https://www.bugbountyhunting.com/
 
+https://portswigger.net/research/articles
+
+
+
 

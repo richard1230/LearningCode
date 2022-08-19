@@ -35,3 +35,11 @@ https://twitter.com/intigriti/status/1456964593524346883/photo/1
 https://twitter.com/intigriti/status/1459501309485322244/photo/1
 ![img_4.png](img_4.png)
 
+
+## google dorks
+
+https://twitter.com/Dinosn/status/1539226361516154883
+
+https://infosecwriteups.com/google-dorks-an-advanced-hacking-tool-a523c4996279
+
+
