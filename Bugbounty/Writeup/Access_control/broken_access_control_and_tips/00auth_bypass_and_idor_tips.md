@@ -51,3 +51,13 @@ After a while you get tired of always having to input your admin pw. Because the
 
 
 If now a hacker (or in a best case a pentester) comes around, and they set the headers to to spoof their IP to appear as 127.0.0.1, they can now access the admin panel. (4/4)
+
+
+## auth-bypass-tip
+
+https://twitter.com/intigriti/status/1436655772058927106/photo/1
+
+![img_3.png](img_3.png)
+
+
+
