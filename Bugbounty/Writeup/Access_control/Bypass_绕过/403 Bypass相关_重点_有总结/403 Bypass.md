@@ -156,5 +156,10 @@ https://github.com/Dheerajmadhukar/4-ZERO-3
 https://mp.weixin.qq.com/s/N32dGX3a6OYpaQa4a_EDrQ
 
 
+## tip06
+![img_7.png](img_7.png)
 
+`/;/`;`/.;/`;`//;//`;
+
+例如:`/.;/example.so`
 
