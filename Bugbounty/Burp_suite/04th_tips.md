@@ -22,3 +22,10 @@ https://twitter.com/intigriti/status/1449339347002613765/photo/1
 
 
 
+## tips04
+
+https://twitter.com/intigriti/status/1467111453945733139/photo/1
+
+![img_11.png](img_11.png)
+
+
