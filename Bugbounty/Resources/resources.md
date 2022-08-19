@@ -13,4 +13,6 @@ https://pentester.land/list-of-bug-bounty-writeups.html
 
 https://www.bugbountyhunter.com/program?id=shopify
 
+https://www.bugbountyhunting.com/
+
 
