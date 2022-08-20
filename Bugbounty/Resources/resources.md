@@ -19,4 +19,11 @@ https://portswigger.net/research/articles
 
 
 
+## xmind
+https://www.mindmeister.com/zh/1470766611/web-app-pentest
+
+https://www.mindmeister.com/map/2389754358
+
+
+
 
