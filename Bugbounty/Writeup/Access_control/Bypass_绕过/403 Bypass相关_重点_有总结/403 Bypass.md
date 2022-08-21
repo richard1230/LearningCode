@@ -175,7 +175,10 @@ https://twitter.com/intigriti/status/1497552035855675394/photo/1
 
 ![img_9.png](img_9.png)
 
+## tips09
+https://twitter.com/h4x0r_dz/status/1317218511937261570
 
+![img_10.png](img_10.png)
 
 
 
