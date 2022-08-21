@@ -180,5 +180,11 @@ https://twitter.com/h4x0r_dz/status/1317218511937261570
 
 ![img_10.png](img_10.png)
 
+## tips10
+https://twitter.com/beginnbounty/status/1371330759500341256/photo/1
+
+![img_11.png](img_11.png)
+
+
 
 
