@@ -10,15 +10,45 @@ https://github.com/Net-hunter121/API-Wordlist
 
 `ffuf -u https://target.com/api/v2/FUZZ -w api_seen_in_wild.txt -c -ac -t 250 -fc 400,404,412`
 
-### 其他比较重要的api字典:
+### 比较重要的api字典:
 
-https://github.com/danielmiessler/SecLists/tree/master/Discovery/Web-Content/api
 
 https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/common-api-endpoints-mazen160.txt
 
 https://github.com/fuzzdb-project/fuzzdb/blob/master/discovery/common-methods/common-methods.txt
 
 https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/raft-small-words.txt
+
+![img_5.png](img_5.png)
+
+https://github.com/chrislockard/api_wordlist
+
+https://github.com/danielmiessler/SecLists/blob/master/Fuzzing/http-request-methods.txt
+
+https://github.com/assetnote/wordlists/blob/master/data/automated.json
+
+https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/common-api-endpoints-mazen160.txt
+
+https://github.com/Bo0oM/fuzz.txt
+
+https://www.fuzzingbook.org/html/APIFuzzer.html
+
+https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/graphql.txt
+
+https://github.com/hAPI-hacker/Hacking-APIs
+
+https://github.com/assetnote/wordlists/blob/master/data/kiterunner.json
+
+https://gist.github.com/yassineaboukir/8e12adefbd505ef704674ad6ad48743d
+
+https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/swagger.txt
+
+https://github.com/danielmiessler/SecLists/tree/master/Discovery/Web-Content/api
+
+
+
+
+
 
 ## methods
 
@@ -64,4 +94,7 @@ https://twitter.com/intigriti/status/1462038022787158018
 
 ![img_4.png](img_4.png)
 
+
+## API-Recon
+![API_RECON.png](00_API_RECON.png)
 
