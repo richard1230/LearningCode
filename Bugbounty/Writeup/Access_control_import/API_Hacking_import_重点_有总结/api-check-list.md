@@ -9,3 +9,8 @@ https://github.com/shieldfy/API-Security-Checklist/blob/master/README-zh.md
 ## resources02
 https://github.com/arainho/awesome-api-security
 
+
+## Graphql相关测试插件
+
+• GraphQL Security Testing Without a Schema — Forces Unseen Blog:
+https://blog.forcesunseen.com/graphql-security-testing-without-a-schema
