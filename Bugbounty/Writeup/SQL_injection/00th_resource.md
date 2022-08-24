@@ -12,3 +12,5 @@ https://www.softwaretestinghelp.com/sql-injection-how-to-test-application-for-sq
 
 https://gerbenjavado.com/manual-sql-injection-discovery-tips/
 
+## resource-00
+youtu.be/_aST_z_qTYE
