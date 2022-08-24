@@ -76,6 +76,29 @@
 
 - 相当于新建图层，绝对定位的元素到另外一层去了，位置就会被占据
 
+![img_84.png](img_84.png)
+
+又一个例子:
+
+![img_85.png](img_85.png)
+
+由于这里的box3的父级元素box1是有定位元素 `position:relative/absolute`的,所以这里的box3(通过派生选择器来选定)的bottom是以box1为基准的:
+
+![img_86.png](img_86.png)
+
+同理如果定位元素在box2：
+
+![img_87.png](img_87.png)
+
+### 定位小结(重要)
+
+子元素有一个`position:absolute`;(这里需要注意) <br>
+如果一个父级元素都没有,那么就相对整个html文档定位;如果父级box2和box3(爷爷级)都有,那么就找直系父级(box2)的那个即可;
+
+![img_88.png](img_88.png)
+
+
+
 
 
 
