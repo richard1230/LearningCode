@@ -74,7 +74,7 @@
 
 - left|right，top|boottom: 基准线不一样
 
-- 相当于新建图层，绝对定位的元素到另外一层去了，位置就会被占据
+- 相当于新建图层，绝对定位的元素到另外一层去了，位置就会被占据(这个需要注意)
 
 ![img_84.png](img_84.png)
 
@@ -167,10 +167,89 @@
 
 ![img_100.png](img_100.png)
 
+`position:absolute`是新建了一个层;
+`float`不是
+
+
+![img_101.png](img_101.png)
+
+下面变化了,给 box2加一个float
+
+![img_102.png](img_102.png)
+
+在看一下文本(发现也可以识别)
+
+![img_103.png](img_103.png)
+
+```css
+
+.box2{
+  ...
+  overflow:hidden
+
+}
+```
+`overflow:hidden`也能识别
+![img_104.png](img_104.png)
+
+### 浮动小结
+内联、内联块、浮动、溢出隐藏、纯文本都可以识别浮动元素的位置 <br>
+块级元素无法识别浮动元素的位置
+
+
+## 伪类(:)、伪元素(::)
 
 
 
+![img_105.png](img_105.png)
 
+
+伪元素的属性一定要有content:
+
+![img_106.png](img_106.png)
+
+
+
+![img_107.png](img_107.png)
+
+看一个例子:
+
+![img_108.png](img_108.png)
+
+![img_109.png](img_109.png)
+
+### 清除浮动
+
+加上浮动之后识别不了高度了
+
+![img_110.png](img_110.png)
+
+解决方案:(需要记忆,)
+
+![img_111.png](img_111.png)
+
+```css
+ul::after,
+div::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+```
+
+### 如何做横向布局
+1.如何做横向布局（float + clearfix）: <br>
+
+1).给所有子元素添加 style="float: left;" （让字体横向） <br>
+
+2).所有子元素的爸爸都要添加clearfix类;(修复头像的bug) <br>
+```css
+.clearfix::after{ 
+content: ''; 
+display:block; 
+clear:both;
+}
+```
 
 
 
