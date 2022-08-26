@@ -126,9 +126,51 @@
 
 ![img_95.png](img_95.png)
 
-## 绝对定位中的两栏设计
+## 绝对定位中的两栏设计(有需要记忆的)
 
-左栏固定,右栏是自适应:
+左栏固定,右栏是自适应:(需要记忆)
+
+
+![img_96.png](img_96.png)
+![img_97.png](img_97.png)
+
+![img_99.png](img_99.png)
+
+```css
+.left{
+  position: absolute;
+  left: 0;
+  top:0;
+  width: 300px;
+  height: 100%;
+  background-color: green;
+  
+}
+
+
+.right{
+  height: 100%;
+  margin-left: 300px;
+  background-color: orange;
+}
+
+```
+
+右侧固定,左侧自适应:
+
+![img_98.png](img_98.png)
+
+
+## 浮动
+
+注意下面这个问题的演化:
+
+![img_100.png](img_100.png)
+
+
+
+
+
 
 
 
