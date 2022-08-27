@@ -237,7 +237,7 @@ div::after {
 }
 ```
 
-### 如何做横向布局
+### 如何做横向布局(清除浮动)
 1.如何做横向布局（float + clearfix）: <br>
 
 1).给所有子元素添加 style="float: left;" （让字体横向） <br>
@@ -250,7 +250,18 @@ display:block;
 clear:both;
 }
 ```
-## 盒子阴影
+
+
+
+![img_113.png](img_113.png)
+
+![img_112.png](img_112.png)
+
+### 小图标与文字对齐
+
+![img_114.png](img_114.png)
+
+
 
 
 
