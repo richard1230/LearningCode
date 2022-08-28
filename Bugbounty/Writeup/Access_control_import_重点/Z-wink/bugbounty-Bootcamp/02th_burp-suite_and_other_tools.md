@@ -48,6 +48,11 @@ https://www.youtube.com/watch?v=KUs_WHtFid0&list=PLr-hXv9DE5yi9gquA9wUNKGlBfMzUr
 灰色的表示的请求是还没获取,但是这些灰色的会被该页面的某处引用;
 
 
+### 小结
+
+- 去噪,锁定目标;
+- 在sitemap里面查看,按照时间降序来查看
+
 
 
 
