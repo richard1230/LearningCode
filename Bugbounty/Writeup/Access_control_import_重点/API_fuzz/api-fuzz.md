@@ -3,12 +3,29 @@
 
 
 
-### tricks
+### tricks-00
 https://twitter.com/_bughunter/status/1550117700214460418
 
 https://github.com/Net-hunter121/API-Wordlist
 
 `ffuf -u https://target.com/api/v2/FUZZ -w api_seen_in_wild.txt -c -ac -t 250 -fc 400,404,412`
+
+上面的`api_seen_in_wild.txt`：
+
+https://gist.github.com/richard1230/08182f59cb26112295602bc5aa438306
+
+#### action的fuzz
+
+遇到类似这种情况:
+![img_7.png](img_7.png)
+
+可以利用这个字典:(多了一个 xxx123)
+https://gist.github.com/richard1230/ed608e004332eb1f9d1f9da773a1d036
+
+https://github.com/Net-hunter121/API-Wordlist/blob/master/actions.txt
+
+
+
 
 ### 比较重要的api字典:
 
