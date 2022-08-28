@@ -1,3 +1,5 @@
+[TOC]
+
 ## bug types
 ![img_2.png](img_2.png)
 
@@ -23,6 +25,19 @@ https://gist.github.com/richard1230/08182f59cb26112295602bc5aa438306
 https://gist.github.com/richard1230/ed608e004332eb1f9d1f9da773a1d036
 
 https://github.com/Net-hunter121/API-Wordlist/blob/master/actions.txt
+
+#### object的fuzz
+
+![img_8.png](img_8.png)
+
+https://gist.github.com/richard1230/34cc350fba9ff939159373ea51cff9ef
+
+https://github.com/Net-hunter121/API-Wordlist/blob/master/objects.txt
+
+
+
+
+
 
 
 
