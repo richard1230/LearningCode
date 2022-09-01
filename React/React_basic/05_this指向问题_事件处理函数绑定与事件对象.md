@@ -1,3 +1,5 @@
+[TOC]
+
 ## 事件处理函数绑定
 
 - DOM事件处理 `addEventListener` or `onclick = function(){}` 纯小写

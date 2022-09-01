@@ -1,3 +1,5 @@
+[TOC]
+
 ## lazy内置方法 Suspense内置组件
 
 - lazy是React提供的懒（动态）加载组件的方法，React.lazy()
