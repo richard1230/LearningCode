@@ -120,12 +120,12 @@ const MyUI = {
     }
   },
   Input: function (props) {
-    const {placeholder,onValueInput} = props;
-    return(
+    const {placeholder, onValueInput} = props;
+    return (
       <input
-      type="text"
-      placeholder={placeholder}
-      onCHange={(e)=> onValueInput(e)}
+        type="text"
+        placeholder={placeholder}
+        onCHange={(e) => onValueInput(e)}
       />
     )
   }
@@ -134,18 +134,18 @@ const MyUI = {
 class App extends React.Component {
   render() {
     return (
-     <div>
-       <MyUI.Button
-         type='danger'
-       >
-         Click
-       </MyUI.Button>
+      <div>
+        <MyUI.Button
+          type='danger'
+        >
+          Click
+        </MyUI.Button>
 
-       <MyUI.Input placeholder="请填写" onValueInput={this.valueInput}>
-       </MyUI.Input>
-     </div>
+        <MyUI.Input placeholder="请填写" onValueInput={this.valueInput}>
+        </MyUI.Input>
+      </div>
 
-      );
+    );
   }
 }
 ```
@@ -154,23 +154,17 @@ class App extends React.Component {
 
 ![img_3.png](img_3.png)
 
-
 ## JSX书写规范
 
 小写字母开头代表HTML的内置组件,标签转换为 字符串: `div` =====> `'div'` --->作为React.createElement的第一个参数
 
 大写字母开头代表自定义组件 , 例如 `MyButton`，编译 React.createElement(MyButton)
 
-
 ![img_4.png](img_4.png)
-
-
-
 
 ## 运行时选择组件
 
 ![img_10.png](img_10.png)
-
 
 ![img_5.png](img_5.png)
 ![img_9.png](img_9.png)
@@ -180,6 +174,58 @@ class App extends React.Component {
 
 ![img_8.png](img_8.png)
 
+```jsx
+class Login extends React.Component {
+  render() {
+    return (
+      <div>
+        <button>登陆</button>
+        <button>注册</button>
+      </div>
+    )
+  }
+}
+
+class welcome extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>欢迎您</h1>
+      </div>
+    )
+  }
+}
+
+class Header extends React.Component {
+  static components = {
+    'login': Login,
+    'welcome': welcome
+  }
+
+  render() {
+    const HeaderUser = Header.components[this.props.type]
+    return (
+      <div>
+        <HeaderUser {...this.props}/>
+      </div>
+    )
+  }
+}
+
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <Header
+          type={'welcome'}
+          // type={'login'}
+          username='Richard'
+        />
+      </div>
+    );
+  }
+}
+```
 
 
 
