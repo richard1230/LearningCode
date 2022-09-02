@@ -267,7 +267,7 @@ class App extends React.Component {
 
 ```
 
-动态调整属性:
+### 动态调整属性:
 
 ```jsx
 class App extends React.Component {
@@ -303,6 +303,119 @@ class App extends React.Component {
 ```
 
 ![img_11.png](img_11.png)
+
+## 字符串与字面量
+
+![img_12.png](img_12.png)
+
+![img_13.png](img_13.png)
+
+## props的布尔表达
+
+![img_14.png](img_14.png)
+
+```jsx
+
+function MyTitle(props) {
+  const {title, author, authorShow} = props;
+
+  return (
+    <div>
+      <h1>{title}</h1>
+      authorShow
+      ? <p>{authoe}</p>
+      : ' '
+    </div>
+  )
+}
+
+
+class App extends React.Component {
+
+
+  render() {
+    return (
+      <div>
+        <MyTitle
+          title="this is title"
+          author="richard"
+          //语义: 字符串传入的意义是字符串的意思，不代表Bool真假
+          //逻辑字符串true是逻辑真
+          //下面这种写法是错误的
+          // authorShow="true"
+          //下面这种写法是正确的,如果为true,上面的richard就显示
+          authorShow={true}
+          //不赋值的写法: --->默认就是Bool为真
+          //不推荐这么做,语义不好
+          // authorShow
+        />
+      </div>
+    );
+  }
+}
+
+```
+
+## 属性展开操作
+
+下面这两种写法一样:
+
+![img_15.png](img_15.png)
+
+排除某个属性展开的写法:
+
+```jsx
+
+function MyTitle(props) {
+  const {children, author, authorShow} = props;
+
+  return (
+    <div>
+      <h1>{children}</h1>
+      authorShow === true
+      ? <p>{authoe}</p>
+      : ' '
+    </div>
+  )
+}
+
+
+class App extends React.Component {
+
+  render() {
+
+    const {a, ...others} = this.props;
+
+    return (
+      <div>
+        <MyTitle
+          {...others}
+        />
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <App
+    author='richard'
+    authorShow={true}
+    a='1'
+  >
+    this is a title
+  </App>,
+  document.getElementById('app')
+)
+
+
+```
+
+![img_16.png](img_16.png)
+
+
+
+
+
 
 
 
