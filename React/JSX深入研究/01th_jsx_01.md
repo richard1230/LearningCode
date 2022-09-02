@@ -227,6 +227,82 @@ class App extends React.Component {
 }
 ```
 
+## 属性
+
+JSX大括号{}里面可以写JS的任何表达式,但是不能有语句(if，for,switch,function不可以);
+
+非表达式可以在外面写;
+
+```jsx
+function MyTitle(props) {
+  const {title, author} = props;
+
+  return (
+    <div>
+      <h1>{title}</h1>
+      <p>作者:{author}</p>
+    </div>
+  )
+}
+
+
+class App extends React.Component {
+
+  state = {
+    mainTitle: "main title",
+    subTitle: "sub Title",
+    titleShow: 'main'
+  }
+
+  render() {
+    return (
+      <div>
+        <MyTitle
+          title={`${this.state.mainTitle}  {${this.state.subTitle}`}
+        />
+      </div>
+    );
+  }
+}
+
+```
+
+动态调整属性:
+
+```jsx
+class App extends React.Component {
+
+  state = {
+    mainTitle: "main title",
+    subTitle: "sub Title",
+    titleShow: 'main'
+  }
+
+  render() {
+    const {titleShow, mainTitle, subTitle} = this.state
+    let title = '';
+    if (this.state.titleShow === "sub") {
+      title = <h2> {this.state.subTitle}</h2>
+    } else if (this.state.titleShow === "main") {
+      title = <h1> {this.state.mainTitle}</h1>
+    } else {
+      title = <h3> no title</h3>
+    }
+
+    return (
+      <div>
+        {/*{title}  方法一，方法二是动态表达式*/}
+        titleShow === 'sub' ?
+        <h2> {this.state.subTitle}</h2>
+        : <h1> {this.state.mainTitle}</h1>
+      </div>
+    );
+  }
+}
+
+```
+
+![img_11.png](img_11.png)
 
 
 
