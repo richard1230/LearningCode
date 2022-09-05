@@ -530,9 +530,8 @@ class App extends React.Component {
 ![img_21.png](img_21.png)
 
 ### 不会被渲染的元素
- 
-![img_22.png](img_22.png)
 
+![img_22.png](img_22.png)
 
 ![img_23.png](img_23.png)
 
@@ -541,12 +540,143 @@ class App extends React.Component {
 
 ![img_25.png](img_25.png)
 
-
 ## JSX的函数子元素
 
+![img_26.png](img_26.png)
+
+ ```jsx
+
+class Repeat extends React.Component {
+
+
+  render() {
+    const jsxArr = [];
+    for (var i = 0; i < this.props.num; i++) {
+      jsxArr.push(this.props.children(i))
+    }
+
+    return jsxArr;
+  }
+}
+
+
+class App extends React.Component {
+
+  render() {
+    return (
+      <div>
+        <Repeat num={10}>
+          {
+            (index) => <p key={index}>this is item {index + 1}</p>
+          }
+        </Repeat>
+      </div>
+    )
+
+  }
+}
 
 
 
+```
+
+![img_27.png](img_27.png)
+
+上面是函数作为子元素的例子;
+
+再看一个例子:
+![img_32.png](img_32.png) 
+
+```jsx
+class App extends React.Component {
+  render() {
+    <table>
+      <thead> 
+      <tr>
+        <th>ID</th>
+        <th>姓名</th>
+        <th>年级</th>
+      </tr>
+      </thead>
+      <tbody>
+      <Http.Get
+        url='http://localhost:8080/getStudents'
+        loading={
+          <tr>
+            <td colSpan="3">
+              正在加载中...
+            </td>
+          </tr>
+        }
+      >
+        {
+          (data) => {
+            return data.map(
+              item => (
+                <tr key={item.id}>
+                  <td>{item.id}</td>
+                  <td>{item.name}</td>
+                  <td>{item.grade}</td>
+                </tr>
+              )
+            )
+          }
+        }
+      </Http.Get>
+
+      </tbody>
+    </table>
+  }
+
+}
+
+```
 
 
+另外一个文件:
+![img_28.png](img_28.png)
+
+```jsx
+import Get from './Get'
+export default{
+   Get
+}
+```
+![img_29.png](img_29.png)
+ 
+Get.jsx
+```jsx
+class Get extends React.Component{
+  async componentDidMount(){
+    const result = await axios(this.props.url);
+    this.setState({
+      data:result.data
+    },()=>{
+      setTimeout( ()=>{
+        this.setState({
+         component: this.props.children(this.state.data)
+        })
+      } ,1000)
+    })
+    console.log(result)
+  }
+  
+  state = {
+    data:[],
+    component: this.props.loading
+  }
+  render(){
+    return this.state.component;
+  }
+}
+
+export default Get;
+```
+ ![img_31.png](img_31.png)
+
+
+![img_30.png](img_30.png)
+
+
+ 
 

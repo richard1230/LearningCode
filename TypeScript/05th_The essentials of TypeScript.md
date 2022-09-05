@@ -36,6 +36,13 @@ interface Array<T> {
 
 `--strictPropertyInitialization:`:类定义中的属性必须初始化，除非它们的值是undefined。
 
+## TS中的类型
+
+JavaScript语言(不是TypeScript!)只有8种类型:
+
+https://exploringjs.com/tackling-ts/ch_typescript-essentials.html#types-in-typescript
+
+
 
 
 
