@@ -27,3 +27,6 @@ function mixedNumbers(arr) {
 console.log(mixedNumbers(['IV', 5, 'six']));
 
 
+// let Errors ={}
+//
+// Errors
