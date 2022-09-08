@@ -34,3 +34,22 @@ CRA 将所有工程化配置，都隐藏在了 react-scripts 包中，所以项�
 3. 修改 package.json 中的脚本命令
 4. 在代码中，就可以通过 @ 来表示 src 目录的绝对路径
 5. 重启项目，让配置生效
+
+
+## @别名路径提示
+   本节目标:  能够让vscode/webstorm识别@路径并给出路径提示
+   实现步骤
+1. 在项目根目录创建 jsconfig.json 配置文件
+2. 在配置文件中添加以下配置
+
+jsconfig.json
+```json
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  }
+}
+```
