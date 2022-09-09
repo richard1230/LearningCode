@@ -95,7 +95,134 @@ react.js  -------->具体实现(C语言中 `*.c` 为实现)
 
 ![img_24.png](img_24.png)
 
-2.名字要一样!!!
+对于第2点,名字要一样!!!(目录也要在同一个路径下)
+
+
+## CommJS_全局问题
+
+![img_25.png](img_25.png)
+
+
+![img_26.png](img_26.png)
+
+
+![img_27.png](img_27.png)
+
+
+
+
+![img_29.png](img_29.png)
+上图中的问题是由于:
+
+vite没有做这个事: node.js中的require转换成为浏览器中的require
+
+![img_28.png](img_28.png)
+
+
+再次回顾一下:
+
+![img_31.png](img_31.png)
+
+![img_30.png](img_30.png)
+
+![img_32.png](img_32.png)
+
+
+![img_33.png](img_33.png)
+
+
+
+![img_34.png](img_34.png)
+![img_35.png](img_35.png)
+
+解决方案:
+
+![img_36.png](img_36.png)
+
+
+
+
+在注意一下:
+
+![img_38.png](img_38.png)
+
+当前是模块的话，就不用全局变量了(declare就不能是全局变量);
+
+不是模块,declare就是全局变量;
+
+### 全局变量+ES6
+
+![img_37.png](img_37.png)
+
+![img_39.png](img_39.png)
+![img_40.png](img_40.png)
+![img_42.png](img_42.png)
+
+![img_41.png](img_41.png)
+
+
+## 总结
+
+![img_43.png](img_43.png)
+
+![img_44.png](img_44.png)
+
+
+![img_45.png](img_45.png)
+
+![img_46.png](img_46.png)
+
+
+此时的declare就是全局变量,没有export/import;
+
+![img_47.png](img_47.png)
+
+
+## namespace
+
+![img_48.png](img_48.png)
+
+
+一般不要用`declare var/let/var`
+
+最好这样写:
+
+![img_50.png](img_50.png)
+
+![img_49.png](img_49.png)
+
+![img_52.png](img_52.png)
+
+![img_51.png](img_51.png)
+
+
+
+![img_53.png](img_53.png)
+
+
+
+## 最后的总结
+
+![img_54.png](img_54.png)
+
+非模块是早期的妥协;
+
+只要是有import/export ----->认为是模块,此时declare声明的不是全局变量
+
+`export ={} `是旧的commJs语法,一般不推荐
+
+`export {} ` 是精华
+
+![img_55.png](img_55.png)
+
+
+https://ts.xcatliu.com/basics/declaration-files.html
+
+
+
+
+
+
 
 
 
