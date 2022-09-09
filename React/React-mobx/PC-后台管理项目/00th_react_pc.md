@@ -54,7 +54,20 @@ jsconfig.json
 }
 ```
 
-https://www.bilibili.com/video/BV1Z44y1K7Fj?p=108&vd_source=0aa76d6c0cefdf813dbf5b083daafb6a
+## 登陆模块
 
-继续
+https://www.yuque.com/fechaichai/tzzlh1/bivd9h
 
+
+### 封装http工具模块
+
+```shell
+yarn add axios
+
+```
+
+
+### 配置登录Mobx
+```shell
+yarn add mobx mobx-react-lite
+```
