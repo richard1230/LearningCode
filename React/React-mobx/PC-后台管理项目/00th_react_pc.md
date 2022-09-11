@@ -71,3 +71,24 @@ yarn add axios
 ```shell
 yarn add mobx mobx-react-lite
 ```
+
+### 请求拦截器注入
+
+一处配置token,多处生效
+
+
+### 路由鉴权实现
+
+思路为：判断本地是否有token，如果有，就返回子组件，否则就重定向到登录Login
+
+
+![img.png](img.png)
+
+![img_1.png](img_1.png)
+
+![img_2.png](img_2.png)
+
+![img_3.png](img_3.png)
+
+token删除以后,再次刷新就重定向到登陆页面了
+![img_4.png](img_4.png)
