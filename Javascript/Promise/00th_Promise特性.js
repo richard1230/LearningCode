@@ -30,65 +30,65 @@ promise.then(function (data) {
 // success: richard is in name.txt
 
 
-let p1 = new Promise((resolve, reject) => {
-  resolve("i am in resolve p1");
-  reject("i am in reject p1")
-})
-
-p1.then(res => console.log("i am res p1:" + res))
-  .catch(err => console.log('err  p1: ' + err))
-
-//i am res p1:i am in resolve p1
-
-
-
-let p1 = new Promise((resolve, reject) => {
-  reject("i am in reject p1");
-  resolve("i am in resolve p1")
-})
-
-p1.then(res => console.log("i am res p1:" + res))
-  .catch(err => console.log('err  p1: ' + err))
-
-// err  p1: i am in reject p1
-
-
-
-let p1 = new Promise(( reject,resolve) => {
-  reject("i am in reject p1");
-  resolve("i am in resolve p1")
-})
-
-p1.then(res => console.log("i am res p1:" + res))
-  .catch(err => console.log('err  p1: ' + err))
+// let p1 = new Promise((resolve, reject) => {
+//   resolve("i am in resolve p1");
+//   reject("i am in reject p1")
+// })
+//
+// p1.then(res => console.log("i am res p1:" + res))
+//   .catch(err => console.log('err  p1: ' + err))
+//
+// //i am res p1:i am in resolve p1
+//
+//
+//
+// let p1 = new Promise((resolve, reject) => {
+//   reject("i am in reject p1");
+//   resolve("i am in resolve p1")
+// })
+//
+// p1.then(res => console.log("i am res p1:" + res))
+//   .catch(err => console.log('err  p1: ' + err))
+//
+// // err  p1: i am in reject p1
+//
+//
+//
+// let p1 = new Promise(( reject,resolve) => {
+//   reject("i am in reject p1");
+//   resolve("i am in resolve p1")
+// })
+//
+// p1.then(res => console.log("i am res p1:" + res))
+//   .catch(err => console.log('err  p1: ' + err))
 
 // i am res p1:i am in reject p1
 
 
 
-
-
-let p1 = new Promise(( reject,resolve) => {
-  resolve("i am in resolve p1");
-
-  reject("i am in reject p1")
-})
-
-p1.then(res => console.log("i am res p1:" + res))
-  .catch(err => console.log('err  p1: ' + err))
+//
+//
+// let p1 = new Promise(( reject,resolve) => {
+//   resolve("i am in resolve p1");
+//
+//   reject("i am in reject p1")
+// })
+//
+// p1.then(res => console.log("i am res p1:" + res))
+//   .catch(err => console.log('err  p1: ' + err))
 
 // err  p1: i am in resolve p1
 
 
 //结构剖析
-let p1 = new Promise(( A,B) => {
-  C("i am in resolve p1");//C中的字符串为 c
-
-  D("i am in reject p1")// D中的字符串为 d
-})
-
-p1.then(res => console.log("E" + res))
-  .catch(err => console.log('F ' + err))
+// let p1 = new Promise(( A,B) => {
+//   C("i am in resolve p1");//C中的字符串为 c
+//
+//   D("i am in reject p1")// D中的字符串为 d
+// })
+//
+// p1.then(res => console.log("E" + res))
+//   .catch(err => console.log('F ' + err))
 
 //结果为 XX : XXX
 // C在D前面
