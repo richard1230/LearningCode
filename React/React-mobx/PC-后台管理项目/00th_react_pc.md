@@ -95,4 +95,21 @@ token删除以后,再次刷新就重定向到登陆页面了
 
 ## Layout模块
 
-p118
+
+
+### 401token实现
+
+```shell
+$yarn add history
+```
+
+
+### 125-echart基础使用
+
+```shell
+yarn add echarts
+
+```
+
+![img_6.png](img_6.png)
+
