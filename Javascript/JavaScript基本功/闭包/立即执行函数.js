@@ -89,6 +89,16 @@ if (function b() {
 }
 console.log(a);//
 
+console.log('==========我是分割线==========')
+
+param={'username':'richard','password':'123456'};
+
+obj_param = JSON.stringify(param)
+console.log(obj_param);
+
+console.log(JSON.parse(obj_param));
+
+
 
 
 

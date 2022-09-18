@@ -123,3 +123,95 @@ p132继续
 后面每次提交之前搞的截图,说明每次完成了什么功能
 
 
+## p137(要写效果图了)
+
+p137效果图:
+
+![img_7.png](img_7.png)
+
+### 138-富文本编辑器
+
+```shell
+yarn add react-quill
+```
+
+![img_8.png](img_8.png)
+
+改高度:
+
+```scss
+.publish {
+  position: relative;
+  // 加的是下面这行
+  .ql-container{
+    height: 400px !important;
+  }
+}
+```
+
+![img_9.png](img_9.png)
+
+## p139重构频道获取
+
+
+0.article和publish同时用到channel接口中数据(称为channel)
+
+1.channel可以写在store里面,而后将其导出
+
+2.article和publish又都被包含在Layout模块里面,可以通过导入store,使其在页面刚加载的时候渲染(通过useEffect)
+
+3.分别在article和publish中导入store,在各自模块中使用map展开
+
+![img_10.png](img_10.png)
+
+
+## p140基础上传
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 参考
+
+文章管理模块: https://www.yuque.com/fechaichai/tzzlh1/rm4hzp#3dccd864
+
+
+
