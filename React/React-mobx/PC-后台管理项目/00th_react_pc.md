@@ -167,6 +167,15 @@ yarn add react-quill
 
 ## p140基础上传
 
+![img_11.png](img_11.png)
+
+p141:
+
+主要看序号为1的,序号为0的是前面上传的第一个图片
+
+![img_12.png](img_12.png)
+
+## p142
 
 
 
