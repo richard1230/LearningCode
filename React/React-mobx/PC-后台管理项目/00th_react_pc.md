@@ -188,6 +188,59 @@ p141:
 ![img_15.png](img_15.png)
 
 
+## p143 允许上传图片的数量
+
+是否支持多传:
+```jsx
+ <Upload
+                name="image"
+                listType="picture-card"
+                className="avatar-uploader"
+                showUploadList
+                action="http://geek.itheima.net/v1_0/upload"
+                fileList={fileList}
+                onChange={onUploadChange}
+                multiple={imgCount>1}//表示大于1 的时候支持上传多张图片
+                maxCount={imgCount}//表示最多上传几张图片
+
+              >
+```
+
+
+## p144 收集表单数据提交接口
+
+```jsx
+const onFinish = (data)=>{
+    console.log(data);//先看一下这个数据是啥
+
+  }
+```
+
+![img_16.png](img_16.png)
+
+![img_17.png](img_17.png)
+
+需要做二次处理:  原来的要求为: https://www.yuque.com/fechaichai/tzzlh1/oh9sx3#1eb071f3
+```
+{
+   channel_id: 1
+   content: "<p>测试</p>"
+   cover: {
+      type: 1, 
+      images: ["http://geek.itheima.net/uploads/1647066600515.png"]
+   },
+   type: 1
+   title: "测试文章"
+}
+```
+
+![img_18.png](img_18.png)
+
+
+
+
+
+
 
 
 
