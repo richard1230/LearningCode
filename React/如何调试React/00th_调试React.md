@@ -8,7 +8,6 @@ https://www.youtube.com/watch?v=PJeNReqyH88
 https://code.visualstudio.com/docs/editor/debugging#_launch-configurations
 
 
-
 ## 具体例子
 
 ![img.png](img.png)
@@ -69,7 +68,7 @@ snippet-generator.app
             "runtimeExecutable": "canary",
             "name": "调试React项目",
             "url": "http://localhost:3000",
-            "userDataDir":false,
+            "userDataDir":true,//这个选项为true或者不用这一行才能正确调试,不然url出不了
             "webRoot": "${workspaceFolder}"
         }
 ```
@@ -89,6 +88,8 @@ snippet-generator.app
 ![img_12.png](img_12.png)
 
 最后开启调试:
+
+![img_14.png](img_14.png)
 
 ![img_13.png](img_13.png)
 
