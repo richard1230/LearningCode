@@ -262,6 +262,21 @@ const [params] = useSearchParams()
 ```
 
 
+## 147
+
+通过文章id获取文章详情，进行回显操作:
+
+![img_21.png](img_21.png)
+
+
+## 148-149
+
+![img_22.png](img_22.png)
+
+
+
+
+
 
 
 
