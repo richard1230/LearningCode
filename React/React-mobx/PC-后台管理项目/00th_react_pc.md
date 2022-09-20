@@ -279,6 +279,23 @@ const [params] = useSearchParams()
 
 ## 150
 
+```jsx
+cover: {
+        type: type,
+        image: fileList.map(item => item.response.data.url)//这里是有问题的
+      }
+```
+之前:
+
+![img_25.png](img_25.png)
+
+
+现在:
+
+![img_24.png](img_24.png)
+
+
+
 
 
 
