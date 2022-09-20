@@ -237,7 +237,29 @@ const onFinish = (data)=>{
 ![img_18.png](img_18.png)
 
 
+## 145-暂存图片列表
 
+
+一个问题:
+
+![img_19.png](img_19.png)
+
+由三图切换至单图的时候发现图片始终为三张,没有变:
+
+![img_20.png](img_20.png)
+
+
+## p146
+
+找到文章id,切换编辑与发布文章
+
+```jsx
+const [params] = useSearchParams()
+  const id = params.get('id')
+  console.log('route ',id);
+
+{id?'编辑':'发布'}文章
+```
 
 
 
