@@ -22,6 +22,8 @@ yarn start
 
 ## 设置配置项
 
+![img_19.png](img_19.png)
+
 ![img_16.png](img_16.png)
 
 
