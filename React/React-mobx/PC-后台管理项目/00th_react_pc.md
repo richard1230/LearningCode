@@ -294,6 +294,14 @@ cover: {
 
 ![img_24.png](img_24.png)
 
+有bug的流程:
+
+![img_26.png](img_26.png)
+
+
+![img_27.png](img_27.png)
+
+上图中期待的效果 应该为 红线部分:
 
 
 
