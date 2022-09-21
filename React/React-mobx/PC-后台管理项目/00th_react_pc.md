@@ -304,6 +304,14 @@ cover: {
 上图中期待的效果 应该为 红线部分:
 
 
+## p152
+
+使用步骤
+1. 全局安装本地服务包 `yarn global add serve`
+   该包提供了serve命令，用来启动本地服务
+2. 在项目根目录中执行命令 serve -s ./build  在build目录中开启服务器
+3. 在浏览器中访问：http://localhost:3000/ 预览项目
+
 
 
 
