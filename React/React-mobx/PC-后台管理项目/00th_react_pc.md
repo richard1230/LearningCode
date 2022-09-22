@@ -463,7 +463,37 @@ module.exports = {
 ```
 重新 yarn build
 
-serve -s ./build
+而后:
+
+`serve -s ./build`
+
+
+## 155 路由懒加载
+本节目标:   能够对路由进行懒加载实现代码分隔
+使用步骤
+1. 在 App 组件中，导入 Suspense 组件
+2. 在 路由Router 内部，使用 Suspense 组件包裹组件内容
+3. 为 Suspense 组件提供 fallback 属性，指定 loading 占位内容
+4. 导入 lazy 函数，并修改为懒加载方式导入路由组件
+
+
+
+使得路由文件在用起来的时候才会加载:
+```js
+const Login = lazy(() => import('./pages/Login'))
+const Layout = lazy(() => import('./pages/Layout'))
+const Home = lazy(() => import('./pages/Home'))
+const Article = lazy(() => import('./pages/Article'))
+const Publish = lazy(() => import('./pages/Publish'))
+```
+
+
+
+
+
+
+
+
 
 
 
