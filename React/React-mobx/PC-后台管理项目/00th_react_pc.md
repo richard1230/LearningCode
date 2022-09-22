@@ -319,18 +319,151 @@ cover: {
 2. 在 package.json 中的 scripts 标签中，添加分析打包体积的命令
 ```
 "scripts": {
-  "analyze": "source-map-explorer 'build/static/js/*.js'",
+  "analyze": "source-map-explorer 'build/static/js/*.js'",//分析的是当前目录下的所有js文件
 }
 ```
 3. 对项目打包：yarn build（如果已经打过包，可省略这一步）
 4. 运行分析命令：yarn analyze
 5. 通过浏览器打开的页面，分析图表中的包体积
 
+将经常不太变动但是体积又太大的包放到cdn服务器上面,借助浏览器缓存,让它加载以后每次再次打开,直接用缓存里面的数据
+
+## p154 cdn配置
+
+分析说明：通过 craco 来修改 webpack 配置，从而实现 CDN 优化
+
+craco作用:不破坏当前结构自定义webpack
+
+```js
+// 添加自定义对于webpack的配置
+
+const path = require('path')
+const { whenProd, getPlugin, pluginByName } = require('@craco/craco')
+
+module.exports = {//commonjs规范导出一个模块
+  // webpack 配置
+  webpack: {
+    // 配置别名
+    alias: {
+      // 约定：使用 @ 表示 src 文件所在路径
+      '@': path.resolve(__dirname, 'src')
+    },
+    // 配置webpack
+    // 配置CDN
+    configure: (webpackConfig) => {
+      // webpackConfig自动注入的webpack配置对象
+      // 可以在这个函数中对它进行详细的自定义配置
+      // 只要最后return出去就行
+      let cdn = {
+        js: [],
+        css: []
+      }
+      // 只有生产环境才配置
+      whenProd(() => {
+        // key:需要不参与打包的具体的包
+        // value: cdn文件中 挂载于全局的变量名称 为了替换之前在开发环境下
+        // 通过import 导入的 react / react-dom
+        webpackConfig.externals = {
+          react: 'React',
+          'react-dom': 'ReactDOM'
+        }
+        // 配置现成的cdn 资源数组 现在是公共为了测试
+        // 实际开发的时候 用公司自己花钱买的cdn服务器
+        cdn = {
+          js: [
+            'https://cdnjs.cloudflare.com/ajax/libs/react/18.1.0/umd/react.production.min.js',
+            'https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.1.0/umd/react-dom.production.min.js',
+          ],
+          css: []
+        }
+      })
+
+      // 都是为了将来配置 htmlWebpackPlugin插件 将来在public/index.html注入
+      // cdn资源数组时 准备好的一些现成的资源
+      const { isFound, match } = getPlugin(
+        webpackConfig,
+        pluginByName('HtmlWebpackPlugin')
+      )
+
+      if (isFound) {
+        // 找到了HtmlWebpackPlugin的插件
+        match.userOptions.cdn = cdn
+      }
+
+      return webpackConfig
+    }
+  }
+}
+```
 
 
+最终版:
+
+```js
+const path = require('path')
+const {whenProd, getPlugin, pluginByName} = require('@craco/craco')
 
 
+module.exports = {
+  // webpack 配置
+  webpack: {
+    // 配置别名
+    alias: {
+      // 约定：使用 @ 表示 src 文件所在路径
+      // @ 代表根目录，拼接的是 src 目录
+      '@': path.resolve(__dirname, 'src')
+    },
+    // 配置webpack
+    // 配置CDN
+    configure: (webpackConfig) => {
+      // webpackConfig自动注入的webpack配置对象
+      // 可以在这个函数中对它进行详细的自定义配置
+      // 只要最后return出去就行
+      let cdn = {
+        js: [],
+        css: []
+      }
+      // 只有生产环境才配置
+      whenProd(() => {
+        // key:需要不参与打包的具体的包
+        // value: cdn文件中 挂载于全局的变量名称 为了替换之前在开发环境下
+        // 通过import 导入的 react / react-dom
+        webpackConfig.externals = {
+          react: 'React',
+          'react-dom': 'ReactDOM'
+        }
+        // 配置现成的cdn 资源数组 现在是公共为了测试
+        // 实际开发的时候 用公司自己花钱买的cdn服务器
+        cdn = {
+          js: [
+            'https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js',
+            'https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js',
+          ],
+          css: []
+        }
+      })
 
+      // 都是为了将来配置 htmlWebpackPlugin插件 将来在public/index.html注入
+      // cdn资源数组时 准备好的一些现成的资源
+      const {isFound, match} = getPlugin(
+        webpackConfig,
+        pluginByName('HtmlWebpackPlugin')
+      )
+
+      if (isFound) {
+        // 找到了HtmlWebpackPlugin的插件
+        match.userOptions.cdn = cdn
+      }
+      return webpackConfig
+    }
+  }
+}
+
+
+```
+重新 yarn build
+
+serve -s ./build
 
 
 
