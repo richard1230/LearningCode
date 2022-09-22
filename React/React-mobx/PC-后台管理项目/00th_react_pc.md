@@ -312,6 +312,22 @@ cover: {
 2. 在项目根目录中执行命令 serve -s ./build  在build目录中开启服务器
 3. 在浏览器中访问：http://localhost:3000/ 预览项目
 
+## P153分析包的大小体积
+
+使用步骤
+1. 安装分析打包体积的包：yarn add source-map-explorer
+2. 在 package.json 中的 scripts 标签中，添加分析打包体积的命令
+```
+"scripts": {
+  "analyze": "source-map-explorer 'build/static/js/*.js'",
+}
+```
+3. 对项目打包：yarn build（如果已经打过包，可省略这一步）
+4. 运行分析命令：yarn analyze
+5. 通过浏览器打开的页面，分析图表中的包体积
+
+
+
 
 
 
