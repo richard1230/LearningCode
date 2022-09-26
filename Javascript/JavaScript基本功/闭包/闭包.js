@@ -53,40 +53,60 @@ test1(fn1)//b: 2
 // sunSched.showSched();//My schedule on sunday is walking
 //
 //
-// //累加器
-// function test5() {
-//   var num = 0;
-//
-//   function add() {
-//     console.log(++num)
-//   }
-//
-//   return add;
-// }
-//
-// var add = test5();
-// add()
-// add()
-// add()
-// add()
-// add()
-//
+console.log("闭包测试: ==============")
 
-
-const debounce = (func,delay) =>{
-  let timeout;
-  return ()=>{
-    if(timeout){
-      clearTimeout(timeout)
-    }
-    timeout = setTimeout(function () {
-      func()
-    },delay)
+//累加器
+function test5() {
+  var num = 0;
+  function add() {
+    console.log(++num)
+    // return function () {
+    //   console.log(++num)
+    // }
   }
+  return add;
 }
+var add = test5();
+console.log(add());
+console.log(add());
+console.log(add());
+console.log(add());
+console.log(add());
 
 
-const log = debounce(()=> console.log('call'),3000)
+// console.log("闭包测试: ==============")
 
-console.log(log())
+// const testClosure = () => {
+//   let num = 0;
+//   const effect = () => {
+//     num += 1;
+//     const message = `num value in message：${num}`;
+//     return function unmount() {
+//       console.log("这是在effect里面的unmount: ",message);
+//     };
+//     // console.log(num)
+//   };
+//   return effect;
+// };
+// 执行test，返回effect函数
+// const add = testClosure();
+// // 执行effect函数，返回引用了message1的unmount函数
+// var unmount = add();
+// // 再一次执行effect函数，返回引用了message2的unmount函数
+// add();
+// // message3
+// add();
+// // message4
+// add();
+// // message5
+// add();
+// unmount();// 在这里会打印什么呢？按照直觉似乎应该打印5,实际上打印了1
+//
+// unmount()
+//
+// unmount()
+
+
+
+
 
