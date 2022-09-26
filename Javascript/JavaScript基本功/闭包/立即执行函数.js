@@ -99,6 +99,22 @@ console.log(obj_param);
 console.log(JSON.parse(obj_param));
 
 
+console.log('==========注意下面的==========')
+
+
+var test111 = function() {
+  console.log(1); // 1
+}();
+
+
+// test111()//TypeError: test111 is not a function
+
+
+var test112 = function() {
+  console.log(1);
+};
+
+test112()//1
 
 
 
