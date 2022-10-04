@@ -111,5 +111,9 @@ console.log("闭包测试...>>>: ==============")
 // unmount()
 
 
-
+for ( var i=0; i<5; i++ ) {
+  setTimeout(()=>{
+    console.log(i)
+  }, 0)
+}
 
