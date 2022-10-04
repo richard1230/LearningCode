@@ -334,6 +334,14 @@ export default function App() {
 
 
 
+## 总结
+
+- 两者都在渲染周期和UI更新期间保存它们的数据，但只有useState Hook及其更新函数会导致重新渲染
+- useRef返回一个具有current保存实际值的属性的对象。相反，useState返回一个包含两个元素的数组：第一项构成状态，第二项表示状态更新函数
+- useRef的current属性是可以被赋值的;但useState的state不是，要改变state,只能通过setState来进行,不能通过赋值的方式
+- useRef可以直接访问React组件或DOM元素,而useState不可以
+
+
 
 
 
