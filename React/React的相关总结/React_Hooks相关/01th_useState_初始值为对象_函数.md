@@ -171,7 +171,7 @@ console.log(obj1 === obj2)// false,这是由于obj1和obj2分别是两块地址�
 ```
 
 
-## 补充彩蛋:当useState的初始值为函数时
+## 补充:当useState的初始值为函数时
 
 先要明确一个概念:
 
@@ -195,6 +195,7 @@ useState右边括号中初始值为类似0这种类型的时候,其左边数组�
   const [fn,setFn ] = React.useState(()=>()=>{});
 
 ```
+### useState中保存函数的实战与方案 
 
 注意比较下面的两个例子:
 
@@ -238,6 +239,109 @@ export default function App2() {
 }
 
 ```
+
+![img_27.png](img_27.png)
+
+### 最佳解决方案(使用useRef)
+
+使用useRef解决这个问题的坑:
+
+```jsx
+import React from "react";
+import "./styles.css";
+
+export default function App3() {
+  const callbackRef = React.useRef(() => {
+    alert("I am init function");
+  });
+
+  const callback = callbackRef.current
+
+  console.log("callback: ", callback);
+
+  return (
+    <div className="App">
+      <button onClick={() => (callbackRef.current=() => alert("update function"))}>
+        setCallback
+      </button>
+      <button onClick={callback}> callback </button>
+      {/*s12*/}
+      <h1>Hello CodeSandbox</h1>
+      <h2>Start editing to see some magic happen!</h2>
+    </div>
+  );
+}
+
+```
+
+
+
+点击callback按钮:
+
+![img_28.png](img_28.png)
+
+点击setCallback：
+
+![img_29.png](img_29.png)
+
+再次点击callback按钮(发现没有变化,调用的还是原来的函数)
+
+![img_30.png](img_30.png)
+
+上面问题的原因是什么?
+
+useRef不是state,用useRef定义的只是普通的变量,不是本组件的状态,useRef这个容器里保存的值改变的时候,state不会改变,故不会触发渲染;
+
+故s12处的callback还是第一次渲染时的callback!怎么解决这个问题??
+
+只要将改变之后的`callbackRef.current()`重新读取出来即可,而不是读取之前的那个值
+
+```jsx
+import React from "react";
+import "./styles.css";
+
+export default function App4() {
+  const callbackRef = React.useRef(() => alert("I am init function"));
+
+  const callback = callbackRef.current;
+
+  console.log("callback: ", callback);
+
+  return (
+    <div className="App">
+      <button
+        onClick={() => (callbackRef.current = () => alert("update function"))}
+      >
+        setCallback
+      </button>
+      {/*下面一行很重要!!!如果写成callbackRef.current也还是不行,这样读取的还是之前的值,并没有重新读取 */}
+      <button onClick={() => callbackRef.current()}> call callback </button>
+      <h1>Hello CodeSandbox</h1>
+      <h2>Start editing to see some magic happen!</h2>
+    </div>
+  );
+}
+
+```
+
+
+![img_32.png](img_32.png)
+
+
+![img_33.png](img_33.png)
+
+![img_34.png](img_34.png)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
