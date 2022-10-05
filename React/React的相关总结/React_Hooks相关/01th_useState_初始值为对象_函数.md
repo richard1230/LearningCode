@@ -189,7 +189,9 @@ useState右边括号中初始值为类似0这种类型的时候,其左边数组�
 
 ![img_19.png](img_19.png)
 
-只需将你想要保存的函数作为返回值即可!
+只需将你想要保存的函数作为返回值即可!(其实这里利用了[惰性加载](https://zh-hans.reactjs.org/docs/hooks-reference.html#usestate),参见例a旁的注解)
+
+
 
 ```jsx
   const [fn,setFn ] = React.useState(()=>()=>{});
@@ -199,7 +201,7 @@ useState右边括号中初始值为类似0这种类型的时候,其左边数组�
 
 注意比较下面的两个例子:
 
-例a:
+例a:(注意:useState中的函数一开始渲染的时候回立即执行!就是说useState右边括号中的函数在组件的初始渲染中会立即执行)
 
 ![img_21.png](img_21.png)
 
