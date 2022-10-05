@@ -171,7 +171,7 @@ console.log(obj1 === obj2)// false,这是由于obj1和obj2分别是两块地址�
 ```
 
 
-## 补充:当useState的初始值为函数时
+## 补充:当useState想要保存函数时
 
 先要明确一个概念:
 
@@ -295,6 +295,8 @@ useRef不是state,用useRef定义的只是普通的变量,不是本组件的状�
 故s12处的callback还是第一次渲染时的callback!怎么解决这个问题??
 
 只要将改变之后的`callbackRef.current()`重新读取出来即可,而不是读取之前的那个值
+
+https://codesandbox.io/s/billowing-bush-bny6ou?file=/src/App4.js
 
 ```jsx
 import React from "react";
