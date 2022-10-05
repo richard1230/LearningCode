@@ -345,7 +345,7 @@ export default function App() {
 - useRef可以直接访问React组件或DOM元素,而useState不可以
 
 
-
+在点赞，收藏这种业务中经常用到useRef
 
 
 

@@ -17,3 +17,16 @@ const curried = x => y => x + y
 curried(1)(2)
 * */
 
+
+
+const obj1 = {foo:"bar"}
+
+const obj2 = { ...obj1 }
+
+console.log(obj1 === obj2)// false
+
+const obj11 = {foo:"bar"}
+
+const obj22= obj11
+
+console.log(obj11 === obj22)// true
