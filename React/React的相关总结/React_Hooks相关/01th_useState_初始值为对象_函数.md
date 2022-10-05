@@ -171,7 +171,7 @@ console.log(obj1 === obj2)// false,这是由于obj1和obj2分别是两块地址�
 ```
 
 
-## 当useState的初始值为函数时
+## 补充彩蛋:当useState的初始值为函数时
 
 先要明确一个概念:
 
@@ -193,6 +193,49 @@ useState右边括号中初始值为类似0这种类型的时候,其左边数组�
 
 ```jsx
   const [fn,setFn ] = React.useState(()=>()=>{});
+
+```
+
+注意比较下面的两个例子:
+
+例a:
+
+![img_21.png](img_21.png)
+
+
+例b:(完成了对函数的保存与更改)
+
+![img_23.png](img_23.png)
+
+![img_24.png](img_24.png)
+
+![img_25.png](img_25.png)
+
+![img_26.png](img_26.png)
+
+
+```jsx
+import React from "react";
+import "./styles.css";
+
+export default function App2() {
+  const [fn, setFn] = React.useState(() => () => {
+    alert("I am init function");
+  });
+
+  console.log("fn: ", fn);
+
+  return (
+    <div className="App">
+      <button onClick={() => setFn(() => () => alert("update function"))}>
+        setCallback
+      </button>
+      <button onClick={fn}> callback </button>
+      <h1>Hello CodeSandbox</h1>
+      <h2>Start editing to see some magic happen!</h2>
+    </div>
+  );
+}
 
 ```
 
