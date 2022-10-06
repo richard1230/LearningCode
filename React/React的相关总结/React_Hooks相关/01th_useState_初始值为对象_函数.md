@@ -171,7 +171,7 @@ console.log(obj1 === obj2)// false,这是由于obj1和obj2分别是两块地址�
 ```
 
 
-## 补充:当useState想要保存函数时
+## useState如何保存函数
 
 先要明确一个概念:
 
