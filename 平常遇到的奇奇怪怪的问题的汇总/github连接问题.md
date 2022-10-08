@@ -58,4 +58,16 @@ https://zhuanlan.zhihu.com/p/35283688
 https://chinese.freecodecamp.org/news/how-to-flush-dns-on-mac-macos-clear-dns-cache/
 
 
+zsh中目前比较使用的主题: 
 
+```shell
+pygmalion-virtualenv
+
+candy
+
+refined
+
+edvardm
+
+gozilla
+```
