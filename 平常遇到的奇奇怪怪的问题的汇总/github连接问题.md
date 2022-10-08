@@ -30,7 +30,7 @@ https://ipaddress.com/website/github.global.ssl.fastly.net
 
 
 ```shell
-#注意:后面更新的时候地址可能无效了,要找最新的地址
+#注意:后面更新的时候地址可能无效了,要找最新的地址,将下面放到 /etc/hosts  中
 140.82.112.3  github.com 
 151.101.1.194  github.global.ssl.fastly.net
 151.101.65.194  github.global.ssl.fastly.net
@@ -41,6 +41,21 @@ https://ipaddress.com/website/github.global.ssl.fastly.net
 185.199.110.153  assets-cdn.github.com
 185.199.111.153  assets-cdn.github.com
 ```
+
+
+刷新mac 10.14 dns
+
+```shell
+sudo killall -HUP mDNSResponder
+
+```
+
+
+## 设置my zsh
+
+https://zhuanlan.zhihu.com/p/35283688
+
+https://chinese.freecodecamp.org/news/how-to-flush-dns-on-mac-macos-clear-dns-cache/
 
 
 
