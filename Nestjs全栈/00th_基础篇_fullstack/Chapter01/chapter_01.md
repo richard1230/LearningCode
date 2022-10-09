@@ -67,3 +67,48 @@ mac@192:~/WebstormProjects/fullstack/chapter1|main
 
 
 ```
+
+这是会报缺少peer建议依赖中webpack的警告,把下面这段添加到package.json中就可以了
+
+```shell
+"pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "webpack"
+      ]
+    }
+  }
+
+```
+
+## 代码风格
+
+```shell
+mac@192:~/WebstormProjects/fullstack/chapter1|main⚡
+⇒  pnpm add typescript \
+eslint \
+prettier \
+@typescript-eslint/parser \
+@typescript-eslint/eslint-plugin \
+eslint-config-airbnb-base \
+eslint-config-airbnb-typescript \
+eslint-config-prettier \
+eslint-plugin-import \
+eslint-plugin-prettier \
+eslint-plugin-unused-imports \
+eslint-plugin-jest -D
+
+   ╭──────────────────────────────────────────────────────────────────╮
+   │                                                                  │
+   │                Update available! 7.5.0 → 7.13.3.                 │
+   │   Changelog: https://github.com/pnpm/pnpm/releases/tag/v7.13.3   │
+   │              Run "pnpm add -g @pnpm/exe" to update.              │
+   │                                                                  │
+   │      Follow @pnpmjs for updates: https://twitter.com/pnpmjs      │
+   │                                                                  │
+   ╰──────────────────────────────────────────────────────────────────╯
+
+Already up-to-date
+Progress: resolved 550, reused 370, downloaded 0, added 0, done
+
+```
