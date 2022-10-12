@@ -1,5 +1,14 @@
 
+
+## 地址
+
+```shell
+~/WebstormProjects/fullstack
+
+
+```
 ## 配置npm镜像
+
 ```shell
 npm config set registry https://registry.npmjs.org/
 
@@ -110,5 +119,117 @@ eslint-plugin-jest -D
 
 Already up-to-date
 Progress: resolved 550, reused 370, downloaded 0, added 0, done
+
+``` 
+
+配置内容详细参考这个文件(`.eslintrc.js`):
+
+
+
+```shell
+...
+plugins: ['@typescript-eslint', 'jest', 'prettier', 'import', 'unused-imports'],
+extends: [
+    // airbnb规范
+    'airbnb-base',
+    // 兼容typescript的airbnb规范
+    'airbnb-typescript/base',
+    // typescript的eslint插件
+    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+
+    // 支持jest
+    'plugin:jest/recommended',
+    // 使用prettier格式化代码
+    'prettier',
+    // 整合typescript-eslint与prettier
+    'plugin:prettier/recommended',
+],
+```
+
+### 一些重要的规则
+
+也是`.eslintrc.js`这个里面的:
+
+`eslint-plugin-unused-imports`用于自动删除未使用的导入
+
+```shell
+...
+ 'no-unused-vars': 0,
+ '@typescript-eslint/no-unused-vars': 0,
+ 'unused-imports/no-unused-imports': 1,
+ 'unused-imports/no-unused-vars': [
+    'error',
+    {
+        vars: 'all',
+        args: 'none',
+        ignoreRestSiblings: true,
+    },
+]
+```
+
+`import`插件,`import/order`可以按照自己的需求配置
+
+```shell
+// 导入模块的顺序
+'import/order': [
+     'error',
+     {
+         pathGroups: [
+             {
+                 pattern: '@/**',
+                 group: 'external',
+                 position: 'after',
+             },
+         ],
+         alphabetize: { order: 'asc', caseInsensitive: false },
+         'newlines-between': 'always-and-inside-groups',
+         warnOnUnassignedImports: true,
+     },
+],
+// 导入的依赖不必一定要在dependencies的文件
+'import/no-extraneous-dependencies': [
+    'error',
+     {
+         devDependencies: [
+             '**/*.test.{ts,js}',
+             '**/*.spec.{ts,js}',
+             './test/**.{ts,js}',
+             './scripts/**/*.{ts,js}',
+         ],
+     },
+],
+
+```
+
+接下来需要配置一下`.prettierrc`,和`.editorconfig`,并且把一些它们各自需要忽略的目录和文件分别添加到`.eslintignore`和`.prettierignore`
+最后把git仓库需要忽略的目录和文件写入`.gitignore`
+
+
+## Tsconfig配置
+
+`tsconfig.json`文件中添加`ESNEXT`就可以使用最新的ES语法,并且添加一个`@`作为根目录映射符
+>添加`**.js` 是为了让`.eslintrc.js` 之类的文件也能被格式化，但是必须要在`tsconfig.build.json` 中排除
+
+```shell
+{
+    "compilerOptions": {
+        // ...
+        "paths": {
+            "@/*": ["src/*"]
+        }
+    },
+     "include": ["src", "test", "typings/**/*.d.ts", "**.js"]
+}
+```
+
+
+tsconfig.build.json
+
+```shell
+{
+    "extends": "./tsconfig.json",
+    "exclude": ["node_modules", "test", "dist", "**.js", "**/*spec.ts"]
+}
 
 ```
