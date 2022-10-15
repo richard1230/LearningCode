@@ -51,3 +51,29 @@ async function bootstrap() {
 
 
 ![img_2.png](img_2.png)
+
+
+
+
+模块共享:
+
+逻辑:
+
+a模块中的a1类想要用b模块中的中b1类(就是说b1类要怎么注入到不是本模块中)
+在a模块中:1.注册a1; ------->2.导出这个类`export [a1]`
+
+3. 在中心模块中导入
+4. 在b1中导入,在b1中注入(类似如下)
+```ts
+//b1中:
+constructor (private userService:UserService){}
+```
+
+
+
+
+### 动态导入
+
+![img_3.png](img_3.png)
+
+
