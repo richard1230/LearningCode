@@ -138,6 +138,60 @@ $ git config --global -e
 ```
 其中“7891”为你的代理软件的指定出入端口，请根据实际情况自行修改。
 
+### 我的终极方案
+
+```shell
+mac@192:~|
+⇒  git config --global https.proxy "socks5://127.0.0.1:10000"
+mac@192:~|
+⇒  git config --global http.proxy "socks5://127.0.0.1:10000"
+mac@192:~|
+⇒  git config --global -e
+⇒  omz update
+Updating Oh My Zsh
+Fast-forwarded master to 50a526f209a182add8a47e362e1c9a3bfd7c5af4.
+master
+
+Features:
+
+ - 49691b5 [autojump] Add support for macOS and nix (#11291)
+
+Bug fixes:
+  6         lowSpeedLimit = 0
+
+ - bb8a0aa [npm]      Ignore `rm` alias (#11222)
+ - 0066280 [pip]      Fix `pipupall` error with `freeze` format (#11280)
+
+Documentation:
+
+ - 820b8bd [autojump] Fix outdated links and update description (#11289)
+
+You can see the changelog with `omz changelog`
+         __                                     __
+  ____  / /_     ____ ___  __  __   ____  _____/ /_
+ / __ \/ __ \   / __ `__ \/ / / /  /_  / / ___/ __ \
+/ /_/ / / / /  / / / / / / /_/ /    / /_(__  ) / / /
+\____/_/ /_/  /_/ /_/ /_/\__, /    /___/____/_/ /_/
+                        /____/
+
+Hooray! Oh My Zsh has been updated!
+
+To keep up with the latest news and updates, follow us on Twitter: @ohmyzsh
+Want to get involved in the community? Join our Discord: Discord server
+Get your Oh My Zsh swag at: Planet Argon Shop
+compinit:498: no such file or directory: /usr/local/share/zsh/site-functions/_brew_cask
+
+```
+
+![img_4.png](img_4.png)
+
+![img_5.png](img_5.png)
+
+![img_6.png](img_6.png)
+
+
+
+
 
 
 ### 使用 SSH 方法
