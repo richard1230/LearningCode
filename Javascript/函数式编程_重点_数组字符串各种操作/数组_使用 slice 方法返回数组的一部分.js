@@ -25,7 +25,12 @@ function sliceArray(anim, beginSlice, endSlice) {
 
 const inputAnim = ["Cat", "Dog", "Tiger", "Zebra", "Ant"];
 console.log(sliceArray(inputAnim, 1, 3));
-;
+
+console.log(inputAnim.slice(-2));//[ 'Zebra', 'Ant' ],表示获取的是下标为-2，-1的
+
+
+
+
 console.log(inputAnim);
 
 
