@@ -15,7 +15,9 @@ https://pincman-classroom.feishu.cn/wiki/wikcncRYMjAQgbcThufVxHlFLAf
 
 
 ```shell
+
  pnpm add lodash class-validator class-transformer @nestjs/swagger
+ 
 ```
 
 

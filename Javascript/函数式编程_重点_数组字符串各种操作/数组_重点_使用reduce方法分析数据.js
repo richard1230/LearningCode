@@ -150,6 +150,15 @@ function getRating(watchList) {
 
 console.log(getRating(watchList));
 
+console.log("========================");
+
+path = [ 'app', 'name' ]
+
+config = { app: { name: '我是在configure文件中的app.ts,我的名字叫做小明' },database: { host: 'localhost' },upload: { exts: 'jpeg,png,gif' }}
+
+
+console.log(path.reduce((config,name) => config[name],config))
+
 
 
 

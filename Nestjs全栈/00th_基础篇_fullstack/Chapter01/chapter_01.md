@@ -33,6 +33,9 @@ npm config set registry https://registry.npmjs.org/
 
 ```shell
 ~ pnpm config set registry https://registry.npmjs.com/
+
+#淘宝镜像
+pnpm config set registry https://registry.npmmirror.com/
 ```
 
 ## 安装镜像管理工具
