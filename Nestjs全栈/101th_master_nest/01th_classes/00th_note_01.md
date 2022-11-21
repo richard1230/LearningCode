@@ -113,6 +113,37 @@ pnpm dev
 
  ```
 
+登陆数据库管理页面:
+
+![img_25.png](img_25.png)
+
+
+
+![img_26.png](img_26.png)
+
+删除一个表:
+
+![img_27.png](img_27.png)
+
+### 21th——entity
+
+代码见:
+
+https://github.com/richard1230/nest-events-backend/commit/e1b446a5610e0fb38dc5c2bb52945b6e225284f5#diff-089f4f2474b64391c42b6e66aed33977e132058d92108f0a63234a7862e1f8b8
+
+app.module.ts:主要负责连接数据库
+
+event.entity.ts : 主要创建一个event的表,里面一定要有主键
+
+前提需要有数据库服务,这里是利用docker起mysql这个服务的,编写了一个docker-compose.yml文件(具体操作见上)
+
+
+
+
+
+
+
+
 
 
 
