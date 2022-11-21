@@ -125,7 +125,7 @@ pnpm dev
 
 ![img_27.png](img_27.png)
 
-### 21th——entity
+## 21th——entity
 
 代码见:
 
@@ -136,6 +136,44 @@ app.module.ts:主要负责连接数据库
 event.entity.ts : 主要创建一个event的表,里面一定要有主键
 
 前提需要有数据库服务,这里是利用docker起mysql这个服务的,编写了一个docker-compose.yml文件(具体操作见上)
+
+
+
+## 22th-23th_respository pattern
+
+![img_28.png](img_28.png)
+
+![img_29.png](img_29.png)
+
+
+
+![img_30.png](img_30.png)
+
+
+![img_31.png](img_31.png)
+
+#填充数据
+
+```sql
+
+SET NAMES utf8mb4;
+
+INSERT INTO `event` (`id`, `description`, `when`, `address`, `name`) VALUES
+(1,	'Let\'s meet together.',	'2021-02-15 21:00:00',	'Office St 120',	'Team Meetup'),
+(2,	'Let\'s learn something.',	'2021-02-17 21:00:00',	'Workshop St 80',	'Workshop'),
+(3,	'Let\'s meet with big bosses',	'2021-02-17 21:00:00',	'Boss St 100',	'Strategy Meeting'),
+(4,	'Let\'s try to sell stuff',	'2021-02-11 21:00:00',	'Money St 34',	'Sales Pitch'),
+(5,	'People meet to talk about business ideas',	'2021-02-12 21:00:00',	'Invention St 123',	'Founders Meeting');
+```
+
+![img_32.png](img_32.png)
+
+
+![img_33.png](img_33.png)
+
+![img_34.png](img_34.png)
+
+控制器中的方法顺序很重要,先定义的优先!!!
 
 
 
