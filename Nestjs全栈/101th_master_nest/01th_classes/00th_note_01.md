@@ -52,8 +52,39 @@
 ![img_16.png](img_16.png)
 
 
+## Database basic
+
+```shell
+#在docker-compose.yml(就是项目)目录下执行
+docker-compose up
+
+```
 
 
+
+![img_18.png](img_18.png)
+
+密码为默认: example
+
+
+![img_19.png](img_19.png)
+
+![img_20.png](img_20.png)
+
+
+![img_21.png](img_21.png)
+
+![img_22.png](img_22.png)
+
+
+## 小结
+```shell
+#开启容器
+docker-compose up -d
+
+#停止
+docker-compose stop
+```
 
 
 
