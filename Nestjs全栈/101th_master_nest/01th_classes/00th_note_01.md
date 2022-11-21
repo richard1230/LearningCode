@@ -86,11 +86,32 @@ docker-compose up -d
 docker-compose stop
 ```
 
+## ORMs
+![img_23.png](img_23.png)
 
 
+![img_24.png](img_24.png)
 
 
+```shell
+pnpm add --save @nestjs/typeorm typeorm mysql
+```
 
+开启数据库
+
+```shell
+mac@192:~/WebstormProjects/fullstack/nest-events-backend|main⚡ 
+⇒  docker-compose up -d
+
+[+] Running 3/3
+ ⠿ Container nest-events-backend-adminer-1   Started                                                                                           1.2s
+ ⠿ Container nest-events-backend-mysql-1     Started                                                                                           1.2s
+ ⠿ Container nest-events-backend-postgres-1  Started  
+ 
+# 开启服务
+pnpm dev
+
+ ```
 
 
 
