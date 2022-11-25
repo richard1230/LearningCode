@@ -11,9 +11,9 @@ https://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html
 
 要点:
 
-- 服务端创建了JWT(就是json对象),并使用密钥对其进行签名(防止数据被篡改),
+- 服务端创建了JWT(就是json对象),并生成jwt_token而后返回给客户端
 
-- 服务端可以对 `客户端发向服务端的JWT` 进行校验,查看数据有没被篡改
+- 服务端可以对 `客户端发向服务端的JWT(里面有jwt_token)` 进行校验(需要密钥,密钥只能是服务器知道),查看数据有没被篡改
 
 
 header:包含签名算法以及token类型(一般为JWT)
