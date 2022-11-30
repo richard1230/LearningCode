@@ -66,6 +66,8 @@ docker-compose up
 
 密码为默认: example
 
+utf8mb4_unicode_520_ci
+
 
 ![img_19.png](img_19.png)
 
