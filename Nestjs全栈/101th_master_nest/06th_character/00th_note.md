@@ -45,6 +45,26 @@ Attendee在设置之前:
 
 ![img_9.png](img_9.png)
 
+## 38th_loading related entities
+
+给attendee表填充数据:
+
+```shell
+
+
+INSERT INTO
+    `attendee` (`id`, `name`, `eventId`)
+VALUES
+    (1, 'Piotr', 1),
+    (2, 'John', 1),
+    (3, 'Terry', 1),
+    (4, 'Bob', 2),
+    (5, 'Joe', 2),
+    (6, 'Donald', 2),
+    (7, 'Harry', 4);
+
+```
+
 
 
 
