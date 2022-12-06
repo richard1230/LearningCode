@@ -65,6 +65,41 @@ VALUES
 
 ```
 
+## 39th_associating_related_entities
+
+attendee表被编辑之前
+
+![img_10.png](img_10.png)
+
+attendee表被编辑之后:
+
+测试:
+```shell
+⇒  curl http://localhost:3000/events/practice2
+{"id":1}%
+```
+
+![img_11.png](img_11.png)
+
+![img_12.png](img_12.png)
+
+![img_13.png](img_13.png)
+
+
+
+## 40th_many_to_many
+
+创建模块:
+
+```shell
+nest g mo school
+```
+
+数据库里面的JoinTable操作对比:
+
+![img_14.png](img_14.png)
+
+![img_15.png](img_15.png)
 
 
 

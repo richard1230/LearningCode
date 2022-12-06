@@ -205,3 +205,15 @@ console.log(Object.entries(o).filter(k => k[1]));//[ [ 'a', true ], [ 'c', false
 
 console.log("Object.entries(o).filter(k => k[1]).map(kv => kv[0])");
 console.log(Object.entries(o).filter(k => k[1]).map(kv => kv[0]));
+
+
+// const users = [
+//   { name: 'John', age: 34 },
+//   { name: 'Amy', age: 20 },
+//   { name: 'camperCat', age: 10 }
+// ];
+
+// console.log("usersnot34: ")
+// const usersnot34 = users.filter(user => user.age !== 34);
+// console.log(usersnot34);
+// [ { name: 'Amy', age: 20 }, { name: 'camperCat', age: 10 } ]
