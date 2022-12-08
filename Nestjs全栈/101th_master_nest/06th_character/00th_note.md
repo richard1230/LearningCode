@@ -102,6 +102,12 @@ nest g mo school
 ![img_15.png](img_15.png)
 
 
+具体逻辑可以看这里:
+
+https://github.com/richard1230/nest-events-backend/commit/608df9abfdfd53cdafad914d234596995845cd57
+
+
+
 
 
 
