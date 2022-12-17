@@ -19,7 +19,7 @@ c05cf2c5f087   postgres:13.1         "docker-entrypoint.s…"   3 weeks ago   Up
 
 ```
 
-除此以外,还有一个注意点,导入接口的时候需要在解扣器后面加json:
+除此以外,还有一个注意点,导入接口的时候需要在url后面加json:
 
 ```shell
 pnpm dev
@@ -41,6 +41,10 @@ pnpm dev
 ![img_1.png](img_1.png)
 
 下面这张图是重点:
+原来是 `http://127.0.0.1:3100/docs/manage  `,`http://127.0.0.1:3100/docs`
+
+导入的时候需要写成:  `http://127.0.0.1:3100/docs/manage-json`,`http://127.0.0.1:3100/docs-json`
+
 
 ![img_2.png](img_2.png)
 
