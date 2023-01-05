@@ -14,6 +14,16 @@ bySpace 将有值 ["Hello", "World"]，byDigits 将有值 ["How", "are", "you", 
 
 * */
 
+const str = "Hello World";
+const bySpace = str.split(" ");
+console.log(bySpace)
+
+const otherString = "How9are7you2today";
+const byDigits = otherString.split(/\d/);
+
+console.log(byDigits)
+
+
 function splitify(str) {
   // 只修改这一行下面的代码
 
