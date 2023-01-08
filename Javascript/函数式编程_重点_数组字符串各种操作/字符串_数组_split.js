@@ -34,3 +34,22 @@ function splitify(str) {
 
 console.log(splitify("Hello World,I-am code"));;
 
+
+
+function geturlParam(sParam) {
+  var sPageURL = 'q=#血氧仪对农村意味着什么#&t=31&band_rank=2&Refer=top',
+    sURLVariables = sPageURL.split('&'),
+    sParameterName,
+    i;
+  for (i = 0; i < sURLVariables.length; i++) {
+    sParameterName = sURLVariables[i].split('=');
+
+    if (sParameterName[0] === sParam) {
+      var x = decodeURIComponent(sParameterName[1])
+      return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+    }
+  }
+}
+
+
+console.log(geturlParam('t'))
