@@ -53,3 +53,15 @@ function geturlParam(sParam) {
 
 
 console.log(geturlParam('t'))
+
+
+function getQueryParamByName(e) {
+  // var t = window.location.href;
+  var t1 = 'https://s.weibo.com/weibo?q=%23iPhone15Pro%E6%9C%BA%E5%9E%8B%E4%BC%9A%E6%9C%896%E5%A4%A7%E7%8B%AC%E5%8D%A0%E5%8A%9F%E8%83%BD%23&t=31&band_rank=4&Refer=top'
+  e = e.replace(/[\[\]]/g, "\\$&");
+  var a = new RegExp("[?&]" + e + "(=([^&#]*)|&|#|$)").exec(t1);
+  return a ? a[2] ? decodeURIComponent(a[2].replace(/\+/g, " ")) : "" : null
+}
+
+console.log(getQueryParamByName('t'))
+
