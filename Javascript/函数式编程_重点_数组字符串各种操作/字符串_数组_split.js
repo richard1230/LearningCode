@@ -65,3 +65,4 @@ function getQueryParamByName(e) {
 
 console.log(getQueryParamByName('t'))
 
+
