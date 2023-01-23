@@ -318,3 +318,38 @@ import 插件，import/order 可以按照自己的需求配置
     ]
 }
 ```
+
+
+## 怎么调试
+
+设置launch.json,(创建此文件的时候设置为创建node)
+
+
+
+```shell
+{
+    // 使用 IntelliSense 了解相关属性。
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "debug 3r",
+            "request": "launch",
+            "runtimeArgs": ["run-script", "start:debug"],
+            "autoAttachChildProcesses": true,
+            "console": "integratedTerminal",
+            "runtimeExecutable": "pnpm",
+            "skipFiles": ["<node_internals>/**"],
+            "type": "node"
+        }
+    ]
+}
+
+```
+
+运行pnpm debug命令/或者按F5
+
+在浏览器中直接输入 http://localhost:3000/
+
+或者命令行:curl http://localhost:3000/
