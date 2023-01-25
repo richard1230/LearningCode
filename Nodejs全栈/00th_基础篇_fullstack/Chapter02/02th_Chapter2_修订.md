@@ -93,9 +93,31 @@ Enter password:example
 - deepmerge是一个用于深度合并对象的库
 
 ```shell
- pnpm add lodash mysql2 typeorm @nestjs/typeorm sanitize-html deepmerge
- pnpm add @types/lodash @types/sanitize-html
+⇒  pnpm add @types/lodash @types/sanitize-html
+└─┬ typeorm
+  └── ✕ unmet peer mysql2@^2.2.5: found 3.0.1
+mac@192:~/WebstormProjects/fullstack/3r/my_chapter01|main⚡
+⇒  pnpm add lodash mysql2 typeorm @nestjs/typeorm sanitize-html deepmerge.
+└─┬ typeorm
+  └── ✕ unmet peer mysql2@^2.2.5: found 3.0.1
+  
  
+```
+
+针对这个警告:
+
+```shell
+# package.json中
+"pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "webpack"
+      ],
+      "allowAny": [
+        "mysql2"
+      ]
+    }
+  }
 ```
 
 
@@ -183,6 +205,20 @@ export class DatabaseModule {
 }
 ```
 
+
+
+
+
+
+
+
+。。。
+
+## 防注入处理
+
+```shell
+pnpm add deepmerge
+```
 
 
 
