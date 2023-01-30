@@ -85,3 +85,13 @@ Nestjs中的Restful API(Graphql则是另一套模型)从请求到数据验证，
  mkdir -p src/modules/content/dtos
  touch src/modules/content/dtos/post.dto.ts
 ```
+
+
+
+
+...
+
+```shell
+mkdir -p src/modules/core/providers 
+touch src/modules/core/providers/app.interceptor.ts
+```
