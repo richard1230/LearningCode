@@ -10,3 +10,4 @@ https://pincman-classroom.feishu.cn/wiki/wikcnlWLMsAHHkYaKi9Ibjbigxd
 6. 编写控制器
 7. 在逻辑模块中注册提供者(包括服务类，订阅者等)以及控制器，Entity，Repository
 8. 在AppModule中导入逻辑模块
+
