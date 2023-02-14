@@ -56,6 +56,8 @@
 
 ```shell
 #在docker-compose.yml(就是项目)目录下执行
+cd ~/WebstormProjects/fullstack/nest-events-backend
+
 docker-compose up
 
 ```
@@ -82,6 +84,8 @@ utf8mb4_unicode_520_ci
 ## 小结
 ```shell
 #开启容器
+cd ~/WebstormProjects/fullstack/nest-events-backend
+
 docker-compose up -d
 
 #停止
