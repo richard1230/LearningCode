@@ -30,3 +30,6 @@ touch src/modules/core/providers/app.pipe.ts
 touch src/modules/core/providers/app.filter.ts
 ```
 
+
+
+
