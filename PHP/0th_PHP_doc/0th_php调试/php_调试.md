@@ -18,3 +18,7 @@ pecl install xdebug
 
 /usr/local/Cellar/php/8.1.11/bin/php
 ```
+
+![img.png](img.png)
+
+
