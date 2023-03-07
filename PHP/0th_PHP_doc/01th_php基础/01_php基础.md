@@ -129,7 +129,20 @@ echo $a;//结果是2
 ```
 
 
+### 可变变量
 
+可以变量即使用一个变量的值，作为另一个变量名。
+
+```shell
+$a = 'hello';	//普通变量
+$$a = 'world';	//可变变量 相当于：$hello = ‘world’;
+echo "$a ${$a}";//输出：hello world
+echo "$a $hello";//输出：hello world
+
+```
+
+
+## 变量作用域
 
 
 
