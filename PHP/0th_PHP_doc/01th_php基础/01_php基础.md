@@ -163,6 +163,8 @@ echo "$a $hello";//输出：hello world
 
 
 
+## 全局变量
+
 
 
 
