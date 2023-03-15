@@ -168,6 +168,20 @@ echo "$a $hello";//输出：hello world
 全局声明（函数外声明）的变量会保存在 `$_GLOBALS` 中,函数内默认不能访问到全局变量,在函数中访问需要使用 global 关键字。
 
 
+```shell
+$Chinese='中国人';
+function p() {
+	//利⽤ global 引入全局变量
+	global $Chinese;
+	echo $Chinese;
+}
+p();
+```
+
+>也可以使用全局数组$GLOBALS 调⽤用全局变量量。 如： $GLOBALS['Chinese'];
+
+
+
 
 
 
