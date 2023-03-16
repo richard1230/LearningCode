@@ -181,6 +181,13 @@ p();
 >也可以使用全局数组$GLOBALS 调⽤用全局变量量。 如： $GLOBALS['Chinese'];
 
 
+### 检测变量
+通过 isset 函数可以检测变量是否定义。
+
+```shell
+var_dump(isset($name));
+# 这里的结果是false
+```
 
 
 
