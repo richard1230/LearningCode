@@ -188,7 +188,14 @@ p();
 var_dump(isset($name));
 # 这里的结果是false
 ```
+### 变量销毁
 
+php 在全部代码执行结束后会删除所有变量，也使用 unset 函数可以在程序运行中删除变量。
+```shell
+$name='baidu.com';
+unset($name);
+
+```
 
 
 
