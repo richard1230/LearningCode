@@ -197,6 +197,20 @@ unset($name);
 
 ```
 
+全局变量不能在函数中删除
+
+```shell
+$name = 'baidu.com';
+function run()
+{
+    global $name;
+    unset($name);
+}
+run();
+echo $name;
+# 依然可以输出 baidu.com
+```
+
 
 
 
