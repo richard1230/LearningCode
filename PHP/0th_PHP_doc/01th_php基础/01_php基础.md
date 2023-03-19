@@ -210,6 +210,8 @@ run();
 echo $name;
 # 依然可以输出 baidu.com
 ```
+## 静态变量
+
 
 
 
