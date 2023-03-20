@@ -66,6 +66,9 @@ docker-compose up
 
 ![img_18.png](img_18.png)
 
+系统:MySQL
+服务器:mysql
+用户名:root
 密码为默认: example
 
 utf8mb4_unicode_520_ci
