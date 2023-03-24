@@ -79,5 +79,25 @@ Copyright (c) The PHP Group
 ```
 
 
+## 选择sail服务
+
+通过 Sail 创建新的 Laravel 应用程序时，您可以使用with查询字符串变量来选择应在新应用程序的docker-compose.yml文件中配置哪些服务。可用服务包括mysql、pgsql、mariadb、redis、memcached、meilisearch、minio、selenium和mailhog：
+
+```shell
+curl -s "https://laravel.build/example-app?with=mysql,redis" | bash
+```
+
+如果您未指定要配置的服务，则会默认配置mysql、redis、meilisearch、mailhog和selenium`。
+
+您可以通过将参数添加到 URL 来指示 Sail 安装默认的Devcontainer ：devcontainer
+
+
+```shell
+curl -s "https://laravel.build/example-app?with=mysql,redis&devcontainer" | bash
+```
+
+
+
+
 
 
