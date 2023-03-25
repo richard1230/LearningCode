@@ -58,7 +58,7 @@
 #在docker-compose.yml(就是项目)目录下执行
 cd ~/WebstormProjects/fullstack/nest-events-backend
 
-docker-compose up
+docker-compose up -d
 
 ```
 

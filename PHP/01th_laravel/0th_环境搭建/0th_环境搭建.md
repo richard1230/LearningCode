@@ -95,7 +95,52 @@ curl -s "https://laravel.build/example-app?with=mysql,redis" | bash
 ```shell
 curl -s "https://laravel.build/example-app?with=mysql,redis&devcontainer" | bash
 ```
+## 通过composer来创建laravel项目
 
+```shell
+composer create-project laravel/laravel admin-php
+ 
+#可能会报错如下:
+#Xdebug: [Step Debug] Could not connect to debugging client. Tried: 127.0.0.1:88 (through xdebug.client_host/xdebug.client_port).
+#Composer could not find a composer.json file in /Users/mac/WebstormProjects/fullstack/laravel
+
+cd admin-php
+
+composer fund
+
+php artisan serve
+
+
+```
+
+直接在页面输入: `http://127.0.0.1:8000`
+
+
+
+## Vscode
+
+```shell
+#两个插件
+PHP EXTENSION PACK
+Laravel EXTENSION PACK
+```
+
+
+
+进入容器内部:
+
+```shell
+docker exec -it xxxyyxxx bash
+```
+
+
+
+这里没用本地mysql,用的是docker:
+
+```shell
+cd ~/WebstormProjects/fullstack/nest-events-backend
+docker-compose up -d
+```
 
 
 
