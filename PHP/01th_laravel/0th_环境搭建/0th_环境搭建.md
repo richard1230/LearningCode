@@ -98,6 +98,8 @@ curl -s "https://laravel.build/example-app?with=mysql,redis&devcontainer" | bash
 ## 通过composer来创建laravel项目
 
 ```shell
+~/WebstormProjects/fullstack/laravel/admin-php
+
 composer create-project laravel/laravel admin-php
  
 #可能会报错如下:
