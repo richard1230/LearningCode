@@ -251,6 +251,9 @@ echo calculate();
 0xfff #十六进制
 ```
 
+## 浮点数
+
+
 
 
 
