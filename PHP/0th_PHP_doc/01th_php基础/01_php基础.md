@@ -262,9 +262,7 @@ echo calculate();
 ```
 ## 布尔型
 
-当转换为 boolean 时,以下值被认为是 FALSE：这个地方提示学生不用记,按照自己的感觉来就可以判定了,读完一遍之后把 ppt 关掉,提问 true 还是 false,学生都会知道的
-
-
+当转换为 boolean 时,以下值被认为是 FALSE：
 
 
 
