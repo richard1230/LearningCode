@@ -284,7 +284,10 @@ echo calculate();
 字符串可以用双引号"" 或 '' 号包含，区别是双引号中可以解析变量。
 
 
-
+```shell
+$url = 'baidu.com';
+$string = "百度的网址: {$url}";
+```
 
 
 
