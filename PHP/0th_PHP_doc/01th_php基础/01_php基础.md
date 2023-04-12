@@ -289,6 +289,9 @@ echo calculate();
 $url = 'baidu.com';
 $string = "百度的网址: {$url}";
 ```
+在所有输出前使用下面的代码可以正确显示中文：
+
+
 
 
 
