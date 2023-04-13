@@ -291,7 +291,9 @@ $string = "百度的网址: {$url}";
 ```
 在所有输出前使用下面的代码可以正确显示中文：
 
-
+```shell
+header('Content-type:text/html;charset=utf-8');
+```
 
 
 
