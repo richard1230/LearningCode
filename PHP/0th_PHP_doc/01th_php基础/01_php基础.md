@@ -294,6 +294,8 @@ $string = "百度的网址: {$url}";
 ```shell
 header('Content-type:text/html;charset=utf-8');
 ```
+定义符
+
 
 
 
