@@ -301,7 +301,13 @@ header('Content-type:text/html;charset=utf-8');
 结束符必须从第一列开始，并且后面除了分号以外不能包含任何其他字符，空格也不可以。
 
 
+```shell
+$string =<<<str
 
+这是使用定界符输入的内容
+str;
+echo $string;
+```
 
 
 
