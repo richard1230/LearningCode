@@ -308,6 +308,8 @@ $string =<<<str
 str;
 echo $string;
 ```
+## 连接符
+
 
 
 
