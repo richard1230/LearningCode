@@ -310,9 +310,13 @@ echo $string;
 ```
 ## 连接符
 
-多个字符串使用 . 符号连接
+多个字符串使用 `.` 符号连接
 
-
+```shell
+$name = '中国';
+$url  = 'china.com'
+echo $name.$url;
+```
 
 
 
