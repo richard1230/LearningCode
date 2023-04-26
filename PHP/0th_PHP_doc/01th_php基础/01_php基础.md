@@ -325,7 +325,6 @@ echo $name.$url;
 
 ```shell
 echo  "变量定义 \$name = 'baidu.com',这是一个变量";
-
 ```
 
 ## 常用函数
