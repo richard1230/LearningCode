@@ -331,4 +331,7 @@ echo  "变量定义 \$name = 'baidu.com',这是一个变量";
 
 strlen — 取得字符串长度传度的函数
 
+```shell
+echo strlen('baidu.com');
 
+```
