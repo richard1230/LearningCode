@@ -335,3 +335,9 @@ strlen — 取得字符串长度传度的函数
 echo strlen('baidu.com');
 
 ```
+mb_strlen — 根据字符编码获取长度
+
+```shell
+echo mb_strlen('中国人很聪明','utf8');
+
+```
