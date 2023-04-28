@@ -341,3 +341,5 @@ mb_strlen — 根据字符编码获取长度
 echo mb_strlen('中国人很聪明','utf8');
 
 ```
+trim — 截去字符串首尾的内容
+
