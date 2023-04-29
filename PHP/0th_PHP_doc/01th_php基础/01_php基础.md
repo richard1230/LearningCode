@@ -343,3 +343,10 @@ echo mb_strlen('中国人很聪明','utf8');
 ```
 trim — 截去字符串首尾的内容
 
+```shell
+$string = ' baidu.com  ';
+echo strlen(trim($string,' taicoole'));
+# 从前后删除 taicoole和空格字符
+```
+
+
