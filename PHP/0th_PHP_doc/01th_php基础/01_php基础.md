@@ -349,4 +349,8 @@ echo strlen(trim($string,' taicoole'));
 # 从前后删除 taicoole和空格字符
 ```
 
+rtrim 从右侧删除、ltrim 从左侧删除
+
+
+
 
