@@ -351,6 +351,9 @@ echo strlen(trim($string,' taicoole'));
 
 rtrim 从右侧删除、ltrim 从左侧删除
 
-
+```shell
+$string = ' baidu.com  ';
+echo strlen(rtrim($string,' moc'));
+```
 
 
