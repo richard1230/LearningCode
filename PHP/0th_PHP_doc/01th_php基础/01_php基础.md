@@ -356,4 +356,6 @@ $string = ' baidu.com  ';
 echo strlen(rtrim($string,' moc'));
 ```
 
+strtolower — 字母转为小写
+
 
