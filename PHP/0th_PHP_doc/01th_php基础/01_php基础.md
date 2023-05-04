@@ -364,3 +364,11 @@ $str = "I Love China";
 $str = strtolower($str);
 echo $str;
 ```
+strtoupper — 字母转大写
+
+```shell
+
+$str = "I love China";
+$str = strtoupper($str);
+echo $str;
+```
