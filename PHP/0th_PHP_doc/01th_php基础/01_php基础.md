@@ -372,3 +372,7 @@ $str = "I love China";
 $str = strtoupper($str);
 echo $str;
 ```
+
+ucfirst — 将字符串的首字母转换为大写
+
+
