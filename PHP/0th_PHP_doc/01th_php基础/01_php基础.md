@@ -375,4 +375,9 @@ echo $str;
 
 ucfirst — 将字符串的首字母转换为大写
 
+```shell
+$foo = 'hello world!';
+$foo = ucfirst($foo); // Hello world!
+```
+
 
