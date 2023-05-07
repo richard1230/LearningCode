@@ -379,5 +379,7 @@ ucfirst — 将字符串的首字母转换为大写
 $foo = 'hello world!';
 $foo = ucfirst($foo); // Hello world!
 ```
+ucwords — 将字符串中每个单词的首字母转换为大写
+
 
 
