@@ -381,5 +381,11 @@ $foo = ucfirst($foo); // Hello world!
 ```
 ucwords — 将字符串中每个单词的首字母转换为大写
 
+```shell
+$foo = 'hello world!';
+$foo = ucwords($foo);             // Hello World!
 
+$foo = 'hello|world!';
+$baz = ucwords($foo, "|");        // Hello|World!
+```
 
