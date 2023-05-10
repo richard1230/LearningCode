@@ -391,3 +391,7 @@ $baz = ucwords($foo, "|");        // Hello|World!
 
 md5 — 计算字符串的 MD5 散列值，以 32 字符十六进制数字形式返回散列值
 
+```shell
+md5('baidu.com') 
+
+```
