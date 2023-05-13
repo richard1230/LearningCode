@@ -402,3 +402,6 @@ $pieces = explode(" ", $pizza);
 echo $pieces[0]; // piece1
 echo $pieces[1]; // piece2
 ```
+
+implode — 将一个一维数组的值转化为字符串
+
