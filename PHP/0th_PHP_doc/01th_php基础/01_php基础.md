@@ -405,3 +405,9 @@ echo $pieces[1]; // piece2
 
 implode — 将一个一维数组的值转化为字符串
 
+```shell
+$array = array('lastname', 'email', 'phone');
+$comma_separated = implode(",", $array);
+
+echo $comma_separated; // lastname,email,phone
+```
