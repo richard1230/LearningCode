@@ -411,3 +411,5 @@ $comma_separated = implode(",", $array);
 
 echo $comma_separated; // lastname,email,phone
 ```
+substr — 返回字符串的子串
+
