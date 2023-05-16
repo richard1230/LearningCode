@@ -413,3 +413,11 @@ echo $comma_separated; // lastname,email,phone
 ```
 substr — 返回字符串的子串
 
+```shell
+$rest = substr('abcdef', 1);     // bcdef
+$rest = substr('abcdef', 1, 3);  // bcd
+$rest = substr("abcdef", 0, -1);  // 返回 "abcde"
+$rest = substr("abcdef", 2, -1);  // 返回 "cde"
+$rest = substr("abcdef", 4, -4);  // 返回 ""
+$rest = substr("abcdef", -3, -1); // 返回 "de"
+```
