@@ -421,3 +421,5 @@ $rest = substr("abcdef", 2, -1);  // 返回 "cde"
 $rest = substr("abcdef", 4, -4);  // 返回 ""
 $rest = substr("abcdef", -3, -1); // 返回 "de"
 ```
+mb_substr — 获取部分字符串
+
