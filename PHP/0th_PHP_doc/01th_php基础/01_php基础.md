@@ -423,3 +423,6 @@ $rest = substr("abcdef", -3, -1); // 返回 "de"
 ```
 mb_substr — 获取部分字符串
 
+```shell
+echo mb_substr('中国人', 1, 1, 'utf-8'); //国
+```
