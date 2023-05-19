@@ -426,3 +426,6 @@ mb_substr — 获取部分字符串
 ```shell
 echo mb_substr('中国人', 1, 1, 'utf-8'); //国
 ```
+
+strstr — 查找字符串的首次出现
+
