@@ -4,7 +4,8 @@ var greeting = 'Hello World!';
 function greet() {
   console.log(greeting);
 }
-// 打印 'Hello World!'
+
+//Hello World!
 greet();
 
 

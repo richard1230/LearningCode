@@ -5,11 +5,11 @@
   // 块级作用域中的变量
   let greeting = 'Hello World!';
   var lang = 'English';
-  console.log(greeting); // Prints 'Hello World!'
+  // console.log(greeting); // Prints 'Hello World!'
 }
-// 变量 'English'
+
 console.log(lang);
-// 报错：ReferenceError: greeting is not defined
+//ReferenceError: greeting is not defined
 console.log(greeting);
 
 
