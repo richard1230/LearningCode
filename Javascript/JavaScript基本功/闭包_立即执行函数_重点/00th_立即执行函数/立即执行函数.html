@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<ul id="list">
+  <li>Item 0</li>
+  <li>Item 1</li>
+  <li>Item 2</li>
+</ul>
+
+
+</body>
+<script>
+  var list = document.getElementById("list");
+  var li = list.children;
+  for (var i = 0; i < li.length; i++) {
+    (function (i){
+      li[i].onclick = function () {
+        alert(i);//012
+      }
+    })(i)
+
+  }
+
+</script>
+</html>

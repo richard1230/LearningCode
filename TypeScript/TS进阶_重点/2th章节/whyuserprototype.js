@@ -1,5 +1,5 @@
 
-function QQUsers (QQNo_, QQAge_, QQMark_) {
+function Users (QQNo_, QQAge_, QQMark_) {
   //3个属性
   this.QQNo = QQNo_;//QQ号
   this.QQAge = QQAge_;//Q龄
