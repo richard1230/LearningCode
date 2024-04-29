@@ -1,6 +1,9 @@
 //基本类型: Boolean，Null,Undefined,Number,String，Symbol
 // js中的对象类型(引用类型 ):常规: Object,函数，数组，(其他Date，Regex等了解即可)
 
+// var num = 1
+// var str = "中国牛皮"
+// let obj = {name:obj,year:5000}//key:value
 
 // 使用原型之前
 function WechatUsers (WechatNo_, WechatAge_, Wechatname_) {
