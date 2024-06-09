@@ -107,7 +107,7 @@ var obj = {
     a : 10,
     foo : foo
 }
-foo();                // 20
+foo();                // 
 
 obj.foo();        // 隐性绑定
 ```
